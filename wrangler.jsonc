@@ -1,10 +1,11 @@
 {
-  // Cloudflare Pages project, deployed via `wrangler pages deploy ./site`
-  // (set as this project's Deploy command in the dashboard). Nothing is
-  // compiled: site/ is already the finished output. pages_build_output_dir
-  // is required for wrangler to read this file at all for a Pages deploy -
-  // without it, wrangler ignores the whole file, including "name" below.
+  // Cloudflare Workers project (Workers Builds), deployed via the default
+  // `npx wrangler deploy`. This is a static site with no server-side logic,
+  // so it deploys as a Worker serving static assets only - no "main" entry
+  // needed, just assets.directory pointing at the finished output.
   "name": "orach-chaim-x2",
   "compatibility_date": "2026-07-23",
-  "pages_build_output_dir": "./site"
+  "assets": {
+    "directory": "./site"
+  }
 }
