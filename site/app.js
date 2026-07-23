@@ -659,11 +659,34 @@ function wireResizer() {
   resizer.addEventListener("pointercancel", stop);
 }
 
+const SIDEBAR_COLLAPSED_KEY = "oc-sidebar-collapsed";
+
+function wireSidebarToggle() {
+  const button = el("sidebarToggle");
+  const main = document.querySelector("main");
+
+  const apply = (collapsed) => {
+    main.classList.toggle("sidebar-collapsed", collapsed);
+    // pointing away from the sidebar to "push" it out, and back to bring it in
+    button.textContent = collapsed ? "‹" : "›";
+    button.title = collapsed ? "הצג את תפריט הסימנים" : "הסתר את תפריט הסימנים";
+  };
+
+  apply(localStorage.getItem(SIDEBAR_COLLAPSED_KEY) === "1");
+
+  button.onclick = () => {
+    const collapsed = !main.classList.contains("sidebar-collapsed");
+    apply(collapsed);
+    localStorage.setItem(SIDEBAR_COLLAPSED_KEY, collapsed ? "1" : "0");
+  };
+}
+
 // a pasted link, or the back button, should reconstruct the view
 window.addEventListener("hashchange", () => {
   if (location.hash !== selfWrite) applyUrl();
 });
 
 wireResizer();
+wireSidebarToggle();
 wire();
 load();

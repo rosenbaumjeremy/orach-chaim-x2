@@ -93,11 +93,17 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: var(--sidebar-width, 260px) minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: var(--sidebar-width, 260px) auto minmax(0, 1fr);
+  gap: 14px;
   padding: 18px 22px 60px;
   align-items: start;
 }
+
+/* collapsing the first column takes the whole panel out of the way; the
+   toggle lives in its own column so it stays put and reachable to bring it back */
+main.sidebar-collapsed { grid-template-columns: 0 auto minmax(0, 1fr); }
+main.sidebar-collapsed #sidebar { padding: 0; border-width: 0; overflow: hidden; }
+main.sidebar-collapsed .resizer { display: none; }
 
 #sidebar {
   position: sticky; top: 80px;
@@ -117,6 +123,15 @@ main {
   width: 2px; border-radius: 2px; background: var(--line);
 }
 .resizer:hover::before, .resizer.active::before { background: var(--accent); }
+
+.sidebar-toggle {
+  position: sticky; top: 80px; align-self: start;
+  width: 20px; height: 40px; margin-top: 12px;
+  border: 1px solid var(--line); background: var(--card); color: var(--muted);
+  border-radius: 8px; font-size: 13px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.sidebar-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
 .asidelabel { margin: 0 0 7px; font-size: 12px; color: var(--muted); }
 .sectionshead {
@@ -227,8 +242,9 @@ html[dir="rtl"] .themerow { padding: 3px 20px 3px 8px; }
 mark { background: #fdf1c0; color: inherit; padding: 0 1px; border-radius: 2px; }
 
 @media (max-width: 780px) {
-  main { grid-template-columns: 1fr; }
+  main, main.sidebar-collapsed { grid-template-columns: 1fr; }
   #sidebar { position: static; max-height: none; }
   .resizer { display: none; }
+  .sidebar-toggle { display: none; }
   .simangrid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
 }
