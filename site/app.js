@@ -615,10 +615,55 @@ function wire() {
   };
 }
 
+/* ---------- sidebar resize ---------- */
+
+const SIDEBAR_WIDTH_KEY = "oc-sidebar-width";
+const SIDEBAR_MIN = 200;
+const SIDEBAR_MAX = 480;
+
+function wireResizer() {
+  const resizer = el("sidebarResizer");
+  const root = document.documentElement;
+
+  const stored = Number(localStorage.getItem(SIDEBAR_WIDTH_KEY));
+  if (stored) root.style.setProperty("--sidebar-width", `${stored}px`);
+
+  let dragging = false;
+
+  resizer.addEventListener("pointerdown", (event) => {
+    dragging = true;
+    resizer.classList.add("active");
+    // capture is a nice-to-have (keeps the drag going if the pointer leaves
+    // the handle); losing it should never block saving the width below
+    try { resizer.setPointerCapture(event.pointerId); } catch { /* ignore */ }
+  });
+
+  resizer.addEventListener("pointermove", (event) => {
+    if (!dragging) return;
+    // the sidebar is the rightmost column in this RTL layout, so its fixed
+    // (outer) edge is the right edge - width is just the distance back to it
+    const right = el("sidebar").getBoundingClientRect().right;
+    const width = Math.min(SIDEBAR_MAX, Math.max(SIDEBAR_MIN, right - event.clientX));
+    root.style.setProperty("--sidebar-width", `${width}px`);
+  });
+
+  const stop = (event) => {
+    if (!dragging) return;
+    dragging = false;
+    resizer.classList.remove("active");
+    try { resizer.releasePointerCapture(event.pointerId); } catch { /* ignore */ }
+    const width = parseInt(getComputedStyle(root).getPropertyValue("--sidebar-width"), 10);
+    if (width) localStorage.setItem(SIDEBAR_WIDTH_KEY, width);
+  };
+  resizer.addEventListener("pointerup", stop);
+  resizer.addEventListener("pointercancel", stop);
+}
+
 // a pasted link, or the back button, should reconstruct the view
 window.addEventListener("hashchange", () => {
   if (location.hash !== selfWrite) applyUrl();
 });
 
+wireResizer();
 wire();
 load();
