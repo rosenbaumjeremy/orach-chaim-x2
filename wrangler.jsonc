@@ -1,8 +1,13 @@
 {
-  // Cloudflare Pages project. Nothing is compiled: site/ is already the
-  // finished output, so there is no build command - Pages just uploads this
-  // directory and applies site/_headers on the way out.
+  // Static site, nothing compiled: site/ is already the finished output.
+  // The build pipeline here runs `wrangler deploy` (Workers Builds), which
+  // reads `assets.directory` - not `pages_build_output_dir`, which only
+  // classic `wrangler pages deploy` understands. This deploys it as a
+  // Worker serving static assets, functionally the same as classic Pages
+  // for a site with no server-side logic; site/_headers still applies.
   "name": "orach-chaim-x2",
   "compatibility_date": "2026-07-23",
-  "pages_build_output_dir": "./site"
+  "assets": {
+    "directory": "./site"
+  }
 }
