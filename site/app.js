@@ -23,6 +23,8 @@ const UI = {
   untagged: "הנושאים עדיין לא סומנו — הסינון לפי סימן, מקור וטקסט חופשי פעיל.",
   links: "קישורים",
   by: "נכתב על ידי",
+  listen: "הקראה",
+  stopListening: "עצור הקראה",
 };
 
 const state = {
@@ -402,6 +404,44 @@ function formatBody(text) {
   }).join("");
 }
 
+/* ---------- read aloud ---------- */
+
+// the browser's own TTS, not a cloud API: no key, no cost, no backend - the
+// tradeoff is that Hebrew voice availability and quality vary a lot by OS
+let speakingButton = null;
+
+function hebrewVoice() {
+  if (!("speechSynthesis" in window)) return null;
+  return window.speechSynthesis.getVoices().find((v) => v.lang?.toLowerCase().startsWith("he")) || null;
+}
+
+function stopSpeaking() {
+  if (!speakingButton) return;
+  window.speechSynthesis.cancel();
+  speakingButton.textContent = UI.listen;
+  speakingButton.classList.remove("speaking");
+  speakingButton = null;
+}
+
+function toggleSpeak(button, text) {
+  const wasThisButton = speakingButton === button;
+  stopSpeaking();
+  if (wasThisButton) return; // clicking the active button just stops it
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "he-IL";
+  const voice = hebrewVoice();
+  if (voice) utterance.voice = voice;
+  utterance.onend = utterance.onerror = () => {
+    if (speakingButton === button) stopSpeaking();
+  };
+
+  window.speechSynthesis.speak(utterance);
+  speakingButton = button;
+  button.textContent = UI.stopListening;
+  button.classList.add("speaking");
+}
+
 function card(entry) {
   const node = document.createElement("article");
   node.className = "card";
@@ -432,7 +472,20 @@ function card(entry) {
     const open = body.classList.toggle("collapsed");
     toggle.textContent = open ? UI.more : UI.less;
   };
-  node.appendChild(toggle);
+
+  const actions = document.createElement("div");
+  actions.className = "cardactions";
+  actions.appendChild(toggle);
+
+  if ("speechSynthesis" in window) {
+    const listen = document.createElement("button");
+    listen.type = "button";
+    listen.className = "listen";
+    listen.textContent = UI.listen;
+    listen.onclick = () => toggleSpeak(listen, entry.text);
+    actions.appendChild(listen);
+  }
+  node.appendChild(actions);
 
   if (entry.themes.length || entry.sources.length) {
     const tags = document.createElement("div");
@@ -485,6 +538,9 @@ function hasFilter() {
 }
 
 function render() {
+  // the list is about to be rebuilt, so any card currently reading aloud
+  // is seconds from losing its button - stop it rather than leave it orphaned
+  stopSpeaking();
   renderChips();
   renderThemes();
   renderSources();
