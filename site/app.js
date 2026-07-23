@@ -446,11 +446,24 @@ function card(entry) {
   const node = document.createElement("article");
   node.className = "card";
 
+  const head = document.createElement("div");
+  head.className = "cardhead";
+
   // built from the parsed fields, not the raw header: the header's own
   // dashes are unreliable separators
   const heading = document.createElement("h3");
   heading.textContent = simanRef(entry);
-  node.appendChild(heading);
+  head.appendChild(heading);
+
+  if ("speechSynthesis" in window) {
+    const listen = document.createElement("button");
+    listen.type = "button";
+    listen.className = "listen";
+    listen.textContent = UI.listen;
+    listen.onclick = () => toggleSpeak(listen, entry.text);
+    head.appendChild(listen);
+  }
+  node.appendChild(head);
 
   if (entry.title) {
     const subtitle = document.createElement("p");
@@ -476,15 +489,6 @@ function card(entry) {
   const actions = document.createElement("div");
   actions.className = "cardactions";
   actions.appendChild(toggle);
-
-  if ("speechSynthesis" in window) {
-    const listen = document.createElement("button");
-    listen.type = "button";
-    listen.className = "listen";
-    listen.textContent = UI.listen;
-    listen.onclick = () => toggleSpeak(listen, entry.text);
-    actions.appendChild(listen);
-  }
   node.appendChild(actions);
 
   if (entry.themes.length || entry.sources.length) {

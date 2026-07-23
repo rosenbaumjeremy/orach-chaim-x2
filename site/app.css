@@ -212,7 +212,9 @@ html[dir="rtl"] .themerow { padding: 3px 20px 3px 8px; }
   background: var(--card); border: 1px solid var(--line);
   border-radius: 12px; padding: 14px 17px; margin-bottom: 10px;
 }
+.cardhead { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .card h3 { margin: 0 0 2px; font-size: 16px; font-weight: 600; }
+.cardhead .listen { flex: none; white-space: nowrap; }
 .card .subtitle { margin: 0 0 9px; font-size: 14px; color: var(--muted); }
 
 .card .body { font-size: 15px; }
