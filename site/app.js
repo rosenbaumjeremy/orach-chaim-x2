@@ -8,6 +8,10 @@ const UI = {
   none: "לא נמצאו רשומות מתאימות. נסו להסיר סינון.",
   start: "בחרו סימן, נושא או מקור מהתפריט — או חפשו למעלה.",
   browseThemes: "עיון בנושאים",
+  expandAll: "הרחב הכל",
+  collapseAll: "כווץ הכל",
+  flatView: "כל הסימנים ברצף",
+  groupedView: "חזרה לתצוגה לפי נושא",
   more: "המשך קריאה",
   less: "הצג פחות",
   theme: "נושא",
@@ -30,6 +34,8 @@ const state = {
   // section names the reader has collapsed; renderSections re-runs on every
   // click, so this has to live outside the DOM or the panels snap back open
   closedSections: new Set(),
+  // false = grouped by halachic section, true = one flat grid of every siman
+  flatView: false,
 };
 
 const el = (id) => document.getElementById(id);
@@ -144,9 +150,37 @@ function accept(item) {
 
 /* ---------- rendering ---------- */
 
+function simanButton(n, covered) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.textContent = hebrewNumber(n);
+  button.disabled = !covered.has(n);
+  button.classList.toggle("on", state.siman === n);
+  button.onclick = () => {
+    state.siman = state.siman === n ? null : n;
+    renderSections();
+    render();
+  };
+  return button;
+}
+
 function renderSections() {
   const host = el("sections");
   host.innerHTML = "";
+  renderViewToggle();
+  el("toggleSections").hidden = state.flatView;
+
+  if (state.flatView) {
+    const covered = new Set();
+    for (const section of state.data.sections)
+      for (const n of section.covered) covered.add(n);
+    const grid = document.createElement("div");
+    grid.className = "simangrid flat";
+    for (let n = 1; n <= state.data.max_siman; n++) grid.appendChild(simanButton(n, covered));
+    host.appendChild(grid);
+    return;
+  }
+
   for (const section of state.data.sections) {
     const wrap = document.createElement("details");
     wrap.className = "section";
@@ -167,22 +201,31 @@ function renderSections() {
     const grid = document.createElement("div");
     grid.className = "simangrid";
     const covered = new Set(section.covered);
-    for (let n = section.start; n <= section.end; n++) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.textContent = hebrewNumber(n);
-      button.disabled = !covered.has(n);
-      button.classList.toggle("on", state.siman === n);
-      button.onclick = () => {
-        state.siman = state.siman === n ? null : n;
-        renderSections();
-        render();
-      };
-      grid.appendChild(button);
-    }
+    for (let n = section.start; n <= section.end; n++) grid.appendChild(simanButton(n, covered));
     wrap.appendChild(grid);
     host.appendChild(wrap);
   }
+  renderToggleSections();
+}
+
+function renderViewToggle() {
+  const button = el("viewMode");
+  button.textContent = state.flatView ? UI.groupedView : UI.flatView;
+  button.onclick = () => {
+    state.flatView = !state.flatView;
+    renderSections();
+  };
+}
+
+function renderToggleSections() {
+  const button = el("toggleSections");
+  const allOpen = state.closedSections.size === 0;
+  button.textContent = allOpen ? UI.collapseAll : UI.expandAll;
+  button.onclick = () => {
+    if (allOpen) for (const s of state.data.sections) state.closedSections.add(s.name);
+    else state.closedSections.clear();
+    renderSections();
+  };
 }
 
 function renderThemes() {
