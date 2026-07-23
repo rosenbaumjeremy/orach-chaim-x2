@@ -667,8 +667,7 @@ function wireSidebarToggle() {
 
   const apply = (collapsed) => {
     main.classList.toggle("sidebar-collapsed", collapsed);
-    // pointing away from the sidebar to "push" it out, and back to bring it in
-    button.textContent = collapsed ? "‹" : "›";
+    button.textContent = collapsed ? "›" : "‹";
     button.title = collapsed ? "הצג את תפריט הסימנים" : "הסתר את תפריט הסימנים";
   };
 
