@@ -36,6 +36,8 @@ const state = {
   closedSections: new Set(),
   // false = grouped by halachic section, true = one flat grid of every siman
   flatView: false,
+  // same idea as closedSections, for the classical/modern source groups
+  closedSourceCategories: new Set(),
 };
 
 const el = (id) => document.getElementById(id);
@@ -304,13 +306,22 @@ function renderSources() {
 
   const host = el("sourceList");
   host.innerHTML = "";
+  const shownKinds = [];
   for (const kind of ["classical", "modern"]) {
     const available = all.filter(
       (s) => s.kind === kind && (counts[s.name] || state.sources.has(s.name)));
     if (!available.length) continue;
+    shownKinds.push(kind);
 
     const details = document.createElement("details");
-    details.open = available.some((s) => state.sources.has(s.name));
+    // a manual collapse is remembered, but an active filter in this group
+    // always forces it back open so the selection stays visible
+    details.open = !state.closedSourceCategories.has(kind)
+      || available.some((s) => state.sources.has(s.name));
+    details.ontoggle = () => {
+      if (details.open) state.closedSourceCategories.delete(kind);
+      else state.closedSourceCategories.add(kind);
+    };
     const summary = document.createElement("summary");
     summary.textContent = UI[kind];
     details.appendChild(summary);
@@ -331,6 +342,20 @@ function renderSources() {
     }
     host.appendChild(details);
   }
+  renderToggleSources(shownKinds);
+}
+
+function renderToggleSources(shownKinds) {
+  const button = el("toggleSources");
+  if (!shownKinds.length) { button.hidden = true; return; }
+  button.hidden = false;
+  const allOpen = shownKinds.every((k) => !state.closedSourceCategories.has(k));
+  button.textContent = allOpen ? UI.collapseAll : UI.expandAll;
+  button.onclick = () => {
+    if (allOpen) for (const k of shownKinds) state.closedSourceCategories.add(k);
+    else for (const k of shownKinds) state.closedSourceCategories.delete(k);
+    render();
+  };
 }
 
 function renderChips() {
