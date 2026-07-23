@@ -1,13 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Scroll">
-  <rect width="32" height="32" rx="7" fill="#1d5c7a"/>
-  <g fill="none" stroke="#f4f7f9" stroke-width="1.7" stroke-linecap="round">
-    <!-- the two rollers of an open scroll, capped top and bottom -->
-    <path d="M9 8.5v15M23 8.5v15"/>
-    <ellipse cx="9" cy="8.5" rx="2.1" ry="1.6"/>
-    <ellipse cx="23" cy="8.5" rx="2.1" ry="1.6"/>
-    <ellipse cx="9" cy="23.5" rx="2.1" ry="1.6"/>
-    <ellipse cx="23" cy="23.5" rx="2.1" ry="1.6"/>
-    <!-- lines of text on the parchment between them -->
-    <path d="M12.4 12.7h7.2M12.4 16h7.2M12.4 19.3h4.8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="אורח חיים">
+  <circle cx="250" cy="250" r="228" fill="#faf6ec" stroke="#16305c" stroke-width="14"/>
+  <circle cx="250" cy="250" r="205" fill="none" stroke="#b8924a" stroke-width="3"/>
+
+  <g stroke="#b8924a" stroke-width="2.5" fill="none">
+    <path d="M120 118 H222"/>
+    <path d="M278 118 H380"/>
+  </g>
+  <path d="M250 100 C 246 112, 238 116, 232 118 C 240 120, 246 124, 250 134 C 254 124, 260 120, 268 118 C 262 116, 254 112, 250 100 Z" fill="#b8924a"/>
+
+  <text x="250" y="252" text-anchor="middle" font-family="'Frank Ruhl Libre','David Libre','David',serif" font-weight="900" font-size="118" fill="#16305c">אורח</text>
+  <text x="250" y="358" text-anchor="middle" font-family="'Frank Ruhl Libre','David Libre','David',serif" font-weight="900" font-size="118" fill="#16305c">חיים</text>
+
+  <g stroke="#b8924a" stroke-width="2.5" fill="none">
+    <path d="M120 400 H222"/>
+    <path d="M278 400 H380"/>
+  </g>
+  <path d="M250 382 C 246 394, 238 398, 232 400 C 240 402, 246 406, 250 416 C 254 406, 260 402, 268 400 C 262 398, 254 394, 250 382 Z" fill="#b8924a"/>
+
+  <g>
+    <path d="M100 415 C 160 398, 220 402, 250 420 C 280 402, 340 398, 400 415 L 400 438 C 340 424, 280 428, 250 445 C 220 428, 160 424, 100 438 Z" fill="#faf6ec" stroke="#16305c" stroke-width="6"/>
+    <path d="M250 420 L250 445" stroke="#16305c" stroke-width="4" fill="none"/>
+    <g stroke="#b8924a" stroke-width="1.6" fill="none">
+      <path d="M115 419 C 165 406, 215 409, 245 423"/>
+      <path d="M115 427 C 165 414, 215 417, 245 431"/>
+      <path d="M385 419 C 335 406, 285 409, 255 423"/>
+      <path d="M385 427 C 335 414, 285 417, 255 431"/>
+    </g>
   </g>
 </svg>

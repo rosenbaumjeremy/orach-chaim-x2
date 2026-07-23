@@ -38,7 +38,7 @@ body {
 }
 
 .brand { display: flex; align-items: center; gap: 11px; }
-.brand .mark { width: 32px; height: 32px; flex: none; color: var(--accent); }
+.brand .mark { width: 44px; height: 44px; flex: none; }
 .brand h1 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: .01em; }
 .brand .sub { margin: 0; font-size: 13px; color: var(--muted); }
 
