@@ -1,0 +1,10 @@
+# batch ids from in-flight tagging runs
+data/.batch-*
+
+# raw WhatsApp export is never committed: it contains group members'
+# phone numbers and the unredacted message history
+*.txt
+
+__pycache__/
+*.pyc
+.DS_Store

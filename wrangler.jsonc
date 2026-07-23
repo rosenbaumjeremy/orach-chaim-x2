@@ -1,0 +1,8 @@
+{
+  // Cloudflare Pages project. Nothing is compiled: site/ is already the
+  // finished output, so there is no build command - Pages just uploads this
+  // directory and applies site/_headers on the way out.
+  "name": "orach-chaim-x2",
+  "compatibility_date": "2026-07-23",
+  "pages_build_output_dir": "./site"
+}

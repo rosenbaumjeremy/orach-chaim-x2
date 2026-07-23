@@ -1,0 +1,8538 @@
+{
+ "0": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  }
+ ],
+ "1": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  }
+ ],
+ "2": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "3": [
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "4": [
+  {
+   "name": "עזרא ביק",
+   "kind": "modern"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "5": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  }
+ ],
+ "6": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  }
+ ],
+ "7": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "8": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "9": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  }
+ ],
+ "10": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "11": [
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "12": [
+  {
+   "name": "לורי נוביק",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "13": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "14": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "15": [
+  {
+   "name": "ישי יסלזון",
+   "kind": "modern"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "16": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "17": [
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "18": [
+  {
+   "name": "אביעד ברטוב",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "19": [
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "20": [
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "21": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "22": [
+  {
+   "name": "צבי פסח",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "23": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "24": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "בן איש חי",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "25": [
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "26": [
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "27": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "28": [
+  {
+   "name": "משה שטרנבוך",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  },
+  {
+   "name": "בן איש חי",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "29": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "30": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "31": [
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "32": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "33": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "34": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "35": [
+  {
+   "name": "עזרא ביק",
+   "kind": "modern"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "36": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  }
+ ],
+ "37": [
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "38": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "39": [
+  {
+   "name": "יהודה עמיטל",
+   "kind": "modern"
+  },
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "40": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "41": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "42": [
+  {
+   "name": "עזרא ביק",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "43": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "44": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "45": [
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "46": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "47": [
+  {
+   "name": "ישי יסלזון",
+   "kind": "modern"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "48": [
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "49": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "50": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "51": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "52": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  }
+ ],
+ "53": [
+  {
+   "name": "עזרא ביק",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "הגהות מיימוניות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "54": [
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "55": [
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "56": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "57": [
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "58": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "59": [
+  {
+   "name": "שמואל שמעוני",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "60": [
+  {
+   "name": "אברהם סתיו",
+   "kind": "modern"
+  },
+  {
+   "name": "יהודה עמיטל",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "61": [
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "עזרא ביק",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "62": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "63": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "64": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חיי אדם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "65": [
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "66": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "67": [
+  {
+   "name": "פומרנצ'יק",
+   "kind": "modern"
+  },
+  {
+   "name": "שמואל שמעוני",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "68": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "69": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "70": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "71": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "72": [
+  {
+   "name": "צבי רייזמן",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "73": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "74": [
+  {
+   "name": "יאיר קאהן",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "75": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "76": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "77": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "78": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "79": [
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "80": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "81": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "82": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "83": [
+  {
+   "name": "אברהם סתיו",
+   "kind": "modern"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "84": [
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "85": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "86": [
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "87": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "88": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "89": [
+  {
+   "name": "חיים",
+   "kind": "modern"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "90": [
+  {
+   "name": "מאיר ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  }
+ ],
+ "91": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "יהודה עמיטל",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "92": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "93": [
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "94": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "95": [
+  {
+   "name": "מאיר ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  }
+ ],
+ "96": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "97": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "98": [
+  {
+   "name": "מרדכי פרידמן",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "הגהות מיימוניות",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "99": [
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "100": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "101": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "102": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "מאיר ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "103": [
+  {
+   "name": "מרדכי פרידמן",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "104": [
+  {
+   "name": "לורי נוביק",
+   "kind": "modern"
+  },
+  {
+   "name": "צבי רייזמן",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "105": [
+  {
+   "name": "לורי נוביק",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "106": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "107": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "108": [
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "בן איש חי",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "109": [
+  {
+   "name": "מאיר ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "110": [
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "111": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "מאיר ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חיי אדם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "112": [
+  {
+   "name": "ישי יסלזון",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "113": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "114": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "115": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "116": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "117": [
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "118": [
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "119": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "120": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "משה שטרנבוך",
+   "kind": "modern"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  }
+ ],
+ "121": [
+  {
+   "name": "אביעד ברטוב",
+   "kind": "modern"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "122": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חיי אדם",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "123": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  }
+ ],
+ "124": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "125": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "126": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "127": [
+  {
+   "name": "אוהד פיקסלר",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "128": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "129": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "130": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "131": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "132": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "133": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  }
+ ],
+ "134": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "מרדכי פרידמן",
+   "kind": "modern"
+  },
+  {
+   "name": "משה שטרנבוך",
+   "kind": "modern"
+  },
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "135": [
+  {
+   "name": "אוהד פיקסלר",
+   "kind": "modern"
+  },
+  {
+   "name": "יהודה עמיטל",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "136": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "137": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "138": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "139": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  }
+ ],
+ "140": [
+  {
+   "name": "חיים",
+   "kind": "modern"
+  },
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "141": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "142": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  }
+ ],
+ "143": [
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "צבי רייזמן",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "144": [
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "שמואל שמעוני",
+   "kind": "modern"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "145": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  }
+ ],
+ "146": [
+  {
+   "name": "צבי פסח",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "147": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "148": [
+  {
+   "name": "מרדכי פרידמן",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "149": [
+  {
+   "name": "עזרא ביק",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  }
+ ],
+ "150": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "151": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "152": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "153": [
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "154": [
+  {
+   "name": "צבי פסח",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "155": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "156": [
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "157": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "158": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  }
+ ],
+ "159": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "160": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "161": [
+  {
+   "name": "אביעד ברטוב",
+   "kind": "modern"
+  },
+  {
+   "name": "חיים",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "162": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "163": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "164": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "165": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "צבי רייזמן",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "166": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "167": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  }
+ ],
+ "168": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "169": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "170": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "חיים",
+   "kind": "modern"
+  },
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "171": [
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "172": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "173": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "174": [
+  {
+   "name": "חיים",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "175": [
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  }
+ ],
+ "176": [
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  }
+ ],
+ "177": [
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  }
+ ],
+ "178": [
+  {
+   "name": "עזרא ביק",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "179": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "180": [
+  {
+   "name": "איציק וולטרס",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "181": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "182": [
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "183": [
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  }
+ ],
+ "184": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "185": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "186": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "187": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "188": [
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  }
+ ],
+ "189": [
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  }
+ ],
+ "190": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  }
+ ],
+ "191": [
+  {
+   "name": "איציק וולטרס",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "192": [
+  {
+   "name": "איציק וולטרס",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "193": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "194": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "יהודה עמיטל",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "195": [
+  {
+   "name": "איציק וולטרס",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "196": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "197": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "198": [
+  {
+   "name": "אברהם סתיו",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  }
+ ],
+ "199": [
+  {
+   "name": "אברהם סתיו",
+   "kind": "modern"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "200": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "201": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "202": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "203": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "204": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  }
+ ],
+ "205": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "206": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "207": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "208": [
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "209": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "210": [
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "211": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "212": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "213": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "214": [
+  {
+   "name": "חיים",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "215": [
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "216": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "הגהות מיימוניות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "217": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "218": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "219": [
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "220": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "משה שטרנבוך",
+   "kind": "modern"
+  },
+  {
+   "name": "צבי פסח",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "221": [
+  {
+   "name": "אברהם סתיו",
+   "kind": "modern"
+  },
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "222": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "223": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "224": [
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "225": [
+  {
+   "name": "יאיר קאהן",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "226": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "227": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "יהודה עמיטל",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "228": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "229": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "230": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "231": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "שמואל שמעוני",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "232": [
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "233": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "234": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "235": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "236": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "237": [
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "238": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "239": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "שלמה זלמן אויערבך",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "240": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "241": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  }
+ ],
+ "242": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "243": [
+  {
+   "name": "אוהד פיקסלר",
+   "kind": "modern"
+  },
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "244": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "245": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  }
+ ],
+ "246": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "247": [
+  {
+   "name": "אוהד פיקסלר",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "248": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "249": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "250": [
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "251": [
+  {
+   "name": "אוהד פיקסלר",
+   "kind": "modern"
+  },
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "252": [
+  {
+   "name": "משה שטרנבוך",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "253": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "254": [
+  {
+   "name": "אודי שוורץ",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "255": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "256": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "257": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "258": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "259": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "260": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "261": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "262": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  }
+ ],
+ "263": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "264": [
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "265": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "266": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "267": [
+  {
+   "name": "אברהם סתיו",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "268": [
+  {
+   "name": "אברהם סתיו",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  }
+ ],
+ "269": [
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "270": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "שמואל שמעוני",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "271": [
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  }
+ ],
+ "272": [
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "273": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "274": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "275": [
+  {
+   "name": "יאיר קאהן",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "276": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "277": [
+  {
+   "name": "אנגלמן",
+   "kind": "modern"
+  },
+  {
+   "name": "ישי יסלזון",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "278": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "ישי יסלזון",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "279": [
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  }
+ ],
+ "280": [
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "281": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "282": [
+  {
+   "name": "שמואל שמעוני",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "283": [
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "284": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "יאיר קאהן",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "285": [
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "286": [
+  {
+   "name": "ישי יסלזון",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "287": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חיי אדם",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "288": [
+  {
+   "name": "אוהד פיקסלר",
+   "kind": "modern"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "289": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "290": [
+  {
+   "name": "צבי רייזמן",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "291": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "חיי אדם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "292": [
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "293": [
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "294": [
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "295": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "296": [
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "שמואל שמעוני",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חזון איש",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "297": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "הגהות מיימוניות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "298": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "299": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "הגהות מיימוניות",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+# Cloudflare Pages reads this file. Access controls who gets in; these headers
+# limit what a page can do once served, and keep the site out of search results
+# even if it is ever exposed without Access in front of it.
+
+/*
+  X-Robots-Tag: noindex, nofollow
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'
+
+# the payload is rebuilt whenever tagging or the vocabulary changes, so it
+# must revalidate rather than sit in a browser cache showing stale themes
+/data/*
+  Cache-Control: no-cache

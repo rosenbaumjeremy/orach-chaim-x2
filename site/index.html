@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אורח חיים בשנה 2 — סיכומי לימוד יומי</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <rect width="32" height="32" rx="7" fill="currentColor"/>
+      <g fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round">
+        <path d="M9 8.5v15M23 8.5v15"/>
+        <ellipse cx="9" cy="8.5" rx="2.1" ry="1.6"/>
+        <ellipse cx="23" cy="8.5" rx="2.1" ry="1.6"/>
+        <ellipse cx="9" cy="23.5" rx="2.1" ry="1.6"/>
+        <ellipse cx="23" cy="23.5" rx="2.1" ry="1.6"/>
+        <path d="M12.4 12.7h7.2M12.4 16h7.2M12.4 19.3h4.8"/>
+      </g>
+    </svg>
+    <div>
+      <h1>אורח חיים בשנה 2</h1>
+      <p class="sub" id="subtitle">סיכומי לימוד יומי</p>
+    </div>
+  </div>
+</header>
+
+<div class="searchrow">
+  <div class="searchbox">
+    <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="חיפוש">
+    <div id="suggest" class="suggest" hidden></div>
+  </div>
+  <button type="button" id="clear" class="ghost" hidden>נקה הכל</button>
+</div>
+
+<div id="chips" class="chips"></div>
+
+<main>
+  <aside id="sidebar">
+    <div id="sections"></div>
+    <div id="sourcesWrap">
+      <p class="asidelabel" id="sourcesLabel"></p>
+      <div id="sourceList"></div>
+    </div>
+    <div id="themesWrap">
+      <p class="asidelabel" id="themesLabel"></p>
+      <div id="themeList"></div>
+    </div>
+  </aside>
+
+  <section id="results">
+    <p id="count" class="count"></p>
+    <div id="list"></div>
+    <p id="empty" class="empty" hidden></p>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

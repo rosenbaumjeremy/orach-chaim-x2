@@ -1,0 +1,556 @@
+"use strict";
+
+const UI = {
+  subtitle: "סיכומי הלימוד היומי, סימן אחר סימן",
+  placeholder: "חיפוש לפי נושא, מקור, או טקסט חופשי…",
+  clear: "נקה הכל",
+  results: (n) => (n === 1 ? "רשומה אחת" : `${n} רשומות`),
+  none: "לא נמצאו רשומות מתאימות. נסו להסיר סינון.",
+  start: "בחרו סימן, נושא או מקור מהתפריט — או חפשו למעלה.",
+  browseThemes: "עיון בנושאים",
+  more: "המשך קריאה",
+  less: "הצג פחות",
+  theme: "נושא",
+  source: "מקור",
+  text: "טקסט חופשי",
+  browseSources: "עיון במקורות",
+  classical: "פוסקים וגמרא",
+  modern: "רבנים בני זמננו",
+  untagged: "הנושאים עדיין לא סומנו — הסינון לפי סימן, מקור וטקסט חופשי פעיל.",
+  links: "קישורים",
+  by: "נכתב על ידי",
+};
+
+const state = {
+  data: null,
+  siman: null,
+  themes: new Set(),
+  sources: new Set(),
+  terms: [],
+  // section names the reader has collapsed; renderSections re-runs on every
+  // click, so this has to live outside the DOM or the panels snap back open
+  closedSections: new Set(),
+};
+
+const el = (id) => document.getElementById(id);
+
+/* ---------- loading ---------- */
+
+async function load() {
+  const response = await fetch("data/oc.json");
+  state.data = await response.json();
+
+  el("subtitle").textContent = UI.subtitle;
+  el("q").placeholder = UI.placeholder;
+  el("clear").textContent = UI.clear;
+
+  renderSections();
+  applyUrl();
+}
+
+const HUNDREDS = [[400, "ת"], [300, "ש"], [200, "ר"], [100, "ק"]];
+const HEB_TENS = ["", "י", "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ"];
+const HEB_ONES = ["", "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט"];
+
+/** 13 -> י"ג, 15 -> ט"ו, 625 -> תרכ"ה. Matches how the posts cite simanim. */
+function hebrewNumber(n) {
+  let letters = "";
+  let remaining = n;
+  for (const [value, letter] of HUNDREDS) {
+    while (remaining >= value) { letters += letter; remaining -= value; }
+  }
+  if (remaining === 15 || remaining === 16) {
+    letters += "ט" + HEB_ONES[remaining - 9];
+  } else {
+    letters += HEB_TENS[Math.floor(remaining / 10)] + HEB_ONES[remaining % 10];
+  }
+  return letters.length > 1
+    ? letters.slice(0, -1) + '"' + letters.slice(-1)
+    : letters + "'";
+}
+
+function findSection(n) {
+  return state.data.sections.find((s) => n >= s.start && n <= s.end) || null;
+}
+
+function simanRef(entry) {
+  const nums = entry.simanim;
+  const span = nums.length > 1
+    ? `${hebrewNumber(nums[0])}–${hebrewNumber(nums[nums.length - 1])}`
+    : hebrewNumber(nums[0]);
+  const word = nums.length > 1 ? "סימנים" : "סימן";
+  const section = findSection(nums[0]);
+  return section ? `${section.name} · ${word} ${span}` : `${word} ${span}`;
+}
+
+function writerLabel(letter) {
+  const writer = (state.data.writers || []).find((w) => w.letter === letter);
+  return writer ? writer.label : letter;
+}
+
+/* ---------- filtering ---------- */
+
+function sectionEntryCount(section) {
+  const ids = new Set();
+  for (const entry of state.data.entries)
+    if (entry.simanim.some((s) => s >= section.start && s <= section.end)) ids.add(entry.id);
+  return ids.size;
+}
+
+function matches(entry) {
+  if (state.siman && !entry.simanim.includes(state.siman)) return false;
+  for (const slug of state.themes) if (!entry.themes.includes(slug)) return false;
+  for (const name of state.sources) if (!entry.sources.includes(name)) return false;
+  if (state.terms.length) {
+    const haystack = `${entry.header} ${entry.text}`.toLowerCase();
+    for (const term of state.terms) if (!haystack.includes(term.toLowerCase())) return false;
+  }
+  return true;
+}
+
+function filtered() {
+  return state.data.entries.filter(matches);
+}
+
+/* ---------- suggestions ---------- */
+
+function suggestions(query) {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+  const out = [];
+  for (const theme of state.data.themes) {
+    if (state.themes.has(theme.slug)) continue;
+    if (theme.label.toLowerCase().includes(q))
+      out.push({ kind: "theme", label: theme.label, value: theme.slug });
+  }
+  for (const source of state.data.sources || []) {
+    if (state.sources.has(source.name)) continue;
+    if (source.name.toLowerCase().includes(q))
+      out.push({ kind: "source", label: source.name, value: source.name, n: source.count });
+  }
+  out.length = Math.min(out.length, 9);
+  out.push({ kind: "text", label: query.trim(), value: query.trim() });
+  return out;
+}
+
+function accept(item) {
+  if (item.kind === "theme") state.themes.add(item.value);
+  else if (item.kind === "source") state.sources.add(item.value);
+  else if (item.value) state.terms.push(item.value);
+  el("q").value = "";
+  el("suggest").hidden = true;
+  render();
+}
+
+/* ---------- rendering ---------- */
+
+function renderSections() {
+  const host = el("sections");
+  host.innerHTML = "";
+  for (const section of state.data.sections) {
+    const wrap = document.createElement("details");
+    wrap.className = "section";
+    // purely the reader's choice - forcing the section holding the selection
+    // open would make it spring back the moment they collapsed it, and the
+    // chip above already shows which siman is active
+    wrap.open = !state.closedSections.has(section.name);
+    wrap.ontoggle = () => {
+      if (wrap.open) state.closedSections.delete(section.name);
+      else state.closedSections.add(section.name);
+    };
+
+    const heading = document.createElement("summary");
+    heading.innerHTML = `<span></span><span class="n">${sectionEntryCount(section)}</span>`;
+    heading.firstChild.textContent = section.name;
+    wrap.appendChild(heading);
+
+    const grid = document.createElement("div");
+    grid.className = "simangrid";
+    const covered = new Set(section.covered);
+    for (let n = section.start; n <= section.end; n++) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = hebrewNumber(n);
+      button.disabled = !covered.has(n);
+      button.classList.toggle("on", state.siman === n);
+      button.onclick = () => {
+        state.siman = state.siman === n ? null : n;
+        renderSections();
+        render();
+      };
+      grid.appendChild(button);
+    }
+    wrap.appendChild(grid);
+    host.appendChild(wrap);
+  }
+}
+
+function renderThemes() {
+  const wrap = el("themesWrap");
+  if (!state.data.themes.length) { wrap.hidden = true; return; }
+  wrap.hidden = false;
+  el("themesLabel").textContent = UI.browseThemes;
+
+  // count each theme against the other filters, so the number shown is what
+  // you would actually get by adding it - not a global total that then yields 0
+  const pool = state.data.entries.filter((entry) => {
+    const saved = state.themes;
+    state.themes = new Set();
+    const ok = matches(entry);
+    state.themes = saved;
+    return ok;
+  });
+  const counts = {};
+  for (const entry of pool)
+    for (const slug of entry.themes) counts[slug] = (counts[slug] || 0) + 1;
+
+  const byCategory = new Map();
+  for (const theme of state.data.themes) {
+    if (!byCategory.has(theme.category)) byCategory.set(theme.category, []);
+    byCategory.get(theme.category).push(theme);
+  }
+
+  const host = el("themeList");
+  host.innerHTML = "";
+  for (const [category, themes] of byCategory) {
+    const available = themes.filter((x) => counts[x.slug] || state.themes.has(x.slug));
+    if (!available.length) continue;
+
+    const details = document.createElement("details");
+    details.open = available.some((x) => state.themes.has(x.slug));
+    const summary = document.createElement("summary");
+    summary.textContent = category;
+    details.appendChild(summary);
+
+    for (const theme of available) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "themerow";
+      button.classList.toggle("on", state.themes.has(theme.slug));
+      button.innerHTML = `<span></span><span class="n">${counts[theme.slug] || 0}</span>`;
+      button.firstChild.textContent = theme.label;
+      button.onclick = () => {
+        if (state.themes.has(theme.slug)) state.themes.delete(theme.slug);
+        else state.themes.add(theme.slug);
+        render();
+      };
+      details.appendChild(button);
+    }
+    host.appendChild(details);
+  }
+}
+
+function renderSources() {
+  const wrap = el("sourcesWrap");
+  const all = state.data.sources || [];
+  if (!all.length) { wrap.hidden = true; return; }
+  wrap.hidden = false;
+  el("sourcesLabel").textContent = UI.browseSources;
+
+  // counted against the other filters, same as themes
+  const pool = state.data.entries.filter((entry) => {
+    const saved = state.sources;
+    state.sources = new Set();
+    const ok = matches(entry);
+    state.sources = saved;
+    return ok;
+  });
+  const counts = {};
+  for (const entry of pool)
+    for (const name of entry.sources || []) counts[name] = (counts[name] || 0) + 1;
+
+  const host = el("sourceList");
+  host.innerHTML = "";
+  for (const kind of ["classical", "modern"]) {
+    const available = all.filter(
+      (s) => s.kind === kind && (counts[s.name] || state.sources.has(s.name)));
+    if (!available.length) continue;
+
+    const details = document.createElement("details");
+    details.open = available.some((s) => state.sources.has(s.name));
+    const summary = document.createElement("summary");
+    summary.textContent = UI[kind];
+    details.appendChild(summary);
+
+    for (const source of available) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "themerow";
+      button.classList.toggle("on", state.sources.has(source.name));
+      button.innerHTML = `<span></span><span class="n">${counts[source.name] || 0}</span>`;
+      button.firstChild.textContent = source.name;
+      button.onclick = () => {
+        if (state.sources.has(source.name)) state.sources.delete(source.name);
+        else state.sources.add(source.name);
+        render();
+      };
+      details.appendChild(button);
+    }
+    host.appendChild(details);
+  }
+}
+
+function renderChips() {
+  const host = el("chips");
+  host.innerHTML = "";
+  const add = (cls, label, remove) => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = `chip ${cls}`;
+    chip.innerHTML = `<span></span><span class="x">×</span>`;
+    chip.firstChild.textContent = label;
+    chip.onclick = () => { remove(); render(); };
+    host.appendChild(chip);
+  };
+
+  if (state.siman) {
+    add("place", `${findSection(state.siman)?.name ?? ""} ${hebrewNumber(state.siman)}`.trim(),
+      () => { state.siman = null; renderSections(); });
+  }
+  const labelOf = (slug) => (state.data.themes.find((x) => x.slug === slug) || {}).label || slug;
+  for (const slug of state.themes) add("theme", labelOf(slug), () => state.themes.delete(slug));
+  for (const name of state.sources) add("source", name, () => state.sources.delete(name));
+  state.terms.forEach((term, i) =>
+    add("text", `"${term}"`, () => state.terms.splice(i, 1)));
+
+  el("clear").hidden = host.children.length === 0;
+}
+
+const escapeHtml = (s) => s.replace(/[&<>"]/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function formatBody(text) {
+  return text.split(/\n{2,}/).map((block) => {
+    let html = escapeHtml(block).replace(/\n/g, " ");
+    html = html.replace(/https?:\/\/[^\s<]+/g,
+      (url) => `<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
+    html = html.replace(/\*([^*\n]+)\*/g, "<strong>$1</strong>"); // whatsapp bold
+    for (const term of state.terms) {
+      if (!term.trim()) continue;
+      const pattern = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
+      html = html.replace(pattern, "<mark>$1</mark>");
+    }
+    return `<p>${html}</p>`;
+  }).join("");
+}
+
+function card(entry) {
+  const node = document.createElement("article");
+  node.className = "card";
+
+  // built from the parsed fields, not the raw header: the header's own
+  // dashes are unreliable separators
+  const heading = document.createElement("h3");
+  heading.textContent = simanRef(entry);
+  node.appendChild(heading);
+
+  if (entry.title) {
+    const subtitle = document.createElement("p");
+    subtitle.className = "subtitle";
+    subtitle.textContent = entry.title;
+    node.appendChild(subtitle);
+  }
+
+  const body = document.createElement("div");
+  body.className = "body collapsed";
+  body.innerHTML = formatBody(entry.text);
+  node.appendChild(body);
+
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "more";
+  toggle.textContent = UI.more;
+  toggle.onclick = () => {
+    const open = body.classList.toggle("collapsed");
+    toggle.textContent = open ? UI.more : UI.less;
+  };
+  node.appendChild(toggle);
+
+  if (entry.themes.length || entry.sources.length) {
+    const tags = document.createElement("div");
+    tags.className = "tags";
+    for (const name of entry.sources || []) {
+      const tag = document.createElement("button");
+      tag.type = "button";
+      tag.className = "tag source";
+      tag.textContent = name;
+      tag.onclick = () => { state.sources.add(name); render(); };
+      tags.appendChild(tag);
+    }
+    for (const slug of entry.themes) {
+      const theme = state.data.themes.find((x) => x.slug === slug);
+      if (!theme) continue;
+      const tag = document.createElement("button");
+      tag.type = "button";
+      tag.className = "tag theme";
+      tag.textContent = theme.label;
+      tag.onclick = () => { state.themes.add(slug); render(); };
+      tags.appendChild(tag);
+    }
+    node.appendChild(tags);
+  }
+
+  const meta = document.createElement("div");
+  meta.className = "meta";
+  if (entry.writer) meta.append(`${UI.by} ${writerLabel(entry.writer)}`);
+  if (entry.date) meta.append(entry.date);
+  if (entry.links.length) {
+    const span = document.createElement("span");
+    span.textContent = `${UI.links}: `;
+    entry.links.slice(0, 4).forEach((url, i) => {
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = i + 1;
+      span.append(a, " ");
+    });
+    meta.appendChild(span);
+  }
+  if (meta.childNodes.length) node.appendChild(meta);
+
+  return node;
+}
+
+function hasFilter() {
+  return !!(state.siman || state.themes.size || state.sources.size || state.terms.length);
+}
+
+function render() {
+  renderChips();
+  renderThemes();
+  renderSources();
+  syncUrl();
+
+  // nothing chosen yet: leave the reading area empty rather than dumping all
+  // 300-odd posts, which is neither a useful default nor quick to paint
+  if (!hasFilter()) {
+    el("count").textContent = "";
+    el("list").innerHTML = "";
+    el("empty").hidden = false;
+    el("empty").textContent = UI.start;
+    return;
+  }
+
+  const results = filtered();
+  el("count").textContent = state.data.tagged
+    ? UI.results(results.length)
+    : `${UI.results(results.length)} · ${UI.untagged}`;
+
+  const list = el("list");
+  list.innerHTML = "";
+  el("empty").hidden = results.length > 0;
+  el("empty").textContent = UI.none;
+
+  // full text is heavy; render a page at a time
+  const slice = results.slice(0, 40);
+  const fragment = document.createDocumentFragment();
+  for (const entry of slice) fragment.appendChild(card(entry));
+  list.appendChild(fragment);
+
+  if (results.length > slice.length) {
+    const more = document.createElement("button");
+    more.type = "button";
+    more.className = "ghost";
+    more.textContent = `+ ${results.length - slice.length}`;
+    more.onclick = () => {
+      more.remove();
+      const rest = document.createDocumentFragment();
+      for (const entry of results.slice(40)) rest.appendChild(card(entry));
+      list.appendChild(rest);
+    };
+    list.appendChild(more);
+  }
+}
+
+/* ---------- shareable state ---------- */
+
+let selfWrite = "";
+
+function syncUrl() {
+  const params = new URLSearchParams();
+  if (state.siman) params.set("s", state.siman);
+  if (state.themes.size) params.set("t", [...state.themes].join("|"));
+  if (state.sources.size) params.set("src", [...state.sources].join("|"));
+  if (state.terms.length) params.set("q", state.terms.join("|"));
+  selfWrite = `#${params}`;
+  history.replaceState(null, "", selfWrite);
+}
+
+function applyUrl() {
+  const params = new URLSearchParams(location.hash.slice(1));
+  state.themes.clear();
+  state.sources.clear();
+
+  const siman = Number(params.get("s"));
+  state.siman = siman && findSection(siman) ? siman : null;
+
+  const split = (key) => (params.get(key) ? params.get(key).split("|") : []);
+  for (const slug of split("t"))
+    if (state.data.themes.some((x) => x.slug === slug)) state.themes.add(slug);
+  for (const name of split("src")) state.sources.add(name);
+  state.terms = split("q");
+
+  renderSections();
+  render();
+}
+
+/* ---------- events ---------- */
+
+function wire() {
+  const input = el("q");
+  const box = el("suggest");
+  let cursor = -1;
+
+  const paint = () => {
+    const items = suggestions(input.value);
+    box.innerHTML = "";
+    box.hidden = items.length === 0;
+    cursor = -1;
+    items.forEach((item) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      const kind = item.kind === "theme" ? UI.theme
+        : item.kind === "source" ? UI.source : UI.text;
+      button.innerHTML = `<span></span><span class="kind">${kind}</span>`;
+      button.firstChild.textContent = item.label;
+      button.onmousedown = (event) => { event.preventDefault(); accept(item); };
+      box.appendChild(button);
+    });
+  };
+
+  input.addEventListener("input", paint);
+  input.addEventListener("focus", paint);
+  input.addEventListener("blur", () => setTimeout(() => { box.hidden = true; }, 120));
+  input.addEventListener("keydown", (event) => {
+    const buttons = [...box.querySelectorAll("button")];
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      cursor += event.key === "ArrowDown" ? 1 : -1;
+      cursor = Math.max(0, Math.min(buttons.length - 1, cursor));
+      buttons.forEach((b, i) => b.classList.toggle("cursor", i === cursor));
+    } else if (event.key === "Enter") {
+      event.preventDefault();
+      const items = suggestions(input.value);
+      if (items.length) accept(items[cursor >= 0 ? cursor : items.length - 1]);
+    } else if (event.key === "Escape") {
+      box.hidden = true;
+    }
+  });
+
+  el("clear").onclick = () => {
+    state.siman = null;
+    state.themes.clear(); state.sources.clear(); state.terms = [];
+    input.value = "";
+    renderSections();
+    render();
+  };
+}
+
+// a pasted link, or the back button, should reconstruct the view
+window.addEventListener("hashchange", () => {
+  if (location.hash !== selfWrite) applyUrl();
+});
+
+wire();
+load();
