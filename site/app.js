@@ -410,6 +410,23 @@ function formatBody(text) {
 // tradeoff is that Hebrew voice availability and quality vary a lot by OS
 let speakingButton = null;
 
+// the source text has no niqqud, so the voice has to guess vowels on
+// ambiguous words - this fixes specific ones as they come up. Add more
+// [bare spelling, vowelized spelling] pairs here; boundary checks below
+// keep a fix from also matching inside a longer word or a prefixed form
+// (e.g. "באורח") that happens to contain the same letters.
+const PRONUNCIATION = [
+  ["אורח חיים", "אוֹרַח חַיִּים"], // not אוֹרֵחַ (guest) - this is "the way of life"
+];
+
+function withPronunciation(text) {
+  let result = text;
+  for (const [bare, vowelized] of PRONUNCIATION) {
+    result = result.replace(new RegExp(`(?<![א-ת])${bare}(?![א-ת])`, "g"), vowelized);
+  }
+  return result;
+}
+
 function hebrewVoice() {
   if (!("speechSynthesis" in window)) return null;
   return window.speechSynthesis.getVoices().find((v) => v.lang?.toLowerCase().startsWith("he")) || null;
@@ -428,7 +445,7 @@ function toggleSpeak(button, text) {
   stopSpeaking();
   if (wasThisButton) return; // clicking the active button just stops it
 
-  const utterance = new SpeechSynthesisUtterance(text);
+  const utterance = new SpeechSynthesisUtterance(withPronunciation(text));
   utterance.lang = "he-IL";
   const voice = hebrewVoice();
   if (voice) utterance.voice = voice;
