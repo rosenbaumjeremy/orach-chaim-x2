@@ -410,21 +410,39 @@ function formatBody(text) {
 // tradeoff is that Hebrew voice availability and quality vary a lot by OS
 let speakingButton = null;
 
+// shared by both lists below: matches the bare form with an optional single-
+// letter prefix (ה/ב/ל/כ/ו/מ/ש - "השו"ע", "כאורח חיים" etc.), preserving the
+// prefix in the output. Boundary checks keep a fix from also matching inside
+// an unrelated longer word that happens to contain the same letters.
+function applyReplacements(text, pairs) {
+  let result = text;
+  for (const [bare, replacement] of pairs) {
+    const pattern = new RegExp(`(?<![א-ת])([הובלכמש]?)${bare}(?![א-ת])`, "g");
+    result = result.replace(pattern, (match, prefix) => `${prefix}${replacement}`);
+  }
+  return result;
+}
+
 // the source text has no niqqud, so the voice has to guess vowels on
-// ambiguous words - this fixes specific ones as they come up. Add more
-// [bare spelling, vowelized spelling] pairs here; boundary checks below
-// keep a fix from also matching inside a longer word or a prefixed form
-// (e.g. "באורח") that happens to contain the same letters.
+// ambiguous words - this fixes specific ones as they come up. Same word,
+// just vowelized; for abbreviations that expand to different words, see
+// ACRONYMS below.
 const PRONUNCIATION = [
   ["אורח חיים", "אוֹרַח חַיִּים"], // not אוֹרֵחַ (guest) - this is "the way of life"
 ];
 
+// abbreviations (written with a geresh/gershayim) that would otherwise be
+// read as a made-up word instead of what they actually stand for
+const ACRONYMS = [
+  ["שו\"ע", "שולחן ערוך"],
+];
+
 function withPronunciation(text) {
-  let result = text;
-  for (const [bare, vowelized] of PRONUNCIATION) {
-    result = result.replace(new RegExp(`(?<![א-ת])${bare}(?![א-ת])`, "g"), vowelized);
-  }
-  return result;
+  return applyReplacements(text, PRONUNCIATION);
+}
+
+function withAcronyms(text) {
+  return applyReplacements(text, ACRONYMS);
 }
 
 // Gemara citations like "(סוכה כג.)" cite a daf by gematria letters, not a
@@ -518,7 +536,8 @@ function toggleSpeak(button, text) {
   stopSpeaking();
   if (wasThisButton) return; // clicking the active button just stops it
 
-  const utterance = new SpeechSynthesisUtterance(withPronunciation(withSimanRefs(withDafRefs(text))));
+  const utterance = new SpeechSynthesisUtterance(
+    withPronunciation(withAcronyms(withSimanRefs(withDafRefs(text)))));
   utterance.lang = "he-IL";
   const voice = hebrewVoice();
   if (voice) utterance.voice = voice;
