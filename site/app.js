@@ -511,11 +511,18 @@ function withDafRefs(text) {
 // "סימן ז", "סעיף יב" - same problem as a daf citation: a gematria numeral
 // misread as a word. Bounded so the token can't be the start of a longer
 // word (e.g. "בסעיף זהיר..." never happens, but the same guard applies).
-const SIMAN_REF_RE = /(סימנים|סימן|סעיפים|סעיף)\s+([א-ת]{1,4})(?![א-ת])/g;
+// A range ("סעיפים ד-ו") gets the hyphen replaced with "עד" (through) -
+// "ד-ו" read as a single dashed token is just as wrong as either half alone.
+const SIMAN_REF_RE =
+  /(סימנים|סימן|סעיפים|סעיף)\s+([א-ת]{1,4})(?:\s*[-־–—]\s*([א-ת]{1,4}))?(?![א-ת])/g;
 
 function withSimanRefs(text) {
-  return text.replace(SIMAN_REF_RE, (match, keyword, token) =>
-    isRealNumeral(token) ? `${keyword} ${spellOut(token)}` : match);
+  return text.replace(SIMAN_REF_RE, (match, keyword, first, second) => {
+    if (!isRealNumeral(first)) return match;
+    if (!second) return `${keyword} ${spellOut(first)}`;
+    if (!isRealNumeral(second)) return match;
+    return `${keyword} ${spellOut(first)} עַד ${spellOut(second)}`;
+  });
 }
 
 function hebrewVoice() {
