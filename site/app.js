@@ -427,6 +427,64 @@ function withPronunciation(text) {
   return result;
 }
 
+// Gemara citations like "(סוכה כג.)" cite a daf by gematria letters, not a
+// word - "כג" read as a syllable is wrong; it should be spelled out letter
+// by letter ("kaf, gimel"). Detected as: a known tractate name, then a short
+// letter-only token, ending the parenthetical - and only spelled out if that
+// token is actually gematria-shaped (letters non-increasing in value), so an
+// ordinary word that happens to end a citation-like parenthetical (e.g.
+// "(עיין שם.)") is left alone.
+const MASECHTOT = [
+  "ברכות", "שבת", "עירובין", "פסחים", "שקלים", "יומא", "סוכה", "ביצה",
+  "ראש השנה", "תענית", "מגילה", "מועד קטן", "חגיגה", "יבמות", "כתובות",
+  "נדרים", "נזיר", "סוטה", "גיטין", "קידושין", "בבא קמא", "בבא מציעא",
+  "בבא בתרא", "סנהדרין", "מכות", "שבועות", "עדיות", "עבודה זרה", "אבות",
+  "הוריות", "זבחים", "מנחות", "חולין", "בכורות", "ערכין", "תמורה",
+  "כריתות", "מעילה", "תמיד", "מדות", "קנים", "נדה",
+];
+
+const GEMATRIA_VALUES = {
+  "א": 1, "ב": 2, "ג": 3, "ד": 4, "ה": 5, "ו": 6, "ז": 7, "ח": 8, "ט": 9,
+  "י": 10, "כ": 20, "ל": 30, "מ": 40, "נ": 50, "ס": 60, "ע": 70, "פ": 80,
+  "צ": 90, "ק": 100, "ר": 200, "ש": 300, "ת": 400,
+};
+const FINAL_LETTERS = { "ך": "כ", "ם": "מ", "ן": "נ", "ף": "פ", "ץ": "צ" };
+const LETTER_NAMES = {
+  "א": "אָלֶף", "ב": "בֵּית", "ג": "גִּימֶל", "ד": "דָּלֶת", "ה": "הֵא",
+  "ו": "וָו", "ז": "זַיִן", "ח": "חֵית", "ט": "טֵית", "י": "יוֹד",
+  "כ": "כָּף", "ל": "לָמֶד", "מ": "מֵם", "נ": "נוּן", "ס": "סָמֶךְ",
+  "ע": "עַיִן", "פ": "פֵּא", "צ": "צַדִי", "ק": "קוֹף", "ר": "רֵישׁ",
+  "ש": "שִׁין", "ת": "תָּו",
+};
+
+function isGematriaLike(token) {
+  const values = [...token].map((ch) => GEMATRIA_VALUES[FINAL_LETTERS[ch] || ch]);
+  if (values.some((v) => v === undefined)) return false;
+  return values.every((v, i) => i === 0 || v <= values[i - 1]);
+}
+
+// "שם" (ibid.) is gematria-shaped (ש=300 >= מ=40) but is by far the most
+// common short word that would otherwise get falsely spelled out here -
+// everything else gematria-shaped and this short is rare enough to risk
+const NOT_A_DAF = new Set(["שם"]);
+
+function spellOut(token) {
+  return [...token].map((ch) => LETTER_NAMES[FINAL_LETTERS[ch] || ch]).join(" ");
+}
+
+const DAF_RE = new RegExp(`(${MASECHTOT.join("|")})\\s+([א-ת]{1,4})[.:]`, "g");
+// a citation continuing "op. cit." style, with only the daf inside the
+// parens and the tractate named earlier in the sentence - e.g. "בברכות (סב.)"
+const BARE_DAF_RE = /\(([א-ת]{1,4})([.:])\)/g;
+
+function withDafRefs(text) {
+  return text
+    .replace(DAF_RE, (match, masechet, token) =>
+      isGematriaLike(token) && !NOT_A_DAF.has(token) ? `${masechet} ${spellOut(token)}` : match)
+    .replace(BARE_DAF_RE, (match, token, punct) =>
+      isGematriaLike(token) && !NOT_A_DAF.has(token) ? `(${spellOut(token)})` : match);
+}
+
 function hebrewVoice() {
   if (!("speechSynthesis" in window)) return null;
   return window.speechSynthesis.getVoices().find((v) => v.lang?.toLowerCase().startsWith("he")) || null;
@@ -445,7 +503,7 @@ function toggleSpeak(button, text) {
   stopSpeaking();
   if (wasThisButton) return; // clicking the active button just stops it
 
-  const utterance = new SpeechSynthesisUtterance(withPronunciation(text));
+  const utterance = new SpeechSynthesisUtterance(withPronunciation(withDafRefs(text)));
   utterance.lang = "he-IL";
   const voice = hebrewVoice();
   if (voice) utterance.voice = voice;
