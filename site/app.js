@@ -463,13 +463,18 @@ function isGematriaLike(token) {
   return values.every((v, i) => i === 0 || v <= values[i - 1]);
 }
 
-// "שם" (ibid.) is gematria-shaped (ש=300 >= מ=40) but is by far the most
-// common short word that would otherwise get falsely spelled out here -
-// everything else gematria-shaped and this short is rare enough to risk
-const NOT_A_DAF = new Set(["שם"]);
+// gematria-shaped by letter values, but genuinely common words rather than
+// numerals in these contexts - "שם" (ibid.), "זה"/"זו" (this), "שני" (second,
+// as in "the second paragraph") - each would otherwise get wrongly spelled
+// out letter by letter instead of read normally
+const NOT_A_NUMERAL_WORD = new Set(["שם", "זה", "זו", "שני"]);
 
 function spellOut(token) {
   return [...token].map((ch) => LETTER_NAMES[FINAL_LETTERS[ch] || ch]).join(" ");
+}
+
+function isRealNumeral(token) {
+  return isGematriaLike(token) && !NOT_A_NUMERAL_WORD.has(token);
 }
 
 const DAF_RE = new RegExp(`(${MASECHTOT.join("|")})\\s+([א-ת]{1,4})[.:]`, "g");
@@ -480,9 +485,19 @@ const BARE_DAF_RE = /\(([א-ת]{1,4})([.:])\)/g;
 function withDafRefs(text) {
   return text
     .replace(DAF_RE, (match, masechet, token) =>
-      isGematriaLike(token) && !NOT_A_DAF.has(token) ? `${masechet} ${spellOut(token)}` : match)
-    .replace(BARE_DAF_RE, (match, token, punct) =>
-      isGematriaLike(token) && !NOT_A_DAF.has(token) ? `(${spellOut(token)})` : match);
+      isRealNumeral(token) ? `${masechet} ${spellOut(token)}` : match)
+    .replace(BARE_DAF_RE, (match, token) =>
+      isRealNumeral(token) ? `(${spellOut(token)})` : match);
+}
+
+// "סימן ז", "סעיף יב" - same problem as a daf citation: a gematria numeral
+// misread as a word. Bounded so the token can't be the start of a longer
+// word (e.g. "בסעיף זהיר..." never happens, but the same guard applies).
+const SIMAN_REF_RE = /(סימנים|סימן|סעיפים|סעיף)\s+([א-ת]{1,4})(?![א-ת])/g;
+
+function withSimanRefs(text) {
+  return text.replace(SIMAN_REF_RE, (match, keyword, token) =>
+    isRealNumeral(token) ? `${keyword} ${spellOut(token)}` : match);
 }
 
 function hebrewVoice() {
@@ -503,7 +518,7 @@ function toggleSpeak(button, text) {
   stopSpeaking();
   if (wasThisButton) return; // clicking the active button just stops it
 
-  const utterance = new SpeechSynthesisUtterance(withPronunciation(withDafRefs(text)));
+  const utterance = new SpeechSynthesisUtterance(withPronunciation(withSimanRefs(withDafRefs(text))));
   utterance.lang = "he-IL";
   const voice = hebrewVoice();
   if (voice) utterance.voice = voice;
