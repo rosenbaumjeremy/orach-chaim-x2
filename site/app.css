@@ -40,6 +40,10 @@ body {
 .brand { display: flex; align-items: center; gap: 11px; }
 .brand .mark { width: 44px; height: 44px; flex: none; }
 .brand h1 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: .01em; }
+
+.homelink { display: flex; flex: none; border-radius: 7px; opacity: 0.85; transition: opacity 0.15s ease, transform 0.15s ease; }
+.homelink:hover, .homelink:focus-visible { opacity: 1; transform: translateY(-1px); outline: none; }
+.homelink img { width: 30px; height: 30px; display: block; }
 .brand .sub { margin: 0; font-size: 13px; color: var(--muted); }
 
 /* ---------- search ---------- */
