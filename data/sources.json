@@ -889,10 +889,6 @@
    "kind": "modern"
   },
   {
-   "name": "יעקב מדן",
-   "kind": "modern"
-  },
-  {
    "name": "תוספות",
    "kind": "classical"
   },
@@ -951,7 +947,7 @@
    "kind": "modern"
   },
   {
-   "name": "יעקב מדן",
+   "name": "יעקב נגן",
    "kind": "modern"
   },
   {
@@ -3695,10 +3691,6 @@
    "kind": "modern"
   },
   {
-   "name": "יהודה עמיטל",
-   "kind": "modern"
-  },
-  {
    "name": "רמב\"ם",
    "kind": "classical"
   },
@@ -4675,6 +4667,10 @@
    "kind": "modern"
   },
   {
+   "name": "יואל",
+   "kind": "modern"
+  },
+  {
    "name": "משה פיינשטיין",
    "kind": "modern"
   },
@@ -4885,6 +4881,10 @@
    "kind": "modern"
   },
   {
+   "name": "נתנאל בוקס",
+   "kind": "modern"
+  },
+  {
    "name": "רש\"י",
    "kind": "classical"
   },
@@ -4956,10 +4956,6 @@
   }
  ],
  "176": [
-  {
-   "name": "יעקב מדן",
-   "kind": "modern"
-  },
   {
    "name": "רמ\"א",
    "kind": "classical"
@@ -5835,6 +5831,10 @@
  ],
  "213": [
   {
+   "name": "יואל",
+   "kind": "modern"
+  },
+  {
    "name": "יוסף צבי רימון",
    "kind": "modern"
   },
@@ -6063,10 +6063,6 @@
    "kind": "modern"
   },
   {
-   "name": "יעקב מדן",
-   "kind": "modern"
-  },
-  {
    "name": "רש\"י",
    "kind": "classical"
   },
@@ -6280,10 +6276,6 @@
  "227": [
   {
    "name": "אודי שוורץ",
-   "kind": "modern"
-  },
-  {
-   "name": "יהודה עמיטל",
    "kind": "modern"
   },
   {
@@ -7497,6 +7489,10 @@
    "kind": "modern"
   },
   {
+   "name": "נתנאל בוקס",
+   "kind": "modern"
+  },
+  {
    "name": "רמב\"ם",
    "kind": "classical"
   },
@@ -7658,6 +7654,10 @@
   },
   {
    "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "צבי יהודה",
    "kind": "modern"
   },
   {
@@ -8532,6 +8532,764 @@
   },
   {
    "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "300": [
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רשב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "301": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "משה פיינשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "302": [
+  {
+   "name": "אליעזר",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  }
+ ],
+ "303": [
+  {
+   "name": "ישי יסלזון",
+   "kind": "modern"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "304": [
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "יעקב נגן",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "305": [
+  {
+   "name": "יהודה עמיטל",
+   "kind": "modern"
+  },
+  {
+   "name": "יואל",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "שער הציון",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "306": [
+  {
+   "name": "יעקב נגן",
+   "kind": "modern"
+  },
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "שמואל שמעוני",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "307": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "בית יוסף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ביאור הלכה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "308": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "309": [
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "310": [
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "משה ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "ירושלמי",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "311": [
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "יעקב מדן",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "312": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "313": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "נתנאל בוקס",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "הגהות מיימוניות",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "314": [
+  {
+   "name": "אהרן ליכטנשטיין",
+   "kind": "modern"
+  },
+  {
+   "name": "אליהו ליפשיץ",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "משה טרגין",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ט\"ז",
+   "kind": "classical"
+  },
+  {
+   "name": "ערוך השולחן",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "315": [
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "316": [
+  {
+   "name": "ברוך גיגי",
+   "kind": "modern"
+  },
+  {
+   "name": "דוד ברופסקי",
+   "kind": "modern"
+  },
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "רבינו תם",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גאונים",
+   "kind": "classical"
+  }
+ ],
+ "317": [
+  {
+   "name": "לורי נוביק",
+   "kind": "modern"
+  },
+  {
+   "name": "עובדיה יוסף",
+   "kind": "modern"
+  },
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "ר\"ן",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "מגן אברהם",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "318": [
+  {
+   "name": "אביעד ברטוב",
+   "kind": "modern"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "319": [
+  {
+   "name": "צבי יהודה",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "320": [
+  {
+   "name": "יוסף צבי רימון",
+   "kind": "modern"
+  },
+  {
+   "name": "תוספות",
+   "kind": "classical"
+  },
+  {
+   "name": "ריטב\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה ברורה",
+   "kind": "classical"
+  },
+  {
+   "name": "כף החיים",
+   "kind": "classical"
+  },
+  {
+   "name": "פרי מגדים",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  },
+  {
+   "name": "משנה",
+   "kind": "classical"
+  }
+ ],
+ "321": [
+  {
+   "name": "אשר וייס",
+   "kind": "modern"
+  },
+  {
+   "name": "רמב\"ם",
+   "kind": "classical"
+  },
+  {
+   "name": "רי\"ף",
+   "kind": "classical"
+  },
+  {
+   "name": "רא\"ש",
+   "kind": "classical"
+  },
+  {
+   "name": "מאירי",
+   "kind": "classical"
+  },
+  {
+   "name": "מרדכי",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "חז\"ל",
+   "kind": "classical"
+  },
+  {
+   "name": "גמרא",
+   "kind": "classical"
+  }
+ ],
+ "322": [
+  {
+   "name": "רש\"י",
+   "kind": "classical"
+  },
+  {
+   "name": "טור",
+   "kind": "classical"
+  },
+  {
+   "name": "רמ\"א",
+   "kind": "classical"
+  },
+  {
+   "name": "לבוש",
    "kind": "classical"
   }
  ]
