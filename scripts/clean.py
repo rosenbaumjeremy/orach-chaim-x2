@@ -20,8 +20,26 @@ OUT = Path(__file__).resolve().parent.parent / "data"
 
 # --- message framing ------------------------------------------------------
 
-MSG = re.compile(r"^(\d{1,2}\.\d{1,2}\.\d{4}), (\d{1,2}:\d{2}) - (.*)$")
+# Android exports 'DD.MM.YYYY, HH:MM' (24h); iPhone exports 'M/D/YY, H:MM AM/PM'
+# (12h, narrow no-break space before AM/PM) - the group has members on both.
+MSG = re.compile(
+    r"^(\d{1,2}[./]\d{1,2}[./]\d{2,4}), (\d{1,2}:\d{2}(?:[  ]?[AP]M)?) - (.*)$"
+)
 BIDI = dict.fromkeys(map(ord, "‎‏‪‫‬"), None)
+
+
+def normalize_date(raw):
+    """'7/23/26' (iPhone, month/day/2-digit year) and '22.7.2026' (Android,
+    day.month.year) both become 'D.M.YYYY', so the same day's posts share one
+    date string (summary and resource-link posts are matched on it) and dates
+    display consistently regardless of which member's phone exported them.
+    """
+    if "/" in raw:
+        month, day, year = raw.split("/")
+        year = "20" + year if len(year) == 2 else year
+    else:
+        day, month, year = raw.split(".")
+    return f"{int(day)}.{int(month)}.{year}"
 
 NOISE = re.compile(
     r"^(<Media omitted>|null|This message was deleted|You deleted this message"
@@ -38,6 +56,7 @@ def parse_messages(path):
         m = MSG.match(line)
         if m:
             date, time, rest = m.groups()
+            date = normalize_date(date)
             sender, body = rest.split(": ", 1) if ": " in rest else (None, rest)
             messages.append({"date": date, "time": time, "sender": sender, "body": body})
         elif messages:
