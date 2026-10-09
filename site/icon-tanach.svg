@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Scroll">
+  <rect width="32" height="32" rx="7" fill="#16305c"/>
+  <!-- the parchment between the rollers -->
+  <rect x="10.6" y="10" width="10.8" height="12" fill="#faf6ec"/>
+  <g fill="none" stroke-linecap="round">
+    <!-- the two rollers of an open scroll, capped top and bottom -->
+    <g stroke="#b8924a" stroke-width="1.7">
+      <path d="M9 8.5v15M23 8.5v15"/>
+      <ellipse cx="9" cy="8.5" rx="2.1" ry="1.6"/>
+      <ellipse cx="23" cy="8.5" rx="2.1" ry="1.6"/>
+      <ellipse cx="9" cy="23.5" rx="2.1" ry="1.6"/>
+      <ellipse cx="23" cy="23.5" rx="2.1" ry="1.6"/>
+    </g>
+    <!-- lines of text on the parchment between them -->
+    <path d="M12.4 12.7h7.2M12.4 16h7.2M12.4 19.3h4.8" stroke="#c9b38a" stroke-width="1.7"/>
+  </g>
+</svg>

@@ -44,6 +44,15 @@ body {
 .homelink { display: flex; flex: none; border-radius: 7px; opacity: 0.85; transition: opacity 0.15s ease, transform 0.15s ease; }
 .homelink:hover, .homelink:focus-visible { opacity: 1; transform: translateY(-1px); outline: none; }
 .homelink img { width: 30px; height: 30px; display: block; }
+
+/* links to the home page and the other study sites */
+.sitelinks { display: flex; align-items: center; gap: 8px; flex: none; }
+@media (max-width: 640px) {
+  /* on phones the links get their own row under the title */
+  .topbar { flex-wrap: wrap; row-gap: 8px; }
+  .topbar-actions { display: contents; }
+  .sitelinks { order: 3; flex-basis: 100%; justify-content: center; gap: 12px; }
+}
 .brand .sub { margin: 0; font-size: 13px; color: var(--muted); }
 
 /* ---------- search ---------- */

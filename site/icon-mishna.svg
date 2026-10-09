@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="משנה יומית">
+  <circle cx="250" cy="250" r="230" fill="#16305c"/>
+  <circle cx="250" cy="250" r="212" fill="none" stroke="#b8924a" stroke-width="3"/>
+  <!-- the six sedarim: זמ״ן נק״ט -->
+  <g font-family="'Frank Ruhl Libre','David Libre','David',serif" font-weight="900" font-size="50" fill="#b8924a" text-anchor="middle" dominant-baseline="middle">
+    <text x="364.5" y="175.4" transform="rotate(38.0 364.5 175.4)">ז</text>
+    <text x="333.0" y="155.5" transform="rotate(26.5 333.0 155.5)">מ</text>
+    <text x="304.4" y="144.1" transform="rotate(17.0 304.4 144.1)">״</text>
+    <text x="282.3" y="138.8" transform="rotate(10.0 282.3 138.8)">ן</text>
+    <text x="224.1" y="137.8" transform="rotate(-8.0 224.1 137.8)">נ</text>
+    <text x="189.4" y="146.1" transform="rotate(-19.0 189.4 146.1)">ק</text>
+    <text x="162.7" y="157.8" transform="rotate(-28.0 162.7 157.8)">״</text>
+    <text x="138.1" y="173.5" transform="rotate(-37.0 138.1 173.5)">ט</text>
+  </g>
+  <g transform="translate(0 34)">
+    <!-- open sefer -->
+    <path d="M250 196 C214 176 164 172 118 182 V348 C164 338 214 342 250 362 Z" fill="#faf6ec"/>
+    <path d="M250 196 C286 176 336 172 382 182 V348 C336 338 286 342 250 362 Z" fill="#f1e9d6"/>
+    <path d="M118 348 C164 338 214 342 250 362 C286 342 336 338 382 348 V360 C336 350 286 354 250 374 C214 354 164 350 118 360 Z" fill="#b8924a"/>
+    <path d="M250 196 V362" stroke="#b8924a" stroke-width="4"/>
+    <!-- the name, read across the two pages: משנה | יומית -->
+    <g font-family="'Frank Ruhl Libre','David Libre','David',serif" font-weight="900" font-size="50" fill="#16305c" text-anchor="middle">
+      <text x="316" y="244">משנה</text>
+      <text x="184" y="244">יומית</text>
+    </g>
+    <g stroke="#c9b38a" stroke-width="5" stroke-linecap="round" fill="none">
+      <path d="M140 272 C170 267 205 268 232 276M140 294 C170 289 205 290 232 298M140 316 C170 311 205 312 232 320M160 338 C185 334 210 335 232 342"/>
+      <path d="M268 276 C295 268 330 267 360 272M268 298 C295 290 330 289 360 294M268 320 C295 312 330 311 360 316M268 342 C290 335 315 334 340 338"/>
+    </g>
+    <!-- ribbon marker -->
+    <path d="M250 362 L243 402 L250 393 L257 402 Z" fill="#b8924a"/>
+  </g>
+</svg>

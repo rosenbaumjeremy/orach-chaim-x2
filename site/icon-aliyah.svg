@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="עלייה יומית">
+  <circle cx="250" cy="250" r="230" fill="#16305c"/>
+  <circle cx="250" cy="250" r="212" fill="none" stroke="#b8924a" stroke-width="3"/>
+  <!-- parchment -->
+  <rect x="150" y="128" width="200" height="214" fill="#faf6ec"/>
+  <g stroke="#c9b38a" stroke-width="5" stroke-linecap="round">
+    <path d="M172 158h70M172 178h70M172 198h70M172 218h70M172 238h70M172 258h55M172 278h70M172 298h70M172 318h45"/>
+    <path d="M258 158h70M258 178h70M258 198h70M258 218h70M258 238h70M258 258h70M258 278h62M258 298h70M258 318h70"/>
+  </g>
+  <!-- rollers (atzei chaim) -->
+  <g fill="#b8924a">
+    <rect x="128" y="112" width="26" height="246" rx="13"/>
+    <rect x="346" y="112" width="26" height="246" rx="13"/>
+    <rect x="135" y="84" width="12" height="34" rx="5"/>
+    <rect x="353" y="84" width="12" height="34" rx="5"/>
+    <rect x="135" y="352" width="12" height="30" rx="5"/>
+    <rect x="353" y="352" width="12" height="30" rx="5"/>
+    <circle cx="141" cy="80" r="11"/>
+    <circle cx="359" cy="80" r="11"/>
+  </g>
+  <!-- the yad, pointing at a line -->
+  <g transform="rotate(-38 300 236)">
+    <rect x="296" y="150" width="9" height="96" rx="4" fill="#e9e4d8" stroke="#16305c" stroke-width="2"/>
+    <circle cx="300.5" cy="146" r="8" fill="#e9e4d8" stroke="#16305c" stroke-width="2"/>
+    <path d="M294 246 h13 l-2 14 h-4 v-4 h-3 z" fill="#e9e4d8" stroke="#16305c" stroke-width="2"/>
+  </g>
+  <text x="250" y="438" text-anchor="middle" font-family="'Frank Ruhl Libre','David Libre','David',serif" font-weight="900" font-size="48" fill="#faf6ec">עלייה יומית</text>
+</svg>
