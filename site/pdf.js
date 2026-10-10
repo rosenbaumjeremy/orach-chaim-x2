@@ -10,6 +10,9 @@
      data-pdf-detail="answers" | "explain"
                          a part inside a section that the reader may leave out
                          (the answers to the questions, the explanation of a term)
+     data-pdf-tools      where the PDF and Print buttons go (filled in here; hidden
+                         while the page has nothing to print)
+     data-pdf-lazy       a closed panel whose content loads on demand (counts as printable)
    and may set window.pdfPrepare = async () => [details opened], to load content
    (closed panels) before the choices are listed; those panels close again after.
    The PDF itself comes from the browser's print window ("Save as PDF"). */
@@ -61,6 +64,8 @@
   border-radius: var(--radius, 8px); padding: 5px 10px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
 }
 .pdfbtn:hover { border-color: var(--accent); }
+.pdf-tools { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; margin: 4px 0 10px; }
+.pdf-tools[hidden] { display: none; }
 .pdfbtn svg { width: 15px; height: 15px; }
 dialog.pdfdlg {
   border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; width: min(440px, calc(100vw - 32px));
@@ -98,7 +103,7 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
   html.pdf-mode .pdf-keep :is(.toolbar, .listen, .more, button.ghost) { display: none !important; }
   html.pdf-mode .pdf-keep .body.collapsed { display: block !important; -webkit-line-clamp: unset !important; overflow: visible !important; }
   html.pdf-mode :is(details.qitem, details.item, .card, .cite, .answer) { break-inside: avoid; }
-  html.pdf-mode .pdf-keep .pdf-drop { display: none !important; }
+  html.pdf-mode .pdf-keep .pdf-drop, html.pdf-mode .pdf-tools { display: none !important; }
 }`;
   document.head.appendChild(style);
 
@@ -272,21 +277,36 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
     print: '<svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4.5 6V1.5h7V6"/><rect x="1.5" y="6" width="13" height="5.5" rx="1.2"/><path d="M4.5 9.5h7v5h-7z"/></g></svg>',
   };
 
-  function addButtons() {
-    const nav = document.querySelector(".sitelinks");
-    if (!nav || document.querySelector(".pdfbtn")) return;
-    const make = (mode, label, title) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "pdfbtn";
-      b.innerHTML = ICONS[mode] + "<span></span>";
-      const paint = () => { b.lastChild.textContent = tx()[label]; b.title = tx()[title]; };
-      paint();
-      new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
-      b.onclick = () => choose(mode);
-      return b;
-    };
-    nav.prepend(make("pdf", "button", "title"), make("print", "printButton", "printTitle"));
+  const LABELS = { pdf: ["button", "title"], print: ["printButton", "printTitle"] };
+
+  function button(mode) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "pdfbtn";
+    b.dataset.mode = mode;
+    b.innerHTML = ICONS[mode] + "<span></span>";
+    b.onclick = () => choose(mode);
+    return b;
   }
-  addButtons();
+
+  // fill every [data-pdf-tools] spot with the two buttons, label them in the
+  // page's language, and show them only when there is something to print
+  function refresh() {
+    const printable = !!document.querySelector("[data-pdf], [data-pdf-lazy]");
+    document.querySelectorAll("[data-pdf-tools]").forEach((spot) => {
+      if (!spot.querySelector(".pdfbtn")) spot.append(button("pdf"), button("print"));
+      spot.classList.add("pdf-tools");
+      spot.hidden = !printable;
+    });
+    document.querySelectorAll(".pdfbtn").forEach((b) => {
+      const [label, title] = LABELS[b.dataset.mode];
+      if (b.lastChild.textContent !== tx()[label]) b.lastChild.textContent = tx()[label];
+      b.title = tx()[title];
+    });
+  }
+  let queued = false;
+  const later = () => { if (!queued) { queued = true; setTimeout(() => { queued = false; refresh(); }, 0); } };
+  new MutationObserver(later).observe(document.body, { childList: true, subtree: true });
+  new MutationObserver(later).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+  refresh();
 })();
