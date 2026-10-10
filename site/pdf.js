@@ -1,6 +1,6 @@
 "use strict";
 
-/* Save the page as a PDF, choosing which sections go in. The same file is in
+/* Save the page as a PDF or print it, choosing which sections go in. The same file is in
    every study site (aliyah-yomit, tanach-summaries, mishna-yomit,
    orach-chaim-x2) — change it in one, copy it to the others.
 
@@ -22,6 +22,10 @@
       make: "צור PDF",
       cancel: "ביטול",
       hint: "בחלון ההדפסה שייפתח בחרו ביעד \"שמירה כ-PDF\".",
+      printButton: "הדפסה",
+      printTitle: "הדפסה",
+      printAsk: "אילו חלקים להדפיס?",
+      printMake: "הדפס",
       empty: "אין בעמוד הזה תוכן לשמירה. פתחו פרק, עלייה או סימן ונסו שוב.",
       loading: "טוען…",
     },
@@ -34,6 +38,10 @@
       make: "Create PDF",
       cancel: "Cancel",
       hint: "In the print window that opens, choose \"Save as PDF\" as the destination.",
+      printButton: "Print",
+      printTitle: "Print",
+      printAsk: "Which sections should be printed?",
+      printMake: "Print",
       empty: "There is nothing to save on this page yet. Open a perek, aliyah or siman and try again.",
       loading: "Loading…",
     },
@@ -161,8 +169,12 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
     setTimeout(() => window.print(), 60);
   }
 
-  async function choose() {
-    const t = tx();
+  // mode "pdf" or "print": the same choice of sections, worded for each
+  async function choose(mode) {
+    const all = tx();
+    const t = mode === "print"
+      ? { ...all, title: all.printTitle, ask: all.printAsk, make: all.printMake, hint: "" }
+      : all;
     const dlg = document.createElement("dialog");
     dlg.className = "pdfdlg";
     dlg.dir = getComputedStyle(document.body).direction;
@@ -224,6 +236,7 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
     }
     const hint = document.createElement("p");
     hint.textContent = t.hint;
+    hint.hidden = !t.hint;
 
     go.onclick = () => {
       const chosen = new Set(boxes.filter((b) => b.checked).map((b) => b.value));
@@ -235,18 +248,26 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
     dlg.append(sel, list, hint, row);
   }
 
-  function addButton() {
+  const ICONS = {
+    pdf: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5.5L13 5v9.5H4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9.5 1.5V5H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>',
+    print: '<svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4.5 6V1.5h7V6"/><rect x="1.5" y="6" width="13" height="5.5" rx="1.2"/><path d="M4.5 9.5h7v5h-7z"/></g></svg>',
+  };
+
+  function addButtons() {
     const nav = document.querySelector(".sitelinks");
     if (!nav || document.querySelector(".pdfbtn")) return;
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = "pdfbtn";
-    b.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5.5L13 5v9.5H4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9.5 1.5V5H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg><span></span>';
-    const paint = () => { b.lastChild.textContent = tx().button; b.title = tx().title; };
-    paint();
-    new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
-    b.onclick = choose;
-    nav.prepend(b);
+    const make = (mode, label, title) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "pdfbtn";
+      b.innerHTML = ICONS[mode] + "<span></span>";
+      const paint = () => { b.lastChild.textContent = tx()[label]; b.title = tx()[title]; };
+      paint();
+      new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+      b.onclick = () => choose(mode);
+      return b;
+    };
+    nav.prepend(make("pdf", "button", "title"), make("print", "printButton", "printTitle"));
   }
-  addButton();
+  addButtons();
 })();
