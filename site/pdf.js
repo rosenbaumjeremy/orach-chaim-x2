@@ -17,7 +17,9 @@
      data-pdf-lazy       a closed panel whose content loads on demand (counts as printable)
    and may set window.pdfPrepare = async () => [details opened], to load content
    (closed panels) before the choices are listed; those panels close again after.
-   The PDF itself comes from the browser's print window ("Save as PDF"). */
+   The PDF itself comes from the browser's print window ("Save as PDF").
+   Its styles are in pdf.css (a real file: the sites' Content-Security-Policy
+   allows only style-src 'self', so a <style> added from here is ignored). */
 
 (() => {
   const TEXT = {
@@ -58,71 +60,6 @@
   };
   const tx = () => TEXT[(document.documentElement.lang || "he").startsWith("en") ? "en" : "he"];
 
-  const style = document.createElement("style");
-  style.textContent = `
-.pdfbtn {
-  display: inline-flex; align-items: center; gap: 5px; flex: none;
-  border: 1px solid var(--line); background: var(--card); color: var(--accent);
-  border-radius: var(--radius, 8px); padding: 5px 10px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
-}
-.pdfbtn:hover { border-color: var(--accent); }
-.pdf-tools { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; margin: 4px 0 10px; }
-.pdf-tools[hidden] { display: none; }
-.pdfbtn svg { width: 15px; height: 15px; }
-dialog.pdfdlg {
-  border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; width: min(440px, calc(100vw - 32px));
-  background: var(--card); color: var(--ink); box-shadow: 0 12px 40px rgba(0, 0, 0, .25);
-}
-dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
-.pdfdlg h2 { margin: 0 0 4px; font-size: 18px; color: var(--accent); }
-.pdfdlg p { margin: 0 0 10px; font-size: 14px; color: var(--muted); }
-.pdfdlg .pdflist { max-height: 50vh; overflow: auto; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; }
-.pdfdlg label { display: flex; gap: 8px; align-items: baseline; padding: 5px 0; font-size: 15px; cursor: pointer; }
-.pdfdlg input { accent-color: var(--accent); }
-.pdfdlg label.sub.off { opacity: .45; }
-.pdfdlg .pdfrow { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-.pdfdlg .pdfsel { justify-content: flex-start; margin-bottom: 8px; }
-.pdfdlg button { border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 6px; padding: 6px 14px; font: inherit; font-size: 14px; cursor: pointer; }
-.pdfdlg .pdfsel button { padding: 2px 9px; font-size: 12.5px; color: var(--muted); }
-.pdfdlg button.go { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
-.pdfdlg button.go:disabled { opacity: .5; cursor: default; }
-
-/* printing with the browser's own Print command (not these buttons): the page's
-   content only, without the bars, sidebars, search and buttons around it */
-@media print {
-  html:not(.pdf-mode) :is(.topbar, #sidebar, .sidebar-toggle, .resizer, .searchrow, #chips, #count,
-    .pdf-tools, .back, .listen, .more, .toolbar, .legend, .langswitch, .sitelinks) { display: none !important; }
-  html:not(.pdf-mode) main { display: block !important; padding: 0 !important; max-width: none !important; }
-  html:not(.pdf-mode) :is(.text-col, .side-col) { position: static !important; max-height: none !important; overflow: visible !important; }
-  html:not(.pdf-mode) .body.collapsed { display: block !important; -webkit-line-clamp: unset !important; overflow: visible !important; }
-  html:not(.pdf-mode), html:not(.pdf-mode) body { background: #fff !important; }
-}
-
-@media print {
-  html.pdf-mode {
-    --bg: #fff; --card: #fff; --ink: #1e1c1a; --muted: #5f5b55; --line: #d9d4ca;
-    --accent: #16305c; --accent-soft: #e8edf6; --gold-soft: #f6efe0;
-    background: #fff !important;
-  }
-  html.pdf-mode body { background: #fff !important; }
-  html.pdf-mode * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  /* only the chosen sections, their headings, and what contains them */
-  html.pdf-mode body *:not(.pdf-path):not(.pdf-keep):not(.pdf-keep *) { display: none !important; }
-  /* what merely contains the chosen sections prints as nothing: no frame, no padding */
-  html.pdf-mode .pdf-path { display: block !important; position: static !important; overflow: visible !important;
-    max-height: none !important; height: auto !important; box-shadow: none !important;
-    border: 0 !important; background: none !important; padding: 0 !important; }
-  html.pdf-mode main { padding: 0 !important; margin: 0 !important; max-width: none !important; }
-  html.pdf-mode .pdf-keep { position: static !important; overflow: visible !important; max-height: none !important; }
-  html.pdf-mode .pdf-keep :is(.toolbar, .listen, .more, button.ghost) { display: none !important; }
-  html.pdf-mode .pdf-keep .body.collapsed { display: block !important; -webkit-line-clamp: unset !important; overflow: visible !important; }
-  /* long boxes may run across pages (keeping them whole left half-empty pages);
-     only a heading is kept with what follows it */
-  html.pdf-mode :is(.cite, summary, h1, h2, h3, h4) { break-inside: avoid; }
-  html.pdf-mode :is(summary, h1, h2, h3, h4, .label) { break-after: avoid; }
-  html.pdf-mode .pdf-keep .pdf-drop, html.pdf-mode .pdf-tools { display: none !important; }
-}`;
-  document.head.appendChild(style);
 
   const opened = [];   // <details> opened for the PDF, closed again afterwards
   const marked = [];   // elements given pdf-* classes
@@ -280,7 +217,12 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
       const b = document.createElement("button");
       b.type = "button";
       b.textContent = text;
-      b.onclick = () => { boxes.forEach((x) => { x.checked = on; x.dim(); }); sync(); };
+      b.onclick = () => {
+        boxes.forEach((x) => { x.checked = on; });
+        subs.forEach((parts) => parts.forEach(([, x]) => { x.checked = on; }));
+        boxes.forEach((x) => x.dim());
+        sync();
+      };
       sel.append(b);
     }
     const hint = document.createElement("p");
