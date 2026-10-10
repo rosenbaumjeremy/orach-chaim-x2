@@ -34,7 +34,7 @@
       printMake: "הדפס",
       empty: "אין בעמוד הזה תוכן לשמירה. פתחו פרק, עלייה או סימן ונסו שוב.",
       loading: "טוען…",
-      details: { answers: "כולל התשובות", explain: "כולל ההסברים" },
+      details: { answers: "תשובות", explain: "הסברי המושגים" },
     },
     en: {
       button: "PDF",
@@ -51,7 +51,7 @@
       printMake: "Print",
       empty: "There is nothing to save on this page yet. Open a perek, aliyah or siman and try again.",
       loading: "Loading…",
-      details: { answers: "With the answers", explain: "With the explanations" },
+      details: { answers: "Answers", explain: "Explanations of the terms" },
     },
   };
   const tx = () => TEXT[(document.documentElement.lang || "he").startsWith("en") ? "en" : "he"];
@@ -77,7 +77,6 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
 .pdfdlg .pdflist { max-height: 50vh; overflow: auto; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; }
 .pdfdlg label { display: flex; gap: 8px; align-items: baseline; padding: 5px 0; font-size: 15px; cursor: pointer; }
 .pdfdlg input { accent-color: var(--accent); }
-.pdfdlg label.sub { padding: 0 0 5px; padding-inline-start: 26px; font-size: 13.5px; color: var(--muted); }
 .pdfdlg label.sub.off { opacity: .45; }
 .pdfdlg .pdfrow { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 .pdfdlg .pdfsel { justify-content: flex-start; margin-bottom: 8px; }
