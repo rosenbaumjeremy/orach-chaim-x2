@@ -561,6 +561,7 @@ function toggleSpeak(button, text) {
 function card(entry) {
   const node = document.createElement("article");
   node.className = "card";
+  node.dataset.pdf = simanRef(entry) + (entry.date ? ` (${entry.date})` : "");
 
   const head = document.createElement("div");
   head.className = "cardhead";
