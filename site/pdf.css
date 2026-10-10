@@ -61,6 +61,4 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
   html.pdf-mode :is(.cite, summary, h1, h2, h3, h4) { break-inside: avoid; }
   html.pdf-mode :is(summary, h1, h2, h3, h4, .label) { break-after: avoid; }
   html.pdf-mode .pdf-keep .pdf-drop, html.pdf-mode .pdf-tools { display: none !important; }
-  /* a printed question is the question itself, without the askers' quotes */
-  html.pdf-mode .pdf-keep .askers { display: none !important; }
 }
