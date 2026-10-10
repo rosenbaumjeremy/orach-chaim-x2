@@ -10,6 +10,8 @@
      data-pdf-detail="answers" | "explain"
                          a part inside a section that the reader may leave out
                          (the answers to the questions, the explanation of a term)
+     data-pdf-short      the section's heading to print when a part is left out
+                         ("שאלות" for a box headed "שאלות ותשובות")
      data-pdf-tools      where the PDF and Print buttons go (filled in here; hidden
                          while the page has nothing to print)
      data-pdf-lazy       a closed panel whose content loads on demand (counts as printable)
@@ -108,12 +110,14 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
 
   const opened = [];   // <details> opened for the PDF, closed again afterwards
   const marked = [];   // elements given pdf-* classes
+  const retitled = []; // [text node, its own text] for headings shortened in the PDF
   let savedTitle = null;
 
   function cleanup() {
     document.documentElement.classList.remove("pdf-mode");
     marked.splice(0).forEach((el) => el.classList.remove("pdf-keep", "pdf-path", "pdf-drop"));
     opened.splice(0).forEach((d) => { d.open = false; });
+    retitled.splice(0).forEach(([text, was]) => { text.data = was; });
     if (savedTitle != null) { document.title = savedTitle; savedTitle = null; }
   }
   window.addEventListener("afterprint", cleanup);
@@ -148,6 +152,12 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
       keep.push(...els);
       for (const part of chosen.get(key))
         els.forEach((el) => el.querySelectorAll(`[data-pdf-detail="${part}"]`).forEach((d) => mark(d, "pdf-drop")));
+      // a part was left out: print the shorter heading if the section has one
+      if (chosen.get(key).length) els.forEach((el) => {
+        const summary = el.querySelector(":scope > summary");
+        const text = summary && [...summary.childNodes].find((n) => n.nodeType === 3 && n.data.trim());
+        if (el.dataset.pdfShort && text) { retitled.push([text, text.data]); text.data = el.dataset.pdfShort; }
+      });
     }
     for (const el of keep) {
       mark(el, "pdf-keep");
