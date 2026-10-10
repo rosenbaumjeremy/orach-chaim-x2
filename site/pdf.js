@@ -97,13 +97,18 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
   html.pdf-mode * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   /* only the chosen sections, their headings, and what contains them */
   html.pdf-mode body *:not(.pdf-path):not(.pdf-keep):not(.pdf-keep *) { display: none !important; }
+  /* what merely contains the chosen sections prints as nothing: no frame, no padding */
   html.pdf-mode .pdf-path { display: block !important; position: static !important; overflow: visible !important;
-    max-height: none !important; height: auto !important; box-shadow: none !important; }
+    max-height: none !important; height: auto !important; box-shadow: none !important;
+    border: 0 !important; background: none !important; padding: 0 !important; }
   html.pdf-mode main { padding: 0 !important; margin: 0 !important; max-width: none !important; }
   html.pdf-mode .pdf-keep { position: static !important; overflow: visible !important; max-height: none !important; }
   html.pdf-mode .pdf-keep :is(.toolbar, .listen, .more, button.ghost) { display: none !important; }
   html.pdf-mode .pdf-keep .body.collapsed { display: block !important; -webkit-line-clamp: unset !important; overflow: visible !important; }
-  html.pdf-mode :is(details.qitem, details.item, .card, .cite, .answer) { break-inside: avoid; }
+  /* long boxes may run across pages (keeping them whole left half-empty pages);
+     only a heading is kept with what follows it */
+  html.pdf-mode :is(.cite, summary, h1, h2, h3, h4) { break-inside: avoid; }
+  html.pdf-mode :is(summary, h1, h2, h3, h4, .label) { break-after: avoid; }
   html.pdf-mode .pdf-keep .pdf-drop, html.pdf-mode .pdf-tools { display: none !important; }
 }`;
   document.head.appendChild(style);
@@ -182,7 +187,8 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
     document.title = [site.trim(), ...heads.slice(0, 2)].filter(Boolean).join(" — ").slice(0, 120);
 
     document.documentElement.classList.add("pdf-mode");
-    setTimeout(() => window.print(), 60);
+    // straight from the click: Safari on iPhone/iPad only prints from a tap
+    window.print();
   }
 
   // mode "pdf" or "print": the same choice of sections, worded for each
