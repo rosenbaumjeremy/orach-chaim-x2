@@ -87,6 +87,17 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
 .pdfdlg button.go { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
 .pdfdlg button.go:disabled { opacity: .5; cursor: default; }
 
+/* printing with the browser's own Print command (not these buttons): the page's
+   content only, without the bars, sidebars, search and buttons around it */
+@media print {
+  html:not(.pdf-mode) :is(.topbar, #sidebar, .sidebar-toggle, .resizer, .searchrow, #chips, #count,
+    .pdf-tools, .back, .listen, .more, .toolbar, .legend, .langswitch, .sitelinks) { display: none !important; }
+  html:not(.pdf-mode) main { display: block !important; padding: 0 !important; max-width: none !important; }
+  html:not(.pdf-mode) :is(.text-col, .side-col) { position: static !important; max-height: none !important; overflow: visible !important; }
+  html:not(.pdf-mode) .body.collapsed { display: block !important; -webkit-line-clamp: unset !important; overflow: visible !important; }
+  html:not(.pdf-mode), html:not(.pdf-mode) body { background: #fff !important; }
+}
+
 @media print {
   html.pdf-mode {
     --bg: #fff; --card: #fff; --ink: #1e1c1a; --muted: #5f5b55; --line: #d9d4ca;
