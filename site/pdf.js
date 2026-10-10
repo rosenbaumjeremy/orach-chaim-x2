@@ -7,6 +7,9 @@
    A site marks what can be printed:
      data-pdf="<label>"  a section; every section with the same label is one choice
      data-pdf-head       a heading that prints with the chosen sections under it
+     data-pdf-detail="answers" | "explain"
+                         a part inside a section that the reader may leave out
+                         (the answers to the questions, the explanation of a term)
    and may set window.pdfPrepare = async () => [details opened], to load content
    (closed panels) before the choices are listed; those panels close again after.
    The PDF itself comes from the browser's print window ("Save as PDF"). */
@@ -28,6 +31,7 @@
       printMake: "הדפס",
       empty: "אין בעמוד הזה תוכן לשמירה. פתחו פרק, עלייה או סימן ונסו שוב.",
       loading: "טוען…",
+      details: { answers: "כולל התשובות", explain: "כולל ההסברים" },
     },
     en: {
       button: "PDF",
@@ -44,6 +48,7 @@
       printMake: "Print",
       empty: "There is nothing to save on this page yet. Open a perek, aliyah or siman and try again.",
       loading: "Loading…",
+      details: { answers: "With the answers", explain: "With the explanations" },
     },
   };
   const tx = () => TEXT[(document.documentElement.lang || "he").startsWith("en") ? "en" : "he"];
@@ -67,13 +72,14 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
 .pdfdlg .pdflist { max-height: 50vh; overflow: auto; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; }
 .pdfdlg label { display: flex; gap: 8px; align-items: baseline; padding: 5px 0; font-size: 15px; cursor: pointer; }
 .pdfdlg input { accent-color: var(--accent); }
+.pdfdlg label.sub { padding: 0 0 5px; padding-inline-start: 26px; font-size: 13.5px; color: var(--muted); }
+.pdfdlg label.sub.off { opacity: .45; }
 .pdfdlg .pdfrow { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 .pdfdlg .pdfsel { justify-content: flex-start; margin-bottom: 8px; }
 .pdfdlg button { border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 6px; padding: 6px 14px; font: inherit; font-size: 14px; cursor: pointer; }
 .pdfdlg .pdfsel button { padding: 2px 9px; font-size: 12.5px; color: var(--muted); }
 .pdfdlg button.go { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
 .pdfdlg button.go:disabled { opacity: .5; cursor: default; }
-.pdf-header { display: none; }
 
 @media print {
   html.pdf-mode {
@@ -92,11 +98,7 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
   html.pdf-mode .pdf-keep :is(.toolbar, .listen, .more, button.ghost) { display: none !important; }
   html.pdf-mode .pdf-keep .body.collapsed { display: block !important; -webkit-line-clamp: unset !important; overflow: visible !important; }
   html.pdf-mode :is(details.qitem, details.item, .card, .cite, .answer) { break-inside: avoid; }
-  html.pdf-mode .pdf-header { display: flex !important; align-items: center; gap: 12px; margin: 0 0 14px;
-    padding-bottom: 10px; border-bottom: 2px solid var(--gold, #b8924a); }
-  html.pdf-mode .pdf-header .mark { width: 44px; height: 44px; }
-  html.pdf-mode .pdf-header h1 { margin: 0; font-size: 20px; color: var(--accent); }
-  html.pdf-mode .pdf-header p { margin: 0; font-size: 13px; color: var(--muted); }
+  html.pdf-mode .pdf-keep .pdf-drop { display: none !important; }
 }`;
   document.head.appendChild(style);
 
@@ -106,9 +108,8 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
 
   function cleanup() {
     document.documentElement.classList.remove("pdf-mode");
-    marked.splice(0).forEach((el) => el.classList.remove("pdf-keep", "pdf-path"));
+    marked.splice(0).forEach((el) => el.classList.remove("pdf-keep", "pdf-path", "pdf-drop"));
     opened.splice(0).forEach((d) => { d.open = false; });
-    document.querySelectorAll(".pdf-header").forEach((h) => h.remove());
     if (savedTitle != null) { document.title = savedTitle; savedTitle = null; }
   }
   window.addEventListener("afterprint", cleanup);
@@ -130,10 +131,20 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
     if (d.tagName === "DETAILS" && !d.open) { d.open = true; opened.push(d); }
   }
 
+  // the optional parts found inside a group of sections, e.g. ["answers"]
+  const detailsOf = (els) => [...new Set(els.flatMap((el) =>
+    [...el.querySelectorAll("[data-pdf-detail]")].map((d) => d.dataset.pdfDetail)))];
+
+  // chosen: section label -> the optional parts to leave out of it
   function print(groups, chosen) {
     const keep = [];
-    for (const [key, els] of groups) if (chosen.has(key)) keep.push(...els);
     const mark = (el, cls) => { el.classList.add(cls); marked.push(el); };
+    for (const [key, els] of groups) {
+      if (!chosen.has(key)) continue;
+      keep.push(...els);
+      for (const part of chosen.get(key))
+        els.forEach((el) => el.querySelectorAll(`[data-pdf-detail="${part}"]`).forEach((d) => mark(d, "pdf-drop")));
+    }
     for (const el of keep) {
       mark(el, "pdf-keep");
       open(el);
@@ -147,22 +158,13 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
       if (h.parentElement && h.parentElement.classList.contains("pdf-path")) mark(h, "pdf-keep");
     });
 
-    // the site's name and logo at the top of the first page
-    const brand = document.querySelector(".brand");
-    if (brand) {
-      const head = document.createElement("div");
-      head.className = "pdf-header pdf-keep";
-      head.append(...[...brand.cloneNode(true).childNodes]);
-      document.body.prepend(head);
-    }
-
     // the file name the browser suggests: site — first headings of the page
     savedTitle = document.title;
     const site = (document.querySelector(".brand h1") || {}).textContent || "";
     const heads = [...document.querySelectorAll("[data-pdf-head].pdf-keep")]
       .map((h) => (h.querySelector("h1, h2, h3, h4") || h).textContent.trim().replace(/\s+/g, " "))
       .filter(Boolean).slice(0, 2);
-    if (!heads.length) heads.push(...chosen);
+    if (!heads.length) heads.push(...chosen.keys());
     document.title = [site.trim(), ...heads.slice(0, 2)].filter(Boolean).join(" — ").slice(0, 120);
 
     document.documentElement.classList.add("pdf-mode");
@@ -208,15 +210,31 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
     const list = document.createElement("div");
     list.className = "pdflist";
     const boxes = [];
-    for (const key of groups.keys()) {
+    const subs = new Map();   // section label -> [[part, its checkbox]]
+    const checkbox = (text, cls) => {
       const label = document.createElement("label");
+      if (cls) label.className = cls;
       const box = document.createElement("input");
       box.type = "checkbox";
       box.checked = true;
+      label.append(box, text);
+      list.append(label);
+      return box;
+    };
+    for (const [key, els] of groups) {
+      const box = checkbox(key);
       box.value = key;
       boxes.push(box);
-      label.append(box, key);
-      list.append(label);
+      const parts = detailsOf(els).filter((part) => t.details[part])
+        .map((part) => [part, checkbox(t.details[part], "sub")]);
+      subs.set(key, parts);
+      // an option belongs to its section: greyed out while the section is not chosen
+      const dim = () => parts.forEach(([, b]) => {
+        b.disabled = !box.checked;
+        b.parentElement.classList.toggle("off", !box.checked);
+      });
+      box.addEventListener("change", dim);
+      box.dim = dim;
     }
     const go = document.createElement("button");
     go.type = "button";
@@ -231,7 +249,7 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
       const b = document.createElement("button");
       b.type = "button";
       b.textContent = text;
-      b.onclick = () => { boxes.forEach((x) => { x.checked = on; }); sync(); };
+      b.onclick = () => { boxes.forEach((x) => { x.checked = on; x.dim(); }); sync(); };
       sel.append(b);
     }
     const hint = document.createElement("p");
@@ -239,7 +257,8 @@ dialog.pdfdlg::backdrop { background: rgba(10, 20, 40, .35); }
     hint.hidden = !t.hint;
 
     go.onclick = () => {
-      const chosen = new Set(boxes.filter((b) => b.checked).map((b) => b.value));
+      const chosen = new Map(boxes.filter((b) => b.checked).map((b) =>
+        [b.value, subs.get(b.value).filter(([, sub]) => !sub.checked).map(([part]) => part)]));
       document.documentElement.classList.add("pdf-mode"); // keep opened panels until printing ends
       dlg.close();
       print(groups, chosen);
