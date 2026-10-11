@@ -12,7 +12,7 @@
                          (the answers to the questions, the explanation of a term)
      data-pdf-short      the section's heading to print when a part is left out
                          ("שאלות" for a box headed "שאלות ותשובות")
-     data-pdf-tools      where the PDF, Print and WhatsApp buttons go (filled in here; hidden
+     data-pdf-tools      where the PDF and Print buttons go (filled in here; hidden
                          while the page has nothing to print)
      data-pdf-lazy       a closed panel whose content loads on demand (counts as printable)
    and may set window.pdfPrepare = async () => [details opened], to load content
@@ -36,12 +36,6 @@
       printTitle: "הדפסה",
       printAsk: "אילו חלקים להדפיס?",
       printMake: "הדפס",
-      waButton: "וואטסאפ",
-      waTitle: "שליחה בוואטסאפ",
-      waAsk: "אילו חלקים לשלוח?",
-      waMake: "פתח בוואטסאפ",
-      waHint: "וואטסאפ ייפתח עם ההודעה מוכנה — בחרו למי לשלוח.",
-      waCut: "ההמשך באתר:",
       empty: "אין בעמוד הזה תוכן לשמירה. פתחו פרק, עלייה או סימן ונסו שוב.",
       loading: "טוען…",
       details: { answers: "תשובות", explain: "הסברי המושגים" },
@@ -59,12 +53,6 @@
       printTitle: "Print",
       printAsk: "Which sections should be printed?",
       printMake: "Print",
-      waButton: "WhatsApp",
-      waTitle: "Send on WhatsApp",
-      waAsk: "Which sections should be sent?",
-      waMake: "Open in WhatsApp",
-      waHint: "WhatsApp opens with the message ready — choose who to send it to.",
-      waCut: "Continued on the site:",
       empty: "There is nothing to save on this page yet. Open a perek, aliyah or siman and try again.",
       loading: "Loading…",
       details: { answers: "Answers", explain: "Explanations of the terms" },
@@ -108,9 +96,8 @@
   const detailsOf = (els) => [...new Set(els.flatMap((el) =>
     [...el.querySelectorAll("[data-pdf-detail]")].map((d) => d.dataset.pdfDetail)))];
 
-  // Mark the chosen sections (pdf-keep), what contains them (pdf-path) and the
-  // parts left out (pdf-drop). chosen: section label -> the optional parts to leave out.
-  function mark(groups, chosen) {
+  // chosen: section label -> the optional parts to leave out of it
+  function print(groups, chosen) {
     const keep = [];
     const mark = (el, cls) => { el.classList.add(cls); marked.push(el); };
     for (const [key, els] of groups) {
@@ -146,46 +133,18 @@
       .filter(Boolean).slice(0, 2);
     if (!heads.length) heads.push(...chosen.keys());
     document.title = [site.trim(), ...heads.slice(0, 2)].filter(Boolean).join(" — ").slice(0, 120);
+
+    document.documentElement.classList.add("pdf-mode");
+    // straight from the click: Safari on iPhone/iPad only prints from a tap
+    window.print();
   }
 
-  /* ---------- the chosen sections as a WhatsApp message ---------- */
-
-  // controls and on-screen extras that are not part of the text
-  const SKIP = "button, svg, .toolbar, .pdf-tools, .count, .legend, .listen, .more, .pdf-drop, .pref, .era, .mref, a[href*='sefaria.org']";
-  const BLOCK = /^(P|DIV|H[1-6]|SUMMARY|LI|UL|OL|SECTION|ARTICLE|DETAILS|BLOCKQUOTE|HEADER)$/;
-
-  function plain(n) {
-    if (n.nodeType === 3) return n.data.replace(/\s+/g, " ");
-    if (n.nodeType !== 1 || n.matches(SKIP)) return "";
-    let inner = [...n.childNodes].map(plain).join("");
-    // WhatsApp bold (*…*) for headings, box titles and question titles
-    const bold = /^H[1-6]$/.test(n.tagName) || n.classList.contains("ttl")
-      || (n.tagName === "SUMMARY" && !n.querySelector(".ttl"));
-    if (bold && inner.trim()) inner = `*${inner.trim()}*`;
-    if (n.classList.contains("n")) inner += " ";   // "1. *title*"
-    return BLOCK.test(n.tagName) ? "\n" + inner.trim() + "\n" : inner;
-  }
-
-  function message() {
-    const t = tx();
-    const tops = [...document.querySelectorAll(".pdf-keep")].filter((e) => !e.parentElement.closest(".pdf-keep"));
-    const site = ((document.querySelector(".brand h1") || {}).textContent || "").trim();
-    let text = [`*${site}*`, ...tops.map(plain)].join("\n")
-      .replace(/\(\s*\)/g, "").replace(/ +:/g, ":").replace(/[ \t]*·[ \t]*(?=\n|$)/g, "").replace(/[ \t]+\n/g, "\n").replace(/\n[ \t]+/g, "\n")
-      .replace(/\n{3,}/g, "\n\n").trim();
-    const max = 20000;   // keeps the link a size every phone accepts
-    if (text.length > max) text = text.slice(0, max).replace(/\s+\S*$/, "") + "…\n\n" + t.waCut;
-    return text + "\n\n" + location.href;
-  }
-
-  // mode "pdf", "print" or "whatsapp": the same choice of sections, worded for each
+  // mode "pdf" or "print": the same choice of sections, worded for each
   async function choose(mode) {
     const all = tx();
     const t = mode === "print"
       ? { ...all, title: all.printTitle, ask: all.printAsk, make: all.printMake, hint: "" }
-      : mode === "whatsapp"
-        ? { ...all, title: all.waTitle, ask: all.waAsk, make: all.waMake, hint: all.waHint }
-        : all;
+      : all;
     const dlg = document.createElement("dialog");
     dlg.className = "pdfdlg";
     dlg.dir = getComputedStyle(document.body).direction;
@@ -273,20 +232,9 @@
     go.onclick = () => {
       const chosen = new Map(boxes.filter((b) => b.checked).map((b) =>
         [b.value, subs.get(b.value).filter(([, sub]) => !sub.checked).map(([part]) => part)]));
-      // all of it straight from the click: Safari on iPhone/iPad only prints, and
-      // browsers only open a new window, from a tap
-      if (mode === "whatsapp") {
-        mark(groups, chosen);
-        const text = message();
-        cleanup();
-        dlg.close();
-        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank", "noopener");
-        return;
-      }
       document.documentElement.classList.add("pdf-mode"); // keep opened panels until printing ends
       dlg.close();
-      mark(groups, chosen);
-      window.print();
+      print(groups, chosen);
     };
     row.append(cancel, go);
     dlg.append(sel, list, hint, row);
@@ -295,10 +243,9 @@
   const ICONS = {
     pdf: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5.5L13 5v9.5H4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9.5 1.5V5H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>',
     print: '<svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4.5 6V1.5h7V6"/><rect x="1.5" y="6" width="13" height="5.5" rx="1.2"/><path d="M4.5 9.5h7v5h-7z"/></g></svg>',
-    whatsapp: '<svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M2.2 13.8l.9-2.9A6 6 0 1 1 5.3 13z"/><path d="M6 5.6c.2 1.9 1.6 3.6 3.6 4.4l.9-.9 1.2.6-.3 1.2c-2.9.2-6.6-3-6.5-6l1.2-.3.6 1.2z"/></g></svg>',
   };
 
-  const LABELS = { pdf: ["button", "title"], print: ["printButton", "printTitle"], whatsapp: ["waButton", "waTitle"] };
+  const LABELS = { pdf: ["button", "title"], print: ["printButton", "printTitle"] };
 
   function button(mode) {
     const b = document.createElement("button");
@@ -315,7 +262,7 @@
   function refresh() {
     const printable = !!document.querySelector("[data-pdf], [data-pdf-lazy]");
     document.querySelectorAll("[data-pdf-tools]").forEach((spot) => {
-      if (!spot.querySelector(".pdfbtn")) spot.append(button("pdf"), button("print"), button("whatsapp"));
+      if (!spot.querySelector(".pdfbtn")) spot.append(button("pdf"), button("print"));
       spot.classList.add("pdf-tools");
       spot.hidden = !printable;
     });
