@@ -1,0 +1,11 @@
+/* Styles for share.js — the WhatsApp button beside PDF / Print (/ Email); its
+   dialogs use the .pdfdlg styles in pdf.css. Same file in every study site
+   with pdf.js; change it in one, copy it to the others. */
+.sharebtn {
+  display: inline-flex; align-items: center; gap: 5px; flex: none;
+  border: 1px solid var(--line); background: var(--card); color: #1a8a4a;
+  border-radius: var(--radius, 8px); padding: 5px 10px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.sharebtn:hover { border-color: #1a8a4a; }
+.sharebtn svg { width: 15px; height: 15px; }
+@media print { .sharebtn { display: none !important; } }
