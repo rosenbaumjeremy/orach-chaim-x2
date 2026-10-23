@@ -143,6 +143,7 @@
   // Other scripts get the same dialog through window.pdfChoose(words, send):
   // words = {title, ask, make} in the page's language, and send(groups, chosen)
   // runs from the click, while closed panels are still open, before cleanup.
+  // words.extra = [[label, onclick]] adds buttons of its own beside Cancel.
   async function choose(mode, words, send) {
     const all = tx();
     const t = mode === "print"
@@ -169,10 +170,17 @@
     cancel.onclick = () => dlg.close();
     const row = document.createElement("div");
     row.className = "pdfrow";
+    const extra = (t.extra || []).map(([text, onclick]) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = text;
+      b.onclick = () => { onclick(); dlg.close(); };
+      return b;
+    });
 
     if (!groups.size) {
       ask.textContent = t.empty;
-      row.append(cancel);
+      row.append(cancel, ...extra);
       dlg.append(row);
       return;
     }
@@ -240,7 +248,7 @@
       dlg.close();
       print(groups, chosen);
     };
-    row.append(cancel, go);
+    row.append(cancel, ...extra, go);
     dlg.append(sel, list, hint, row);
   }
 
