@@ -139,12 +139,15 @@
     window.print();
   }
 
-  // mode "pdf" or "print": the same choice of sections, worded for each
-  async function choose(mode) {
+  // mode "pdf" or "print": the same choice of sections, worded for each.
+  // Other scripts get the same dialog through window.pdfChoose(words, send):
+  // words = {title, ask, make} in the page's language, and send(groups, chosen)
+  // runs from the click, while closed panels are still open, before cleanup.
+  async function choose(mode, words, send) {
     const all = tx();
     const t = mode === "print"
       ? { ...all, title: all.printTitle, ask: all.printAsk, make: all.printMake, hint: "" }
-      : all;
+      : send ? { ...all, hint: "", ...words } : all;
     const dlg = document.createElement("dialog");
     dlg.className = "pdfdlg";
     dlg.dir = getComputedStyle(document.body).direction;
@@ -232,6 +235,7 @@
     go.onclick = () => {
       const chosen = new Map(boxes.filter((b) => b.checked).map((b) =>
         [b.value, subs.get(b.value).filter(([, sub]) => !sub.checked).map(([part]) => part)]));
+      if (send) { send(groups, chosen); dlg.close(); return; }
       document.documentElement.classList.add("pdf-mode"); // keep opened panels until printing ends
       dlg.close();
       print(groups, chosen);
@@ -244,6 +248,8 @@
     pdf: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5.5L13 5v9.5H4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9.5 1.5V5H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>',
     print: '<svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4.5 6V1.5h7V6"/><rect x="1.5" y="6" width="13" height="5.5" rx="1.2"/><path d="M4.5 9.5h7v5h-7z"/></g></svg>',
   };
+
+  window.pdfChoose = (words, send) => choose("other", words, send);
 
   const LABELS = { pdf: ["button", "title"], print: ["printButton", "printTitle"] };
 
