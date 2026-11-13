@@ -102,7 +102,7 @@ then 169-170, ... through 697), following [ROUTINE.md](ROUTINE.md):
   Aruch say, se'if by se'if, each point quoting its sources word for word from
   Sefaria, with the words it explains underlined in the text
   (`site/data/nk/<siman>.json`);
-- a quiz on the siman (`site/data/quiz/<siman>.json`), the same game as the parasha
+- a quiz on the siman's Shulchan Aruch text (`site/data/quiz/<siman>.json`), the same game as the parasha
   quizzes on aliyah-yomit, and a quiz on a whole section of halachot drawn from all of
   its simanim.
 

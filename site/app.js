@@ -750,7 +750,7 @@ function postItem(entry, open) {
 
 function postsBox(posts, totalForSiman) {
   const box = node("details", "box");
-  box.open = true;
+  box.open = false;   // closed until the reader opens it
   const s = node("summary", null, UI.posts);
   s.append(node("span", "count", String(posts.length)));
   box.append(s);
@@ -767,7 +767,7 @@ function postsBox(posts, totalForSiman) {
       bar.append(ex, co);
       body.append(bar);
     }
-    posts.forEach((entry, i) => body.append(postItem(entry, i === 0)));
+    posts.forEach((entry) => body.append(postItem(entry, false)));
   }
   box.append(body);
   return box;
@@ -826,7 +826,7 @@ function nkItem(point, id) {
 
 function nkBox(nk) {
   const box = node("details", "box nkbox");
-  box.open = true;
+  box.open = false;   // closed until the reader opens it
   box.dataset.pdf = UI.nk;
   const s = node("summary", null, UI.nk);
   s.append(node("span", "count", String(nk.points.length)));
@@ -961,7 +961,7 @@ async function renderSiman() {
   try { data = await loadSiman(n); } catch { /* shown below */ }
   const nk = await nkPromise;
   if (ticket !== simanRender) return;   // the reader moved on while it loaded
-  if (nk) side.append(nkBox(nk));
+  if (nk) side.prepend(nkBox(nk));
 
   const link = node("a", null, UI.sefaria);
   link.href = sefariaUrl(n); link.target = "_blank"; link.rel = "noopener";
@@ -1000,7 +1000,7 @@ const QUIZ_UI = {
   back: "חזרה לסימן",
   title: (n) => `חידון — סימן ${hebrewNumber(n)}`,
   sectionTitle: (name) => `חידון — ${name}`,
-  sub: "שאלות אמריקאיות על השולחן ערוך ונושאי הכלים",
+  sub: "שאלות אמריקאיות על לשון השולחן ערוך",
   sectionSub: "שאלות מכל הסימנים בהלכות אלו, מתוך מאגר השאלות של החידונים על הסימנים",
   rules: (p, from, bonus) => `${p} נקודות על כל תשובה נכונה, ועוד ${bonus} נקודות בונוס מהתשובה ה־${from} ברצף.`,
   points: (n) => `${n} נק׳`,
@@ -1016,7 +1016,6 @@ const QUIZ_UI = {
   wrong: ["לא בדיוק.", "כמעט.", "לא הפעם.", "טעות קטנה."],
   hintBtn: (n) => `רמז (השאלה תהיה שווה ${n} נק׳)`,
   toText: "לסעיף בספריא",
-  toSource: (name) => `ל${name} בספריא`,
   howMany: "כמה שאלות?",
   from: "מאילו סימנים?",
   all: "כולם",
@@ -1037,7 +1036,7 @@ const QUIZ_UI = {
   allN: (n) => `כולן (${n})`,
   typesLabel: "אילו סוגי שאלות?",
   allTypes: "כל הסוגים",
-  types: { din: "מה הדין", taam: "טעמים", rema: "המחבר והרמ״א", complete: "השלמת הלשון", nk: "נושאי הכלים" },
+  types: { din: "מה הדין", taam: "טעמים", rema: "המחבר והרמ״א", complete: "השלמת הלשון" },
   loading: "טוען…",
   failed: "לא הצלחנו לטעון את החידון.",
 };
@@ -1050,8 +1049,9 @@ const SECTION_DEFAULT = 20;
 const SIMAN_SIZES = [5, 10, 15, 20];
 const SIMAN_DEFAULT = 10;
 const QUIZ_ALL = 1e9;
-const QUIZ_TYPES = ["din", "taam", "rema", "complete", "nk"];
+const QUIZ_TYPES = ["din", "taam", "rema", "complete"];
 const typeOf = (q) => (QUIZ_TYPES.includes(q.t) ? q.t : "din");
+const playable = (q) => QUIZ_TYPES.includes(q.t);
 
 const quizFiles = new Map();  // siman -> fetch promise
 const quizRuns = new Map();   // quiz key -> this visit's run
@@ -1205,7 +1205,7 @@ function renderQuiz() {
 
   const slot = node("p", "muted", QUIZ_UI.loading);
   host.append(slot);
-  Promise.all(available.map((n) => loadQuiz(n).then((r) => ({ siman: n, questions: r.questions || [] }))))
+  Promise.all(available.map((n) => loadQuiz(n).then((r) => ({ siman: n, questions: (r.questions || []).filter(playable) }))))
     .then((banks) => {
       if (state.quiz !== key) return;
       const form = node("div", "quizsetup");
@@ -1507,11 +1507,6 @@ function renderQuizRun(host, key, questions, { section }) {
       const a = node("a", null, `סימן ${hebrewNumber(q.siman)} סעיף ${hebrewNumber(seifNum).replace(/['"]/g, "")} — ${ui.toText}`);
       a.href = sefariaUrl(q.siman, seifNum); a.target = "_blank"; a.rel = "noopener";
       ref.append(a);
-      if (q.src) {
-        const b = node("a", null, ui.toSource(q.src_name || "מפרש"));
-        b.href = sefariaRef(q.src); b.target = "_blank"; b.rel = "noopener";
-        ref.append(" · ", b);
-      }
       after.append(ref);
     };
     li.append(opts);

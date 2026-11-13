@@ -15,13 +15,12 @@ A draft is
         "e": "why, quoting the text: “ואחר שסיים הברכה יפרידנה”",
         "r": "1",                                               # the se'if, or a range "1-2"
         "t": "din",                                             # the type, one of TYPES
-        "h": "optional hint",
-        "src": "Magen Avraham 167:3"}]}                         # nk questions: the comment they ask about
+        "h": "optional hint"}]}
 
-Every “quote” in the question and the explanation must appear word for word (letters only)
-in the Shulchan Aruch text of the se'ifim in "r" (site/data/sa/<siman>.json), or - for a
-question of type "nk" - in the comment of the nosei kelim named in "src", which must be a
-comment on this siman (scripts/nk_sources.py). "..." skips words and "___" leaves a blank.
+The questions are on the Shulchan Aruch itself (the Mechaber and the Rema), never on the
+nosei kelim. Every “quote” in the question and the explanation must appear word for word
+(letters only) in the text of the se'ifim in "r" (site/data/sa/<siman>.json). "..." skips
+words and "___" leaves a blank.
 A siman gets 12 to 25 questions; a very short siman (three se'ifim or fewer) at least 6.
 The answers are shuffled (a fixed order per question) and the right one is recorded in "a".
 """
@@ -31,9 +30,6 @@ import random
 import re
 import sys
 from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from nk_sources import gather  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "site" / "data"
@@ -46,7 +42,6 @@ TYPES = {
     "taam": "טעמים",
     "rema": "המחבר והרמ\"א",
     "complete": "השלמת הלשון (___)",
-    "nk": "נושאי הכלים",
 }
 
 FINALS = str.maketrans("ךםןףץ", "כמנפצ")
@@ -75,17 +70,6 @@ def in_text(quote, text):
             return False
         at = hit + len(want)
     return True
-
-
-_corpus = {}
-
-
-def comments(siman):
-    if siman not in _corpus:
-        cache = Path(f"/tmp/nk-{siman}.json")
-        data = json.loads(cache.read_text(encoding="utf-8")) if cache.exists() else gather(siman)
-        _corpus[siman] = {c["ref"]: c for c in data["comments"]}
-    return _corpus[siman]
 
 
 def check(draft):
@@ -119,26 +103,18 @@ def check(draft):
             problems.append(f"{where}: the same question twice")
         seen.add(q["q"])
         text = " ".join(seifim[start - 1:end])
-        comment = None
-        if q.get("t") == "nk":
-            comment = comments(siman).get(q.get("src", ""))
-            if not comment:
-                problems.append(f"{where}: src {q.get('src')!r} is not a comment of the nosei kelim on siman {siman}")
-                continue
+        if q.get("src"):
+            problems.append(f"{where}: questions are on the Shulchan Aruch only, not on a commentary ({q['src']})")
         for field in ("q", "e"):
             for quote in QUOTE.findall(q.get(field, "")):
-                if not (in_text(quote, text) or (comment and in_text(quote, comment["text"]))):
-                    problems.append(f"{where} ({field}): “{quote}” is not in se'if {q['r']}"
-                                    + (f" or in {q['src']}" if comment else ""))
+                if not in_text(quote, text):
+                    problems.append(f"{where} ({field}): “{quote}” is not in se'if {q['r']}")
         rng = random.Random(hashlib.sha256(f"oc{siman}#{n}".encode()).hexdigest())
         shuffle = list(range(4))
         rng.shuffle(shuffle)
         item = {"q": q["q"], "o": [q["o"][i] for i in shuffle], "a": shuffle.index(0),
                 "e": q["e"], "t": q["t"], "seif": start,
                 "ref": f"Shulchan Arukh, Orach Chayim {siman}:{start}" + (f"-{end}" if end != start else "")}
-        if comment:
-            item["src"] = comment["ref"]
-            item["src_name"] = comment["name"]
         if q.get("h"):
             item["h"] = q["h"]
         out.append(item)

@@ -84,7 +84,9 @@ all in Hebrew, plain text only (no Markdown, no HTML):
 ## Step 4 - write the quiz
 
 The same game as the parasha quizzes on aliyah-yomit (see its ROUTINE-QUIZ.md): a
-question bank the reader draws from by number and type. Write
+question bank the reader draws from by number and type. **The questions are on the
+Shulchan Aruch only - the words of the Mechaber and the Rema - never on the nosei
+kelim** (they have their own panel). Write
 `/tmp/quiz/<siman>.json`:
 
 ```
@@ -93,24 +95,20 @@ question bank the reader draws from by number and type. Write
    "q": "בחול – מתי מפרידים את פרוסת הבציעה מן הככר?",
    "o": ["אחרי שסיים את הברכה", "לפני שמתחיל לברך", "באמצע הברכה", "אחרי שטעם"],
    "e": "“ואחר שסיים הברכה יפרידנה כדי שתכלה הברכה בעוד שהפת שלם”.",
-   "h": "optional hint"},
-  {"r": "6", "t": "nk", "src": "Turei Zahav on Shulchan Arukh, Orach Chayim 167:8",
-   "q": "...", "o": [...], "e": "“<the comment's own words>”"}]}
+   "h": "optional hint"}]}
 ```
 
 - **15-25 questions a siman** (a siman of three se'ifim or fewer: at least 6), in the
   order of the se'ifim and spread over all of them, none repeating another.
 - `"t"`, the type: `din` (מה הדין), `taam` (the reason the text gives), `rema` (what the
   Rema adds or rules, or who says what), `complete` (השלמת הלשון, a ___ blank in the
-  quote), `nk` (what one of the nosei kelim says, from this morning's brief). Roughly:
-  half `din`, 3-5 each of `taam`, `rema` and `nk`, 1-2 `complete`.
+  quote). Roughly: two thirds `din`, 3-5 each of `taam` and `rema`, 1-2 `complete`.
 - `"o"`: exactly 4 different answers, **the right one first** (the script shuffles them).
   Distractors are plausible - often the ruling of the next case, or of the other
   opinion - and clearly wrong by the text for what is asked. None of them may also be true.
 - `"r"`: the se'if (`"6"`) or se'ifim (`"4-5"`) that answer it.
 - `"e"`: the answer in the text's own words, in “ ”. Every quote in `q` and `e` must
-  appear word for word in the se'ifim of `r` - or, for an `nk` question, in the comment
-  named in `"src"` (a ref from `/tmp/nk-<siman>.json`).
+  appear word for word in the se'ifim of `r`.
 - Ask about the content, never about where something is in the text ("בסעיף ז", "בסוף
   הסימן"). No question whose answer everyone knows without learning the siman.
 
@@ -125,7 +123,7 @@ python3 scripts/quiz.py --check /tmp/quiz/<siman>.json
 whose quote is not in it, drops points left with none and anchors not found, and exits 1
 under 8 points, under 4 works, without the Mishnah Berurah, or when one work holds more
 than half the citations. `quiz.py --check` refuses a quote not in its text, a bad `r`
-or `src`, a wrong type, or the wrong number of questions. On exit 1: read more, copy
+, a question on a commentary, a wrong type, or the wrong number of questions. On exit 1: read more, copy
 quotes exactly, fix, and run again. Then reread every quiz question against its se'if
 and make sure the answer is right and no distractor is also true.
 
