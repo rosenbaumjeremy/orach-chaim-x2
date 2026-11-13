@@ -35,6 +35,12 @@ const UI = {
   next: (n) => `סימן ${hebrewNumber(n)} ←`,
   rema: "הגה — דברי הרמ״א",
   seifLegend: "לחיצה על הפניה לסעיף בסיכום מסמנת אותו בטקסט",
+  nk: "נושאי הכלים",
+  nkSeif: (n) => `סעיף ${hebrewNumber(n).replace(/['"]/g, "")}`,
+  nkLegend: "מילים שנושאי הכלים מבארים",
+  nkSources: "מקורות",
+  quiz: "חידון על הסימן",
+  sectionQuiz: (name) => `חידון על ${name}`,
   expand: "פתח הכל",
   collapse: "סגור הכל",
 };
@@ -44,6 +50,11 @@ const state = {
   siman: null,
   // a se'if to flash once the siman's text is on screen (from a link)
   seif: null,
+  // simanim with a nosei kelim brief / a quiz (data/nk/index.json, data/quiz/index.json)
+  nkSimanim: new Set(),
+  quizSimanim: new Set(),
+  // the open quiz: a siman number as a string, or "sec:<first siman>" for a section of halachot
+  quiz: null,
   themes: new Set(),
   sources: new Set(),
   terms: [],
@@ -63,6 +74,11 @@ const el = (id) => document.getElementById(id);
 async function load() {
   const response = await fetch("data/oc.json");
   state.data = await response.json();
+  const optional = (url, fallback) => fetch(url).then((r) => (r.ok ? r.json() : fallback)).catch(() => fallback);
+  const [nk, quiz] = await Promise.all([
+    optional("data/nk/index.json", { simanim: [] }), optional("data/quiz/index.json", { simanim: [] })]);
+  state.nkSimanim = new Set(nk.simanim.map((x) => x.siman));
+  state.quizSimanim = new Set(quiz.simanim);
 
   el("subtitle").textContent = UI.subtitle;
   el("q").placeholder = UI.placeholder;
@@ -163,6 +179,7 @@ function accept(item) {
   else if (item.value) state.terms.push(item.value);
   el("q").value = "";
   el("suggest").hidden = true;
+  state.quiz = null;
   render();
 }
 
@@ -178,8 +195,9 @@ function simanButton(n, covered) {
   button.title = covered.has(n) ? "" : "טקסט בלבד — עדיין אין סיכום";
   button.classList.toggle("on", state.siman === n);
   button.onclick = () => {
-    state.siman = state.siman === n ? null : n;
+    state.siman = state.siman === n && !state.quiz ? null : n;
     state.seif = null;
+    state.quiz = null;
     renderSections();
     render();
     if (state.siman) toSimanTop();
@@ -598,7 +616,29 @@ function withMarks(text) {
     i % 2 ? node("mark", null, part) : document.createTextNode(part));
 }
 
-function seifNode(runs, i) {
+// a run of text with the nosei kelim's anchors underlined (exact words of the
+// run; see scripts/check_nk.py) and the search terms marked
+function decorate(text, anchors) {
+  const out = [];
+  let rest = text;
+  while (rest) {
+    let best = null;
+    for (const a of anchors) {
+      const at = rest.indexOf(a.text);
+      if (at >= 0 && (!best || at < best.at)) best = { at, a };
+    }
+    if (!best) { out.push(...withMarks(rest)); break; }
+    if (best.at) out.push(...withMarks(rest.slice(0, best.at)));
+    const mark = node("mark", "hl");
+    mark.dataset.points = best.a.ids.join(" ");
+    mark.append(...withMarks(best.a.text));
+    out.push(mark);
+    rest = rest.slice(best.at + best.a.text.length);
+  }
+  return out;
+}
+
+function seifNode(runs, i, anchors = []) {
   const p = node("div", "seif");
   p.id = `seif-${i + 1}`;
   p.append(node("span", "num", hebrewNumber(i + 1).replace(/['"]/g, "")));
@@ -608,15 +648,15 @@ function seifNode(runs, i) {
       // "הגה" opens each of the Rema's glosses
       text.split(/(?<![א-ת])(הגה)(?![א-ת])/).forEach((part, j) => {
         if (j % 2) span.append(node("b", "haga", part));
-        else span.append(...withMarks(part));
+        else span.append(...decorate(part, anchors));
       });
       p.append(span);
     } else if (kind === "b") {
       const b = node("b");
-      b.append(...withMarks(text));
+      b.append(...decorate(text, anchors));
       p.append(b);
     } else {
-      p.append(...withMarks(text));
+      p.append(...decorate(text, anchors));
     }
   }
   return p;
@@ -733,6 +773,128 @@ function postsBox(posts, totalForSiman) {
   return box;
 }
 
+/* ---------- the nosei kelim on the siman (scripts/check_nk.py, add_nk.py) ---------- */
+
+const nkCache = new Map();
+
+function loadNk(n) {
+  if (!state.nkSimanim.has(n)) return Promise.resolve(null);
+  if (!nkCache.has(n)) {
+    nkCache.set(n, fetch(`data/nk/${n}.json`).then((r) => (r.ok ? r.json() : null))
+      .catch(() => { nkCache.delete(n); return null; }));
+  }
+  return nkCache.get(n);
+}
+
+function sefariaRef(ref) {
+  return `https://www.sefaria.org/${encodeURIComponent(ref.replace(/ /g, "_")).replace(/%3A/g, ":").replace(/%2C/g, ",")}?lang=he`;
+}
+
+function seifButton(n) {
+  const b = node("button", "mref", UI.nkSeif(n));
+  b.type = "button";
+  b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); flashSeifim(n, n); };
+  return b;
+}
+
+function lightPoint(id, on) {
+  document.querySelectorAll("mark.hl").forEach((m) => {
+    if (m.dataset.points.split(" ").includes(id)) m.classList.toggle("lit", on);
+  });
+}
+
+function nkItem(point, id) {
+  const d = node("details", "item nkpoint");
+  d.id = id;
+  const s = node("summary");
+  s.append(node("span", "ttl", point.title), seifButton(point.seif));
+  const body = node("div", "body");
+  body.append(node("p", null, point.text));
+  for (const src of point.sources) {
+    const cite = node("div", "cite");
+    cite.append(node("b", null, src.name), " (");
+    const a = node("a", null, "ספריא");
+    a.href = sefariaRef(src.ref); a.target = "_blank"; a.rel = "noopener";
+    cite.append(a, "): ", node("span", "quote", `"${src.quote}"`));
+    body.append(cite);
+  }
+  d.append(s, body);
+  d.addEventListener("mouseenter", () => lightPoint(id, true));
+  d.addEventListener("mouseleave", () => lightPoint(id, false));
+  return d;
+}
+
+function nkBox(nk) {
+  const box = node("details", "box nkbox");
+  box.open = true;
+  box.dataset.pdf = UI.nk;
+  const s = node("summary", null, UI.nk);
+  s.append(node("span", "count", String(nk.points.length)));
+  box.append(s);
+  const body = node("div", "body");
+  body.append(node("p", "overview", nk.overview));
+  const bar = node("div", "toolbar");
+  const ex = node("button", null, UI.expand), co = node("button", null, UI.collapse);
+  ex.type = co.type = "button";
+  ex.onclick = () => body.querySelectorAll("details.item").forEach((x) => (x.open = true));
+  co.onclick = () => body.querySelectorAll("details.item").forEach((x) => (x.open = false));
+  bar.append(ex, co);
+  body.append(bar);
+  nk.points.forEach((point, i) => body.append(nkItem(point, `nk${i}`)));
+  if (nk.sources_consulted && nk.sources_consulted.length) {
+    body.append(node("p", "sources", `${UI.nkSources}: ${nk.sources_consulted.join(" · ")}`));
+  }
+  box.append(body);
+  return box;
+}
+
+// clicking underlined words opens the points that explain them
+function openPoints(ids) {
+  let first = null;
+  for (const id of ids) {
+    const d = el(id);
+    if (!d) continue;
+    d.closest("details.box").open = true;
+    d.open = true;
+    d.classList.add("lit");
+    setTimeout(() => d.classList.remove("lit"), 1600);
+    first = first || d;
+  }
+  if (first) reveal(first);
+}
+
+/* anchors per se'if: [{text, ids}] */
+function anchorsBySeif(nk) {
+  const by = new Map();
+  (nk ? nk.points : []).forEach((point, i) => {
+    if (!point.anchor) return;
+    if (!by.has(point.seif)) by.set(point.seif, []);
+    const list = by.get(point.seif);
+    const same = list.find((a) => a.text === point.anchor);
+    if (same) same.ids.push(`nk${i}`);
+    else list.push({ text: point.anchor, ids: [`nk${i}`] });
+  });
+  return by;
+}
+
+function quizButtons(n) {
+  const bar = node("div", "quizlinks");
+  if (state.quizSimanim.has(n)) {
+    const b = node("button", "button quizlink", UI.quiz);
+    b.type = "button";
+    b.onclick = () => openQuiz(String(n));
+    bar.append(b);
+  }
+  const section = findSection(n);
+  if (section && sectionQuizSimanim(section).length) {
+    const b = node("button", "button ghost quizlink", UI.sectionQuiz(section.name));
+    b.type = "button";
+    b.onclick = () => openQuiz(`sec:${section.start}`);
+    bar.append(b);
+  }
+  return bar.childNodes.length ? bar : null;
+}
+
 // wide screens: back to the top; phones, where the siman grid sits above the
 // results, straight to the text
 function toSimanTop() {
@@ -743,7 +905,7 @@ function toSimanTop() {
 function simanNav(n) {
   const nav = node("div", "simannav");
   const go = (to) => () => {
-    state.siman = to; state.seif = null;
+    state.siman = to; state.seif = null; state.quiz = null;
     renderSections(); render(); toSimanTop();
   };
   if (n > 1) {
@@ -779,6 +941,8 @@ async function renderSiman() {
   head.append(node("h2", null, UI.siman(n)));
   const meta = node("p", "siman-meta");
   head.append(meta);
+  const quizzes = quizButtons(n);
+  if (quizzes) head.append(quizzes);
   list.append(simanNav(n), head);
 
   const layout = node("div", "layout");
@@ -793,8 +957,11 @@ async function renderSiman() {
   list.append(layout);
 
   let data = null;
+  const nkPromise = loadNk(n);
   try { data = await loadSiman(n); } catch { /* shown below */ }
+  const nk = await nkPromise;
   if (ticket !== simanRender) return;   // the reader moved on while it loaded
+  if (nk) side.append(nkBox(nk));
 
   const link = node("a", null, UI.sefaria);
   link.href = sefariaUrl(n); link.target = "_blank"; link.rel = "noopener";
@@ -806,9 +973,15 @@ async function renderSiman() {
     card.append(node("p", "muted", UI.failed));
     return;
   }
-  data.seifim.forEach((runs, i) => card.append(seifNode(runs, i)));
+  const anchors = anchorsBySeif(nk);
+  data.seifim.forEach((runs, i) => card.append(seifNode(runs, i, anchors.get(i + 1) || [])));
+  card.addEventListener("click", (e) => {
+    const mark = e.target.closest("mark.hl");
+    if (mark) openPoints(mark.dataset.points.split(" "));
+  });
   const legend = node("p", "legend");
   legend.append(node("span", "lr", UI.rema));
+  if (anchors.size) legend.append(node("span", "lt", UI.nkLegend));
   if (posts.length) legend.append(node("span", "ls", UI.seifLegend));
   textCol.append(legend);
 
@@ -817,6 +990,540 @@ async function renderSiman() {
     state.seif = null;
     requestAnimationFrame(() => flashSeifim(seif, seif));
   }
+}
+
+/* ---------- quiz: multiple-choice questions on a siman (scripts/quiz.py) ----------
+   The same game as the parasha quizzes on aliyah-yomit: a siman is a parasha, a section of
+   halachot (הלכות ...) a sefer. */
+
+const QUIZ_UI = {
+  back: "חזרה לסימן",
+  title: (n) => `חידון — סימן ${hebrewNumber(n)}`,
+  sectionTitle: (name) => `חידון — ${name}`,
+  sub: "שאלות אמריקאיות על השולחן ערוך ונושאי הכלים",
+  sectionSub: "שאלות מכל הסימנים בהלכות אלו, מתוך מאגר השאלות של החידונים על הסימנים",
+  rules: (p, from, bonus) => `${p} נקודות על כל תשובה נכונה, ועוד ${bonus} נקודות בונוס מהתשובה ה־${from} ברצף.`,
+  points: (n) => `${n} נק׳`,
+  count: (right, done, total) => `${right}/${done} נכונות · ${done} מתוך ${total}`,
+  streakToast: (n, total) => (n === total ? `🏆 ${n} ברצף — בלי אף טעות!` : n >= 10 ? `🔥🔥 ${n} ברצף! מדהים!` : `🔥 ${n} ברצף!`),
+  rank: (right, total) => right === total ? "מושלם! בקיא בהלכה כמו תלמיד חכם" : right / total >= 0.9 ? "תלמיד חכם!" : right / total >= 0.7 ? "בקיא בהלכה!" : right / total >= 0.5 ? "בדרך הנכונה" : "כדאי לחזור על הסימן ולנסות שוב",
+  longest: (n) => `הרצף הארוך ביותר: ${n}`,
+  best: "השיא שלך",
+  bestShort: (right, total) => `${right} מתוך ${total}`,
+  newBest: "🎉 שיא אישי חדש!",
+  review: "לחזרה על הטעויות:",
+  right: ["נכון!", "יפה מאוד!", "מצוין!", "בדיוק!", "כל הכבוד!", "אלוף!"],
+  wrong: ["לא בדיוק.", "כמעט.", "לא הפעם.", "טעות קטנה."],
+  hintBtn: (n) => `רמז (השאלה תהיה שווה ${n} נק׳)`,
+  toText: "לסעיף בספריא",
+  toSource: (name) => `ל${name} בספריא`,
+  howMany: "כמה שאלות?",
+  from: "מאילו סימנים?",
+  all: "כולם",
+  clear: "נקה",
+  pickSiman: "בחרו לפחות סימן אחד.",
+  pickType: "בחרו לפחות סוג שאלות אחד.",
+  willDraw: (n, max) => `ייבחרו ${n} שאלות באקראי מתוך ${max} שבמאגר.`,
+  willDrawSection: (n, k, max) => `ייבחרו ${n} שאלות באקראי, מחולקות באופן שווה בין ${k === 1 ? "סימן אחד" : `${k} סימנים`} (יש במאגר ${max}).`,
+  partial: (have, all) => `יש חידון ל־${have} מתוך ${all} הסימנים בהלכות אלו; השאר יתווספו כשיתפרסמו.`,
+  none: "עדיין אין חידונים על הסימנים האלה.",
+  start: "התחילו את החידון",
+  order: "סדר השאלות",
+  inOrder: "לפי סדר הסעיפים",
+  inSimanOrder: "לפי סדר הסימנים",
+  mixed: "מעורבב",
+  again: "שאלות חדשות",
+  change: "שינוי ההגדרות",
+  allN: (n) => `כולן (${n})`,
+  typesLabel: "אילו סוגי שאלות?",
+  allTypes: "כל הסוגים",
+  types: { din: "מה הדין", taam: "טעמים", rema: "המחבר והרמ״א", complete: "השלמת הלשון", nk: "נושאי הכלים" },
+  loading: "טוען…",
+  failed: "לא הצלחנו לטעון את החידון.",
+};
+
+// Scoring: 10 points for a right answer (5 if the hint was opened), +5 for every right answer
+// that is the 3rd or more in a row.
+const QUIZ_POINTS = 10, QUIZ_HINTED = 5, QUIZ_STREAK_BONUS = 5, QUIZ_STREAK_FROM = 3;
+const SECTION_SIZES = [10, 20, 30, 50, 100];
+const SECTION_DEFAULT = 20;
+const SIMAN_SIZES = [5, 10, 15, 20];
+const SIMAN_DEFAULT = 10;
+const QUIZ_ALL = 1e9;
+const QUIZ_TYPES = ["din", "taam", "rema", "complete", "nk"];
+const typeOf = (q) => (QUIZ_TYPES.includes(q.t) ? q.t : "din");
+
+const quizFiles = new Map();  // siman -> fetch promise
+const quizRuns = new Map();   // quiz key -> this visit's run
+const quizSetups = new Map(); // quiz key -> {count, simanim: Set, types: Set, mix}
+
+function loadQuiz(n) {
+  if (!quizFiles.has(n)) {
+    quizFiles.set(n, fetch(`data/quiz/${n}.json`)
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .catch((error) => { quizFiles.delete(n); throw error; }));
+  }
+  return quizFiles.get(n);
+}
+
+const sectionOf = (key) => (key && key.startsWith("sec:")
+  ? state.data.sections.find((x) => x.start === Number(key.slice(4))) || null : null);
+function sectionQuizSimanim(section) {
+  const out = [];
+  for (let n = section.start; n <= section.end; n++) if (state.quizSimanim.has(n)) out.push(n);
+  return out;
+}
+
+function quizBest(key) {
+  try { return JSON.parse(localStorage.getItem(`oc-quiz-best:${key}`)) || null; } catch { return null; }
+}
+function saveQuizBest(key, result) {
+  try { localStorage.setItem(`oc-quiz-best:${key}`, JSON.stringify(result)); } catch { /* not saved */ }
+}
+
+const calm = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const shuffled = (list) => {
+  const a = list.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+};
+
+/** Draw `count` questions spread evenly over the simanim, in order or all mixed together. */
+function drawQuestions(banks, count, mix) {
+  const want = banks.map(() => 0);
+  let left = Math.min(count, banks.reduce((s, b) => s + b.questions.length, 0));
+  const order = shuffled(banks.map((_, i) => i));
+  while (left > 0) {
+    for (const i of order) {
+      if (left > 0 && want[i] < banks[i].questions.length) { want[i]++; left--; }
+    }
+  }
+  const out = [];
+  banks.forEach((bank, i) => {
+    const picks = shuffled(bank.questions.map((_, k) => k)).slice(0, want[i]).sort((x, y) => x - y);
+    picks.forEach((k) => out.push({ ...bank.questions[k], siman: bank.siman }));
+  });
+  return mix ? shuffled(out) : out;
+}
+
+function withShuffledOptions(q) {
+  const order = shuffled(q.o.map((_, i) => i));
+  return { ...q, o: order.map((i) => q.o[i]), a: order.indexOf(q.a) };
+}
+
+function quizTally(questions, run) {
+  let points = 0, right = 0, streak = 0, longest = 0;
+  const missed = [];
+  questions.forEach((q, i) => {
+    if (!run.chosen.has(i)) return;
+    if (run.chosen.get(i) === q.a) {
+      right++; streak++; longest = Math.max(longest, streak);
+      points += run.hinted.has(i) ? QUIZ_HINTED : QUIZ_POINTS;
+      if (streak >= QUIZ_STREAK_FROM) points += QUIZ_STREAK_BONUS;
+    } else { streak = 0; missed.push(i); }
+  });
+  return { points, right, streak, longest, missed, done: run.chosen.size };
+}
+
+function confetti() {
+  if (calm()) return;
+  const layer = node("div", "confetti");
+  layer.setAttribute("aria-hidden", "true");
+  const colors = ["#b8924a", "#16305c", "#2e7d4f", "#d0675c", "#6f93cf", "#e8c46a"];
+  for (let n = 0; n < 90; n++) {
+    const bit = node("i");
+    bit.style.left = `${Math.random() * 100}%`;
+    bit.style.background = colors[n % colors.length];
+    bit.style.animationDelay = `${Math.random() * 0.6}s`;
+    bit.style.animationDuration = `${2.2 + Math.random() * 1.6}s`;
+    bit.style.setProperty("--drift", `${(Math.random() - 0.5) * 220}px`);
+    bit.style.setProperty("--spin", `${(Math.random() - 0.5) * 1440}deg`);
+    layer.appendChild(bit);
+  }
+  document.body.appendChild(layer);
+  setTimeout(() => layer.remove(), 4600);
+}
+
+function floatUp(anchor, text, cls) {
+  if (calm()) return;
+  const tag = node("span", `quizfloat ${cls || ""}`, text);
+  tag.dir = "ltr";
+  anchor.appendChild(tag);
+  setTimeout(() => tag.remove(), 1300);
+}
+
+function quizToast(host, text) {
+  const old = host.querySelector(".quiztoast");
+  if (old) old.remove();
+  const toast = node("div", "quiztoast", text);
+  toast.setAttribute("role", "status");
+  host.appendChild(toast);
+  setTimeout(() => toast.classList.add("out"), 1800);
+  setTimeout(() => toast.remove(), 2400);
+}
+
+function openQuiz(key) {
+  state.quiz = key;
+  render();
+  toSimanTop();
+}
+
+function closeQuiz() {
+  const section = sectionOf(state.quiz);
+  if (!state.siman) state.siman = section ? (sectionQuizSimanim(section)[0] || section.start) : Number(state.quiz) || null;
+  state.quiz = null;
+  renderSections();
+  render();
+  toSimanTop();
+}
+
+function renderQuiz() {
+  const list = el("list");
+  list.innerHTML = "";
+  el("empty").hidden = true;
+  el("count").textContent = "";
+  const key = state.quiz;
+  const section = sectionOf(key);
+  const siman = section ? null : Number(key);
+  if (!section && !(siman >= 1 && siman <= state.data.max_siman)) { state.quiz = null; render(); return; }
+  const view = node("div", "quizview");
+  const back = node("button", "back", `→ ${QUIZ_UI.back}`);
+  back.type = "button";
+  back.onclick = closeQuiz;
+  const head = node("div", "quizhead");
+  head.append(node("h2", null, section ? QUIZ_UI.sectionTitle(section.name) : QUIZ_UI.title(siman)),
+    node("p", "muted", section ? QUIZ_UI.sectionSub : QUIZ_UI.sub));
+  const host = node("div", "quizbody");
+  view.append(back, head, host);
+  list.append(view);
+
+  const available = section ? sectionQuizSimanim(section) : (state.quizSimanim.has(siman) ? [siman] : []);
+  if (!available.length) { host.append(node("p", "empty", QUIZ_UI.none)); return; }
+  const run = quizRuns.get(key);
+  if (run && run.questions) { renderQuizRun(host, key, run.questions, { section }); return; }
+
+  const slot = node("p", "muted", QUIZ_UI.loading);
+  host.append(slot);
+  Promise.all(available.map((n) => loadQuiz(n).then((r) => ({ siman: n, questions: r.questions || [] }))))
+    .then((banks) => {
+      if (state.quiz !== key) return;
+      const form = node("div", "quizsetup");
+      slot.replaceWith(form);
+      buildQuizSetup(form, key, section, banks);
+    })
+    .catch(() => { slot.textContent = QUIZ_UI.failed; });
+}
+
+function buildQuizSetup(form, key, section, banks) {
+  const ui = QUIZ_UI;
+  const kinds = QUIZ_TYPES.filter((type) => banks.some((b) => b.questions.some((q) => typeOf(q) === type)));
+  if (!quizSetups.has(key)) {
+    quizSetups.set(key, {
+      count: section ? SECTION_DEFAULT : SIMAN_DEFAULT,
+      simanim: new Set(banks.map((b) => b.siman)),
+      types: new Set(kinds),
+      mix: true,
+    });
+  }
+  const setup = quizSetups.get(key);
+  setup.simanim = new Set([...setup.simanim].filter((n) => banks.some((b) => b.siman === n)));
+  setup.types = new Set([...setup.types].filter((type) => kinds.includes(type)));
+  const chosenBanks = () => banks.filter((b) => !section || setup.simanim.has(b.siman));
+  const pool = () => chosenBanks().reduce((n, b) => n + b.questions.filter((q) => setup.types.has(typeOf(q))).length, 0);
+
+  form.append(node("p", "quizintro", ui.rules(QUIZ_POINTS, QUIZ_STREAK_FROM, QUIZ_STREAK_BONUS)));
+
+  form.append(node("div", "label", ui.howMany));
+  const sizes = node("div", "qchips");
+  const sizeButtons = [];
+  for (const n of section ? SECTION_SIZES : SIMAN_SIZES) {
+    const b = node("button", "qchip", String(n));
+    b.type = "button";
+    b.dataset.n = n;
+    b.onclick = () => { setup.count = n; refresh(); };
+    sizeButtons.push(b);
+    sizes.append(b);
+  }
+  const allButton = node("button", "qchip");
+  allButton.type = "button";
+  allButton.onclick = () => { setup.count = QUIZ_ALL; refresh(); };
+  sizes.append(allButton);
+  const input = node("input");
+  input.type = "number";
+  input.min = "1";
+  input.inputMode = "numeric";
+  input.setAttribute("aria-label", ui.howMany);
+  input.oninput = () => { const n = Math.floor(Number(input.value)); if (n > 0) { setup.count = n; refresh(true); } };
+  sizes.append(input);
+  form.append(sizes);
+
+  let simanButtons = [];
+  if (section) {
+    const head = node("div", "label qhead");
+    head.append(node("span", null, ui.from));
+    const all = node("button", "linkish", ui.all);
+    all.type = "button";
+    all.onclick = () => { setup.simanim = new Set(banks.map((b) => b.siman)); refresh(); };
+    const none = node("button", "linkish", ui.clear);
+    none.type = "button";
+    none.onclick = () => { setup.simanim = new Set(); refresh(); };
+    head.append(all, none);
+    form.append(head);
+    const chips = node("div", "qchips");
+    simanButtons = banks.map((bank) => {
+      const b = node("button", "qchip", hebrewNumber(bank.siman));
+      b.type = "button";
+      b.onclick = () => { setup.simanim.has(bank.siman) ? setup.simanim.delete(bank.siman) : setup.simanim.add(bank.siman); refresh(); };
+      chips.append(b);
+      return [bank.siman, b];
+    });
+    form.append(chips);
+    const size = section.end - section.start + 1;
+    if (size > banks.length) form.append(node("p", "muted small", ui.partial(banks.length, size)));
+  }
+
+  const typeHead = node("div", "label qhead");
+  typeHead.append(node("span", null, ui.typesLabel));
+  const allTypes = node("button", "linkish", ui.allTypes);
+  allTypes.type = "button";
+  allTypes.onclick = () => { setup.types = new Set(kinds); refresh(); };
+  const noTypes = node("button", "linkish", ui.clear);
+  noTypes.type = "button";
+  noTypes.onclick = () => { setup.types = new Set(); refresh(); };
+  typeHead.append(allTypes, noTypes);
+  form.append(typeHead);
+  const typeChips = node("div", "qchips");
+  const typeButtons = kinds.map((type) => {
+    const b = node("button", "qchip");
+    b.type = "button";
+    const count = node("span", "chipcount");
+    b.append(node("span", null, ui.types[type] || type), count);
+    b.onclick = () => { setup.types.has(type) ? setup.types.delete(type) : setup.types.add(type); refresh(); };
+    typeChips.append(b);
+    return [type, b, count];
+  });
+  form.append(typeChips);
+
+  form.append(node("div", "label", ui.order));
+  const orders = node("div", "qchips");
+  const orderButtons = [[true, ui.mixed], [false, section ? ui.inSimanOrder : ui.inOrder]].map(([mix, label]) => {
+    const b = node("button", "qchip", label);
+    b.type = "button";
+    b.onclick = () => { setup.mix = mix; refresh(); };
+    orders.append(b);
+    return [mix, b];
+  });
+  form.append(orders);
+
+  const best = node("p", "quizbestline");
+  const note = node("p", "qnote");
+  const start = node("button", "button", ui.start);
+  start.type = "button";
+  form.append(best, note, start);
+
+  function refresh(typing) {
+    const max = pool();
+    const n = Math.min(setup.count, max);
+    sizeButtons.forEach((b) => b.classList.toggle("on", Number(b.dataset.n) === setup.count));
+    allButton.textContent = ui.allN(max);
+    allButton.classList.toggle("on", setup.count >= max && !sizeButtons.some((b) => Number(b.dataset.n) === setup.count));
+    if (!typing) input.value = setup.count >= QUIZ_ALL ? "" : String(setup.count);
+    simanButtons.forEach(([s, b]) => b.classList.toggle("on", setup.simanim.has(s)));
+    typeButtons.forEach(([type, b, count]) => {
+      b.classList.toggle("on", setup.types.has(type));
+      count.textContent = String(chosenBanks().reduce((k, bank) => k + bank.questions.filter((q) => typeOf(q) === type).length, 0));
+    });
+    orderButtons.forEach(([mix, b]) => b.classList.toggle("on", setup.mix === mix));
+    start.disabled = !max;
+    note.textContent = section && !setup.simanim.size ? ui.pickSiman
+      : !setup.types.size ? ui.pickType
+      : section ? ui.willDrawSection(n, setup.simanim.size, max) : ui.willDraw(n, max);
+    const record = max ? quizBest(quizBestKey(key, n, setup, kinds, banks)) : null;
+    best.textContent = record ? `${ui.best} (${n}): ${ui.bestShort(record.right, record.total)} · ${ui.points(record.points)}` : "";
+    best.hidden = !record;
+  }
+  refresh();
+
+  start.onclick = () => {
+    if (!pool()) return;
+    startQuiz(key, banks, setup, kinds, section);
+    renderQuiz();
+    toSimanTop();
+  };
+}
+
+function quizBestKey(key, size, setup, kinds, banks) {
+  let k = `${key}:${size}`;
+  if (setup.types.size < kinds.length) k += `:${[...setup.types].sort().join("+")}`;
+  if (banks.length > 1 && setup.simanim.size < banks.length) k += `:${[...setup.simanim].sort((a, b) => a - b).join("+")}`;
+  return k;
+}
+
+function startQuiz(key, banks, setup, kinds, section) {
+  const chosen = banks.filter((b) => !section || setup.simanim.has(b.siman))
+    .map((b) => ({ siman: b.siman, questions: b.questions.filter((q) => setup.types.has(typeOf(q))) }));
+  const questions = drawQuestions(chosen, setup.count, setup.mix).map(withShuffledOptions);
+  quizRuns.set(key, {
+    chosen: new Map(), hinted: new Set(), questions,
+    bestKey: quizBestKey(key, questions.length, setup, kinds, banks),
+    again: () => startQuiz(key, banks, setup, kinds, section),
+  });
+}
+
+function renderQuizRun(host, key, questions, { section }) {
+  const run = quizRuns.get(key);
+  const total = questions.length;
+  const ui = QUIZ_UI;
+  const wrap = node("div", "quizwrap");
+
+  const intro = node("div", "quizintro");
+  intro.append(node("p", null, ui.rules(QUIZ_POINTS, QUIZ_STREAK_FROM, QUIZ_STREAK_BONUS)));
+  const best = quizBest(run.bestKey);
+  if (best) intro.append(node("p", "quizbestline", `${ui.best}: ${ui.bestShort(best.right, best.total)} · ${ui.points(best.points)}`));
+  wrap.append(intro);
+
+  const bar = node("div", "quizbar");
+  const stats = node("div", "quizstats");
+  const pointsBox = node("span", "quizpts");
+  const streakBox = node("span", "quizstreak");
+  const countBox = node("span", "quizcount");
+  stats.append(pointsBox, streakBox, countBox);
+  const restart = () => { quizRuns.delete(key); renderQuiz(); toSimanTop(); };
+  const reset = node("button", null, ui.change);
+  reset.type = "button";
+  reset.onclick = restart;
+  const track = node("div", "quizprogress");
+  const fill = node("div", "fill");
+  track.append(fill);
+  bar.append(stats, reset, track);
+  wrap.append(bar);
+
+  const list = node("ol", "quizlist");
+  const items = [];
+  const results = node("div", "quizresults");
+  results.hidden = true;
+
+  const update = () => {
+    const tally = quizTally(questions, run);
+    pointsBox.textContent = ui.points(tally.points);
+    streakBox.textContent = tally.streak >= 2 ? `🔥 ${tally.streak}` : "";
+    streakBox.classList.toggle("hot", tally.streak >= QUIZ_STREAK_FROM);
+    countBox.textContent = ui.count(tally.right, tally.done, total);
+    fill.style.width = `${(tally.done / total) * 100}%`;
+    return tally;
+  };
+
+  const finish = (fresh) => {
+    const tally = quizTally(questions, run);
+    const prior = quizBest(run.bestKey);
+    const record = !prior || tally.points > prior.points;
+    if (fresh && record) saveQuizBest(run.bestKey, { right: tally.right, total, points: tally.points });
+    results.innerHTML = "";
+    results.hidden = false;
+    results.append(node("h3", null, ui.rank(tally.right, total)));
+    results.append(node("p", "quizfinal", `${ui.bestShort(tally.right, total)} · ${ui.points(tally.points)}`));
+    results.append(node("p", "quizfacts", ui.longest(tally.longest)));
+    if (fresh && record && prior) results.append(node("p", "quizrecord", ui.newBest));
+    else if (prior && !record) results.append(node("p", "muted", `${ui.best}: ${ui.points(prior.points)}`));
+    if (tally.missed.length) {
+      const again = node("div", "quizmissed");
+      again.append(node("span", null, ui.review));
+      tally.missed.forEach((i) => {
+        const b = node("button", null, String(i + 1));
+        b.type = "button";
+        b.onclick = () => items[i].scrollIntoView({ behavior: calm() ? "auto" : "smooth", block: "center" });
+        again.append(b);
+      });
+      results.append(again);
+    }
+    const replay = node("button", "button", ui.again);
+    replay.type = "button";
+    replay.onclick = () => { run.again(); renderQuiz(); toSimanTop(); };
+    const change = node("button", "button ghost", ui.change);
+    change.type = "button";
+    change.onclick = restart;
+    results.append(replay, change);
+    if (fresh) {
+      if (tally.right / total >= 0.7) confetti();
+      setTimeout(() => results.scrollIntoView({ behavior: calm() ? "auto" : "smooth", block: "center" }), 350);
+    }
+  };
+
+  questions.forEach((q, i) => {
+    const li = node("li", "quizq");
+    items.push(li);
+    const tags = node("div", "quiztags");
+    if (section) tags.append(node("span", "quiztag", `סימן ${hebrewNumber(q.siman)}`));
+    tags.append(node("span", "quiztag kind", ui.types[typeOf(q)] || ""));
+    li.append(tags, node("p", "quizprompt", q.q));
+    const opts = node("div", "quizopts");
+    const after = node("div", "quizafter");
+    const buttons = q.o.map((text, k) => {
+      const b = node("button", "quizopt", text);
+      b.type = "button";
+      b.onclick = () => {
+        if (run.chosen.has(i)) return;
+        run.chosen.set(i, k);
+        show(true);
+        const tally = update();
+        if (k === q.a) {
+          let gained = run.hinted.has(i) ? QUIZ_HINTED : QUIZ_POINTS;
+          if (tally.streak >= QUIZ_STREAK_FROM) gained += QUIZ_STREAK_BONUS;
+          floatUp(b, `+${gained}`, "good");
+          if (tally.streak === total || [3, 5, 10, 15, 20, 25, 50].includes(tally.streak)) quizToast(bar, ui.streakToast(tally.streak, total));
+        }
+        if (tally.done === total) finish(true);
+      };
+      opts.append(b);
+      return b;
+    });
+    let hint = null;
+    if (q.h) {
+      hint = node("button", "quizhint", ui.hintBtn(QUIZ_HINTED));
+      hint.type = "button";
+      hint.onclick = () => { run.hinted.add(i); hint.replaceWith(node("p", "quizhinttext", q.h)); };
+    }
+    const show = (fresh) => {
+      const pick = run.chosen.get(i);
+      const good = pick === q.a;
+      buttons.forEach((b, k) => {
+        b.disabled = true;
+        b.classList.toggle("right", k === q.a);
+        b.classList.toggle("wrong", k === pick && !good);
+      });
+      li.classList.add(good ? "got" : "missed");
+      if (fresh && !calm()) {
+        li.classList.add(good ? "pop" : "shake");
+        setTimeout(() => li.classList.remove("pop", "shake"), 600);
+      }
+      if (hint && hint.isConnected) hint.remove();
+      after.innerHTML = "";
+      const verdict = node("p", "quizverdict " + (good ? "ok" : "no"));
+      verdict.append(node("b", null, good ? ui.right[i % ui.right.length] : ui.wrong[i % ui.wrong.length]), " ", q.e);
+      after.append(verdict);
+      const ref = node("p", "quizref");
+      const seifNum = Number(String(q.ref).split(":")[1]) || q.seif;
+      const a = node("a", null, `סימן ${hebrewNumber(q.siman)} סעיף ${hebrewNumber(seifNum).replace(/['"]/g, "")} — ${ui.toText}`);
+      a.href = sefariaUrl(q.siman, seifNum); a.target = "_blank"; a.rel = "noopener";
+      ref.append(a);
+      if (q.src) {
+        const b = node("a", null, ui.toSource(q.src_name || "מפרש"));
+        b.href = sefariaRef(q.src); b.target = "_blank"; b.rel = "noopener";
+        ref.append(" · ", b);
+      }
+      after.append(ref);
+    };
+    li.append(opts);
+    if (hint) li.append(hint);
+    li.append(after);
+    if (run.chosen.has(i)) show(false);
+    list.append(li);
+  });
+  wrap.append(list, results);
+  const tally = update();
+  if (tally.done === total) finish(false);
+  host.append(wrap);
 }
 
 function hasFilter() {
@@ -829,6 +1536,8 @@ function render() {
   renderSources();
   syncUrl();
 
+  if (state.quiz) { simanRender++; renderQuiz(); return; }
+  document.querySelectorAll(".confetti").forEach((layer) => layer.remove());
   if (state.siman) { renderSiman(); return; }
   simanRender++;
 
@@ -884,6 +1593,7 @@ function syncUrl() {
   if (state.themes.size) params.set("t", [...state.themes].join("|"));
   if (state.sources.size) params.set("src", [...state.sources].join("|"));
   if (state.terms.length) params.set("q", state.terms.join("|"));
+  if (state.quiz) params.set("quiz", state.quiz);
   selfWrite = `#${params}`;
   history.replaceState(null, "", selfWrite);
 }
@@ -903,6 +1613,7 @@ function applyUrl() {
     if (state.data.themes.some((x) => x.slug === slug)) state.themes.add(slug);
   for (const name of split("src")) state.sources.add(name);
   state.terms = split("q");
+  state.quiz = params.get("quiz") || null;
 
   renderSections();
   render();
@@ -970,6 +1681,7 @@ function wire() {
 
   el("clear").onclick = () => {
     state.siman = null;
+    state.quiz = null;
     state.themes.clear(); state.sources.clear(); state.terms = [];
     input.value = "";
     renderSections();

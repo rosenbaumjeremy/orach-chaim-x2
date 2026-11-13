@@ -92,3 +92,21 @@ The text is one file per siman, fetched once and committed:
 python scripts/fetch_shulchan_aruch.py        # only what is missing
 python scripts/fetch_shulchan_aruch.py --all  # everything again
 ```
+
+## The nosei kelim and the quizzes
+
+From siman 167 on, a cloud routine adds two simanim a day (167-168 on 2026-11-13,
+then 169-170, ... through 697), following [ROUTINE.md](ROUTINE.md):
+
+- a "נושאי הכלים" panel on the siman's page: what the commentaries on the Shulchan
+  Aruch say, se'if by se'if, each point quoting its sources word for word from
+  Sefaria, with the words it explains underlined in the text
+  (`site/data/nk/<siman>.json`);
+- a quiz on the siman (`site/data/quiz/<siman>.json`), the same game as the parasha
+  quizzes on aliyah-yomit, and a quiz on a whole section of halachot drawn from all of
+  its simanim.
+
+Only Sefaria's "Commentary" links on the siman count as sources - no Gemara, halakha
+works or responsa. `scripts/nk_sources.py` gathers them, `scripts/check_nk.py` and
+`scripts/quiz.py` check every quote before anything is published, and
+`scripts/add_nk.py --due <date>` says which simanim are due.
