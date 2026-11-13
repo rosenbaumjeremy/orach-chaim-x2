@@ -27,6 +27,7 @@ scripts/     pipeline, run in this order
   cluster_themes.py   discovered  -> data/themes.json        (vocabulary)
   tag_themes.py       oc.json + themes.json -> data/tags.json
   build_site.py       everything  -> site/data/oc.json
+  fetch_shulchan_aruch.py  Sefaria -> site/data/sa/<siman>.json (the text itself)
 site/        the site itself: index.html, app.css, app.js
 data/        intermediate artefacts
 ```
@@ -75,3 +76,19 @@ theme that no post uses. After changing it, re-tag to apply.
 `scripts/build_site.py` hard-codes the 29 canonical Orach Chaim sections
 (הלכות הנהגת האדם בבוקר, הלכות ציצית, ... הלכות מגילה) as siman ranges, used
 to group the siman grid on the site.
+
+## The Shulchan Aruch text
+
+Choosing a siman opens it the way mishna-yomit opens a perek: the Shulchan
+Aruch text (Mechaber with the Rema's hagahot, from Sefaria) on the right, the
+group's summaries of that siman on the left. Every siman opens, with or
+without a summary yet. A "סעיף ו" or "סעיפים ד-ה" in a summary is a link that
+marks those se'ifim in the text (or opens the other siman the post was
+talking about).
+
+The text is one file per siman, fetched once and committed:
+
+```sh
+python scripts/fetch_shulchan_aruch.py        # only what is missing
+python scripts/fetch_shulchan_aruch.py --all  # everything again
+```

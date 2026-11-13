@@ -266,3 +266,117 @@ mark { background: #fdf1c0; color: inherit; padding: 0 1px; border-radius: 2px; 
   .resizer { display: none; }
   .sidebar-toggle { display: none; }
 }
+
+/* ---------- siman buttons: every siman opens; ones with a summary stand out ---------- */
+
+.simangrid button { color: #a9a49b; }
+.simangrid button.has { color: var(--ink); font-weight: 600; background: var(--gold-soft); }
+.simangrid button:hover { outline: 1px solid var(--accent); }
+.simangrid button.on { background: var(--accent); color: #fff; }
+
+/* ---------- the siman view: text on the right, the summaries on the left ---------- */
+/* the same layout and type as the perek view on mishna-yomit */
+
+:root {
+  --gold: #b8924a;
+  --gold-soft: #f6efe0;
+  --serif: "Frank Ruehl CLM", "SBL Hebrew", "Taamey Frank CLM", "Times New Roman", serif;
+}
+
+.simannav { display: flex; justify-content: space-between; gap: 8px; margin: 0 0 6px; }
+.simannav .next { margin-inline-start: auto; }
+.siman-head .section-name { margin: 0; font-size: 13px; font-weight: 600; color: var(--gold); }
+.siman-head h2 { margin: 0; font-size: 26px; font-family: var(--serif); color: var(--ink); }
+.siman-head .siman-meta { margin: 2px 0 14px; color: var(--muted); font-size: 14px; }
+.siman-head a { color: var(--accent); }
+
+.layout {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 18px; align-items: start;
+}
+.text-col, .side-col {
+  position: sticky; top: 92px; max-height: calc(100vh - 106px);
+  overflow: auto; min-width: 0;
+}
+.side-col { padding-inline-end: 4px; }
+
+.sa-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 18px 12px; }
+.seif {
+  font-family: var(--serif); font-size: 21px; line-height: 1.95;
+  padding: 10px 0; border-bottom: 1px dashed var(--line); scroll-margin-top: 100px;
+  border-radius: 4px; transition: background .2s;
+}
+.seif:last-child { border-bottom: 0; }
+.seif .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 28px; padding: 0 4px; border-radius: 14px; background: var(--accent); color: #fff;
+  font: 600 14px system-ui, sans-serif; margin-inline-end: 8px; vertical-align: 3px;
+}
+.seif b { font-weight: 700; }
+/* the Rema, set smaller as in the printed page */
+.seif .rema { font-size: .84em; color: #4a3f2c; }
+.seif .haga { color: var(--gold); font-weight: 700; }
+.seif.lit { background: var(--gold-soft); }
+.seif.flash { animation: flash 1.6s ease; }
+@keyframes flash { 0%, 45% { background: var(--gold-soft); } 100% { background: transparent; } }
+
+.legend { font-size: 12.5px; color: var(--muted); margin: 6px 2px 0; }
+.legend span { margin-inline-end: 14px; }
+.legend .lr { color: #4a3f2c; }
+.legend .lr::before { content: "●"; color: var(--gold); margin-inline-end: 4px; }
+.legend .ls { border-bottom: 2px solid var(--gold); }
+
+details.box { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; }
+details.box > summary {
+  cursor: pointer; padding: 10px 14px; font-weight: 600; color: var(--accent);
+  list-style: none; display: flex; align-items: center; gap: 8px;
+}
+details.box > summary::-webkit-details-marker { display: none; }
+details.box > summary::before { content: "◂"; color: var(--gold); transition: transform .15s; display: inline-block; }
+details.box[open] > summary::before { transform: rotate(90deg); }
+details.box > .body { padding: 0 14px 14px; }
+details.box > summary .count {
+  margin: 0; margin-inline-start: auto; font-size: 12px; font-weight: 500; color: var(--muted);
+  background: var(--bg); border-radius: 10px; padding: 1px 8px;
+}
+.muted { color: var(--muted); }
+
+.toolbar { display: flex; gap: 8px; margin: -4px 0 8px; }
+.toolbar button { border: 1px solid var(--line); background: var(--bg); border-radius: 6px; font: inherit; font-size: 12.5px; padding: 2px 9px; cursor: pointer; color: var(--muted); }
+.toolbar button:hover { color: var(--accent); border-color: var(--accent); }
+
+details.item {
+  border: 1px solid var(--line); border-inline-start: 4px solid var(--gold);
+  border-radius: var(--radius); margin: 8px 0; background: #fff;
+}
+details.item > summary {
+  cursor: pointer; padding: 8px 12px; display: flex; gap: 8px; align-items: baseline;
+  list-style: none; font-weight: 600;
+}
+details.item > summary::-webkit-details-marker { display: none; }
+details.item > summary .ttl { flex: 1; }
+details.item > summary .span,
+details.item > summary .date { flex: none; font: 500 11.5px system-ui, sans-serif; color: var(--muted); }
+details.item > summary .span { color: var(--accent); background: var(--accent-soft); border-radius: 10px; padding: 1px 8px; }
+details.item .body { padding: 0 14px 12px; font-size: 15px; line-height: 1.7; }
+details.item .posttext p { margin: 0 0 .85em; }
+details.item .posttext a { color: var(--accent); }
+.postbar { display: flex; justify-content: flex-end; margin: -2px 0 4px; }
+
+button.seifref {
+  border: 0; background: none; padding: 0 1px; font: inherit; color: inherit; cursor: pointer;
+  border-bottom: 2px solid var(--gold); border-radius: 2px;
+}
+button.seifref:hover { background: var(--gold-soft); color: var(--accent); }
+
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 1fr; }
+  .text-col, .side-col { position: static; max-height: none; overflow: visible; }
+}
+
+@media print {
+  .layout { display: block !important; }
+  .text-col, .side-col { position: static !important; max-height: none !important; overflow: visible !important; }
+  .simannav, .postbar { display: none !important; }
+  .seif.flash { animation: none; }
+}

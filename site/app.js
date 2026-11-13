@@ -25,11 +25,27 @@ const UI = {
   by: "נכתב על ידי",
   listen: "הקראה",
   stopListening: "עצור הקראה",
+  saText: "שולחן ערוך",
+  posts: "סיכומי הלימוד",
+  noPosts: "עדיין אין סיכום לסימן הזה — הטקסט לפניכם.",
+  noMatchingPosts: "אין סיכומים לסימן הזה שמתאימים לסינון.",
+  sefaria: "הטקסט בספריא",
+  loading: "טוען את הטקסט…",
+  failed: "לא הצלחנו לטעון את הטקסט. אפשר לקרוא אותו בספריא.",
+  siman: (n) => `סימן ${hebrewNumber(n)}`,
+  prev: (n) => `→ סימן ${hebrewNumber(n)}`,
+  next: (n) => `סימן ${hebrewNumber(n)} ←`,
+  rema: "הגה — דברי הרמ״א",
+  seifLegend: "לחיצה על הפניה לסעיף בסיכום מסמנת אותו בטקסט",
+  expand: "פתח הכל",
+  collapse: "סגור הכל",
 };
 
 const state = {
   data: null,
   siman: null,
+  // a se'if to flash once the siman's text is on screen (from a link)
+  seif: null,
   themes: new Set(),
   sources: new Set(),
   terms: [],
@@ -158,12 +174,17 @@ function simanButton(n, covered) {
   const button = document.createElement("button");
   button.type = "button";
   button.textContent = hebrewNumber(n);
-  button.disabled = !covered.has(n);
+  // every siman opens - its Shulchan Aruch text is always there; the ones
+  // with a summary from the group stand out
+  button.classList.toggle("has", covered.has(n));
+  button.title = covered.has(n) ? "" : "טקסט בלבד — עדיין אין סיכום";
   button.classList.toggle("on", state.siman === n);
   button.onclick = () => {
     state.siman = state.siman === n ? null : n;
+    state.seif = null;
     renderSections();
     render();
+    if (state.siman) toSimanTop();
   };
   return button;
 }
@@ -389,16 +410,24 @@ function renderChips() {
 const escapeHtml = (s) => s.replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-function formatBody(text) {
+function formatBody(text, entry) {
+  // which siman a "סעיף ז" refers to: the last siman the post named before
+  // it, or the post's first siman. Carried across paragraphs.
+  let context = entry ? entry.simanim[0] : null;
   return text.split(/\n{2,}/).map((block) => {
     let html = escapeHtml(block).replace(/\n/g, " ");
+    if (entry) {
+      [html, context] = linkSeifim(html, entry, context);
+    }
     html = html.replace(/https?:\/\/[^\s<]+/g,
       (url) => `<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
     html = html.replace(/\*([^*\n]+)\*/g, "<strong>$1</strong>"); // whatsapp bold
     for (const term of state.terms) {
       if (!term.trim()) continue;
       const pattern = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
-      html = html.replace(pattern, "<mark>$1</mark>");
+      // only in the text between tags, never inside a tag's attributes
+      html = html.replace(/(<[^>]*>)|([^<]+)/g, (m, tag, text) =>
+        tag || text.replace(pattern, "<mark>$1</mark>"));
     }
     return `<p>${html}</p>`;
   }).join("");
@@ -654,6 +683,311 @@ function card(entry) {
   return node;
 }
 
+/* ---------- the siman view: Shulchan Aruch text beside the summaries ---------- */
+
+const HEB_VALUE = {
+  "א": 1, "ב": 2, "ג": 3, "ד": 4, "ה": 5, "ו": 6, "ז": 7, "ח": 8, "ט": 9,
+  "י": 10, "כ": 20, "ך": 20, "ל": 30, "מ": 40, "ם": 40, "נ": 50, "ן": 50,
+  "ס": 60, "ע": 70, "פ": 80, "ף": 80, "צ": 90, "ץ": 90, "ק": 100, "ר": 200,
+  "ש": 300, "ת": 400,
+};
+
+/** י"ג -> 13; null for anything that isn't a numeral (letters must not increase) */
+function hebrewValue(token) {
+  const letters = [...token.replace(/&quot;|["'״׳]/g, "")];
+  if (!letters.length || letters.length > 4) return null;
+  const values = letters.map((ch) => HEB_VALUE[ch]);
+  if (values.some((v) => !v)) return null;
+  if (!values.every((v, i) => i === 0 || v <= values[i - 1] || (values[i - 1] === 9 && v <= 7))) return null;
+  const word = letters.join("");
+  if (NOT_A_NUMERAL_WORD.has(word)) return null;
+  return values.reduce((a, b) => a + b, 0);
+}
+
+// a numeral as the posts write it: letters, maybe with a geresh/gershayim
+const NUM = String.raw`[א-ת]{1,3}(?:(?:&quot;|["״])[א-ת])?['׳]?`;
+const REF_RE = new RegExp(
+  String.raw`(?<![א-ת])([ובלה]?)(סימנים|סימן|סעיפים|סעיף|סע['׳])\s+(${NUM})(?:\s*[-–־]\s*(${NUM}))?(?![א-ת])`, "g");
+
+// "סעיף ו" / "סעיפים ד-ה" in a post -> a button that marks that se'if in the
+// text beside it. Returns the html and the siman in context afterwards.
+function linkSeifim(html, entry, context) {
+  let current = context;
+  const out = html.replace(REF_RE, (match, prefix, keyword, first, second) => {
+    const a = hebrewValue(first);
+    if (!a) return match;
+    if (keyword.startsWith("סימ")) {
+      if (entry.simanim.includes(a)) current = a;
+      return match;
+    }
+    const b = second ? hebrewValue(second) : a;
+    if (!b || b < a || b - a > 12) return match;
+    return `${prefix}<button type="button" class="seifref" data-siman="${current}" data-from="${a}" data-to="${b}">${match.slice(prefix.length)}</button>`;
+  });
+  return [out, current];
+}
+
+const textCache = new Map();
+
+function loadSiman(n) {
+  if (!textCache.has(n)) {
+    textCache.set(n, fetch(`data/sa/${n}.json`).then((r) => {
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    }).catch((err) => { textCache.delete(n); throw err; }));
+  }
+  return textCache.get(n);
+}
+
+function sefariaUrl(n, seif) {
+  return `https://www.sefaria.org/Shulchan_Arukh%2C_Orach_Chayim.${n}${seif ? "." + seif : ""}?lang=he`;
+}
+
+function node(tag, cls, text) {
+  const x = document.createElement(tag);
+  if (cls) x.className = cls;
+  if (text != null) x.textContent = text;
+  return x;
+}
+
+/** text with the search terms marked, as DOM nodes (never innerHTML) */
+function withMarks(text) {
+  const terms = state.terms.filter((t) => t.trim());
+  if (!terms.length) return [document.createTextNode(text)];
+  const pattern = new RegExp(`(${terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "gi");
+  return text.split(pattern).map((part, i) =>
+    i % 2 ? node("mark", null, part) : document.createTextNode(part));
+}
+
+function seifNode(runs, i) {
+  const p = node("div", "seif");
+  p.id = `seif-${i + 1}`;
+  p.append(node("span", "num", hebrewNumber(i + 1).replace(/['"]/g, "")));
+  for (const [kind, text] of runs) {
+    if (kind === "rema") {
+      const span = node("span", "rema");
+      // "הגה" opens each of the Rema's glosses
+      text.split(/(?<![א-ת])(הגה)(?![א-ת])/).forEach((part, j) => {
+        if (j % 2) span.append(node("b", "haga", part));
+        else span.append(...withMarks(part));
+      });
+      p.append(span);
+    } else if (kind === "b") {
+      const b = node("b");
+      b.append(...withMarks(text));
+      p.append(b);
+    } else {
+      p.append(...withMarks(text));
+    }
+  }
+  return p;
+}
+
+// Bring a node into view: inside its own scrolling column on wide screens,
+// in the page when the columns are stacked (same as the Mishnah site).
+function reveal(target) {
+  const col = target.closest(".text-col, .side-col");
+  if (col && col.scrollHeight > col.clientHeight + 1) {
+    const top = target.getBoundingClientRect().top - col.getBoundingClientRect().top + col.scrollTop - 8;
+    col.scrollTo({ top, behavior: "smooth" });
+    const lay = col.closest(".layout").getBoundingClientRect().top;
+    if (lay > 140 || lay < 70) window.scrollBy({ top: lay - 90 });
+  } else {
+    window.scrollTo({ top: target.getBoundingClientRect().top + scrollY - 96, behavior: "smooth" });
+  }
+}
+
+function seifRange(from, to) {
+  const out = [];
+  for (let i = from; i <= to; i++) {
+    const x = el(`seif-${i}`);
+    if (x) out.push(x);
+  }
+  return out;
+}
+
+function flashSeifim(from, to) {
+  const nodes = seifRange(from, to);
+  if (!nodes.length) return;
+  reveal(nodes[0]);
+  for (const x of nodes) {
+    x.classList.remove("flash"); void x.offsetWidth; x.classList.add("flash");
+  }
+}
+
+function postItem(entry, open) {
+  const d = node("details", "item post");
+  d.open = open;
+  d.dataset.pdf = UI.posts;
+  const s = node("summary");
+  s.append(node("span", "ttl", entry.title || simanRef(entry)));
+  if (entry.simanim.length > 1) {
+    const span = entry.simanim.length > 1
+      ? `${hebrewNumber(entry.simanim[0])}–${hebrewNumber(entry.simanim[entry.simanim.length - 1])}` : "";
+    s.append(node("span", "span", span));
+  }
+  if (entry.date) s.append(node("span", "date", entry.date));
+  d.append(s);
+
+  const body = node("div", "body");
+  if ("speechSynthesis" in window) {
+    const bar = node("div", "postbar");
+    const listen = node("button", "listen", UI.listen);
+    listen.type = "button";
+    listen.onclick = () => toggleSpeak(listen, entry.text);
+    bar.append(listen);
+    body.append(bar);
+  }
+  const text = node("div", "posttext");
+  text.innerHTML = formatBody(entry.text, entry);
+  body.append(text);
+
+  if (entry.themes.length || entry.sources.length) {
+    const tags = node("div", "tags");
+    for (const name of entry.sources || []) {
+      const tag = node("button", "tag source", name);
+      tag.type = "button";
+      tag.onclick = () => { state.sources.add(name); render(); };
+      tags.append(tag);
+    }
+    for (const slug of entry.themes) {
+      const theme = state.data.themes.find((x) => x.slug === slug);
+      if (!theme) continue;
+      const tag = node("button", "tag theme", theme.label);
+      tag.type = "button";
+      tag.onclick = () => { state.themes.add(slug); render(); };
+      tags.append(tag);
+    }
+    body.append(tags);
+  }
+
+  const meta = node("div", "meta");
+  if (entry.writer) meta.append(`${UI.by} ${writerLabel(entry.writer)}`);
+  if (entry.links.length) {
+    const span = node("span", null, `${UI.links}: `);
+    entry.links.slice(0, 4).forEach((url, i) => {
+      const a = node("a", null, String(i + 1));
+      a.href = url; a.target = "_blank"; a.rel = "noopener";
+      span.append(a, " ");
+    });
+    meta.append(span);
+  }
+  if (meta.childNodes.length) body.append(meta);
+  d.append(body);
+  return d;
+}
+
+function postsBox(posts, totalForSiman) {
+  const box = node("details", "box");
+  box.open = true;
+  const s = node("summary", null, UI.posts);
+  s.append(node("span", "count", String(posts.length)));
+  box.append(s);
+  const body = node("div", "body");
+  if (!posts.length) {
+    body.append(node("p", "muted", totalForSiman ? UI.noMatchingPosts : UI.noPosts));
+  } else {
+    if (posts.length > 1) {
+      const bar = node("div", "toolbar");
+      const ex = node("button", null, UI.expand), co = node("button", null, UI.collapse);
+      ex.type = co.type = "button";
+      ex.onclick = () => body.querySelectorAll("details.item").forEach((x) => (x.open = true));
+      co.onclick = () => body.querySelectorAll("details.item").forEach((x) => (x.open = false));
+      bar.append(ex, co);
+      body.append(bar);
+    }
+    posts.forEach((entry, i) => body.append(postItem(entry, i === 0)));
+  }
+  box.append(body);
+  return box;
+}
+
+// wide screens: back to the top; phones, where the siman grid sits above the
+// results, straight to the text
+function toSimanTop() {
+  if (matchMedia("(max-width: 780px)").matches) el("results").scrollIntoView();
+  else window.scrollTo({ top: 0 });
+}
+
+function simanNav(n) {
+  const nav = node("div", "simannav");
+  const go = (to) => () => {
+    state.siman = to; state.seif = null;
+    renderSections(); render(); toSimanTop();
+  };
+  if (n > 1) {
+    const prev = node("button", "ghost small prev", UI.prev(n - 1));
+    prev.type = "button"; prev.onclick = go(n - 1);
+    nav.append(prev);
+  }
+  if (n < state.data.max_siman) {
+    const next = node("button", "ghost small next", UI.next(n + 1));
+    next.type = "button"; next.onclick = go(n + 1);
+    nav.append(next);
+  }
+  return nav;
+}
+
+let simanRender = 0;
+
+async function renderSiman() {
+  const n = state.siman;
+  const ticket = ++simanRender;
+  const list = el("list");
+  list.innerHTML = "";
+  el("empty").hidden = true;
+
+  const allPosts = state.data.entries.filter((e) => e.simanim.includes(n));
+  const posts = filtered();
+  el("count").textContent = "";
+
+  const head = node("div", "siman-head");
+  head.dataset.pdfHead = "";
+  const section = findSection(n);
+  if (section) head.append(node("p", "section-name", section.name));
+  head.append(node("h2", null, UI.siman(n)));
+  const meta = node("p", "siman-meta");
+  head.append(meta);
+  list.append(simanNav(n), head);
+
+  const layout = node("div", "layout");
+  const textCol = node("div", "text-col");
+  textCol.dataset.pdf = UI.saText;
+  const card = node("div", "sa-card");
+  card.append(node("p", "muted", UI.loading));
+  textCol.append(card);
+  const side = node("div", "side-col");
+  side.append(postsBox(posts, allPosts.length));
+  layout.append(textCol, side);
+  list.append(layout);
+
+  let data = null;
+  try { data = await loadSiman(n); } catch { /* shown below */ }
+  if (ticket !== simanRender) return;   // the reader moved on while it loaded
+
+  const link = node("a", null, UI.sefaria);
+  link.href = sefariaUrl(n); link.target = "_blank"; link.rel = "noopener";
+  if (data && data.title) meta.append(`${data.title} · `);
+  meta.append(link);
+
+  card.innerHTML = "";
+  if (!data) {
+    card.append(node("p", "muted", UI.failed));
+    return;
+  }
+  data.seifim.forEach((runs, i) => card.append(seifNode(runs, i)));
+  const legend = node("p", "legend");
+  legend.append(node("span", "lr", UI.rema));
+  if (posts.length) legend.append(node("span", "ls", UI.seifLegend));
+  textCol.append(legend);
+
+  if (state.seif) {
+    const seif = state.seif;
+    state.seif = null;
+    requestAnimationFrame(() => flashSeifim(seif, seif));
+  }
+}
+
 function hasFilter() {
   return !!(state.siman || state.themes.size || state.sources.size || state.terms.length);
 }
@@ -666,6 +1000,9 @@ function render() {
   renderThemes();
   renderSources();
   syncUrl();
+
+  if (state.siman) { renderSiman(); return; }
+  simanRender++;
 
   // nothing chosen yet: leave the reading area empty rather than dumping all
   // 300-odd posts, which is neither a useful default nor quick to paint
@@ -715,6 +1052,7 @@ let selfWrite = "";
 function syncUrl() {
   const params = new URLSearchParams();
   if (state.siman) params.set("s", state.siman);
+  if (state.siman && state.seif) params.set("seif", state.seif);
   if (state.themes.size) params.set("t", [...state.themes].join("|"));
   if (state.sources.size) params.set("src", [...state.sources].join("|"));
   if (state.terms.length) params.set("q", state.terms.join("|"));
@@ -728,7 +1066,9 @@ function applyUrl() {
   state.sources.clear();
 
   const siman = Number(params.get("s"));
-  state.siman = siman && findSection(siman) ? siman : null;
+  state.siman = siman >= 1 && siman <= state.data.max_siman ? siman : null;
+  const seif = Number(params.get("seif"));
+  state.seif = state.siman && seif > 0 ? seif : null;
 
   const split = (key) => (params.get(key) ? params.get(key).split("|") : []);
   for (const slug of split("t"))
@@ -782,6 +1122,23 @@ function wire() {
       box.hidden = true;
     }
   });
+
+  const list = el("list");
+  list.addEventListener("click", (event) => {
+    const ref = event.target.closest("button.seifref");
+    if (!ref) return;
+    const siman = Number(ref.dataset.siman), from = Number(ref.dataset.from), to = Number(ref.dataset.to);
+    if (siman === state.siman) { flashSeifim(from, to); return; }
+    state.siman = siman; state.seif = from;
+    renderSections(); render(); toSimanTop();
+  });
+  const lightRef = (event, on) => {
+    const ref = event.target.closest("button.seifref");
+    if (!ref || Number(ref.dataset.siman) !== state.siman) return;
+    for (const x of seifRange(Number(ref.dataset.from), Number(ref.dataset.to))) x.classList.toggle("lit", on);
+  };
+  list.addEventListener("mouseover", (event) => lightRef(event, true));
+  list.addEventListener("mouseout", (event) => lightRef(event, false));
 
   el("clear").onclick = () => {
     state.siman = null;
