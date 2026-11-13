@@ -23,8 +23,6 @@ const UI = {
   untagged: "הנושאים עדיין לא סומנו — הסינון לפי סימן, מקור וטקסט חופשי פעיל.",
   links: "קישורים",
   by: "נכתב על ידי",
-  listen: "הקראה",
-  stopListening: "עצור הקראה",
   saText: "שולחן ערוך",
   posts: "סיכומי הלימוד",
   noPosts: "עדיין אין סיכום לסימן הזה — הטקסט לפניכם.",
@@ -433,160 +431,6 @@ function formatBody(text, entry) {
   }).join("");
 }
 
-/* ---------- read aloud ---------- */
-
-// the browser's own TTS, not a cloud API: no key, no cost, no backend - the
-// tradeoff is that Hebrew voice availability and quality vary a lot by OS
-let speakingButton = null;
-
-// shared by both lists below: matches the bare form with an optional single-
-// letter prefix (ה/ב/ל/כ/ו/מ/ש - "השו"ע", "כאורח חיים" etc.), preserving the
-// prefix in the output. Boundary checks keep a fix from also matching inside
-// an unrelated longer word that happens to contain the same letters.
-function applyReplacements(text, pairs) {
-  let result = text;
-  for (const [bare, replacement] of pairs) {
-    const pattern = new RegExp(`(?<![א-ת])([הובלכמש]?)${bare}(?![א-ת])`, "g");
-    result = result.replace(pattern, (match, prefix) => `${prefix}${replacement}`);
-  }
-  return result;
-}
-
-// the source text has no niqqud, so the voice has to guess vowels on
-// ambiguous words - this fixes specific ones as they come up. Same word,
-// just vowelized; for abbreviations that expand to different words, see
-// ACRONYMS below.
-const PRONUNCIATION = [
-  ["אורח חיים", "אוֹרַח חַיִּים"], // not אוֹרֵחַ (guest) - this is "the way of life"
-];
-
-// abbreviations (written with a geresh/gershayim) that would otherwise be
-// read as a made-up word instead of what they actually stand for
-const ACRONYMS = [
-  ["שו\"ע", "שולחן ערוך"],
-];
-
-function withPronunciation(text) {
-  return applyReplacements(text, PRONUNCIATION);
-}
-
-function withAcronyms(text) {
-  return applyReplacements(text, ACRONYMS);
-}
-
-// Gemara citations like "(סוכה כג.)" cite a daf by gematria letters, not a
-// word - "כג" read as a syllable is wrong; it should be spelled out letter
-// by letter ("kaf, gimel"). Detected as: a known tractate name, then a short
-// letter-only token, ending the parenthetical - and only spelled out if that
-// token is actually gematria-shaped (letters non-increasing in value), so an
-// ordinary word that happens to end a citation-like parenthetical (e.g.
-// "(עיין שם.)") is left alone.
-const MASECHTOT = [
-  "ברכות", "שבת", "עירובין", "פסחים", "שקלים", "יומא", "סוכה", "ביצה",
-  "ראש השנה", "תענית", "מגילה", "מועד קטן", "חגיגה", "יבמות", "כתובות",
-  "נדרים", "נזיר", "סוטה", "גיטין", "קידושין", "בבא קמא", "בבא מציעא",
-  "בבא בתרא", "סנהדרין", "מכות", "שבועות", "עדיות", "עבודה זרה", "אבות",
-  "הוריות", "זבחים", "מנחות", "חולין", "בכורות", "ערכין", "תמורה",
-  "כריתות", "מעילה", "תמיד", "מדות", "קנים", "נדה",
-];
-
-const GEMATRIA_VALUES = {
-  "א": 1, "ב": 2, "ג": 3, "ד": 4, "ה": 5, "ו": 6, "ז": 7, "ח": 8, "ט": 9,
-  "י": 10, "כ": 20, "ל": 30, "מ": 40, "נ": 50, "ס": 60, "ע": 70, "פ": 80,
-  "צ": 90, "ק": 100, "ר": 200, "ש": 300, "ת": 400,
-};
-const FINAL_LETTERS = { "ך": "כ", "ם": "מ", "ן": "נ", "ף": "פ", "ץ": "צ" };
-const LETTER_NAMES = {
-  "א": "אָלֶף", "ב": "בֵּית", "ג": "גִּימֶל", "ד": "דָּלֶת", "ה": "הֵא",
-  "ו": "vav", "ז": "זַיִן", "ח": "חֵית", "ט": "טֵית", "י": "יוֹד", // Hebrew spellings of "vav" kept getting reread wrong - literal Latin text instead
-  "כ": "כָּף", "ל": "לָמֶד", "מ": "מֵם", "נ": "נוּן", "ס": "סָמֶךְ",
-  "ע": "עַיִן", "פ": "פֵּא", "צ": "צַדִי", "ק": "קוֹף", "ר": "רֵישׁ",
-  "ש": "שִׁין", "ת": "תָּו",
-};
-
-function isGematriaLike(token) {
-  const values = [...token].map((ch) => GEMATRIA_VALUES[FINAL_LETTERS[ch] || ch]);
-  if (values.some((v) => v === undefined)) return false;
-  return values.every((v, i) => i === 0 || v <= values[i - 1]);
-}
-
-// gematria-shaped by letter values, but genuinely common words rather than
-// numerals in these contexts - "שם" (ibid.), "זה"/"זו" (this), "שני" (second,
-// as in "the second paragraph") - each would otherwise get wrongly spelled
-// out letter by letter instead of read normally
-const NOT_A_NUMERAL_WORD = new Set(["שם", "זה", "זו", "שני"]);
-
-function spellOut(token) {
-  return [...token].map((ch) => LETTER_NAMES[FINAL_LETTERS[ch] || ch]).join(" ");
-}
-
-function isRealNumeral(token) {
-  return isGematriaLike(token) && !NOT_A_NUMERAL_WORD.has(token);
-}
-
-const DAF_RE = new RegExp(`(${MASECHTOT.join("|")})\\s+([א-ת]{1,4})[.:]`, "g");
-// a citation continuing "op. cit." style, with only the daf inside the
-// parens and the tractate named earlier in the sentence - e.g. "בברכות (סב.)"
-const BARE_DAF_RE = /\(([א-ת]{1,4})([.:])\)/g;
-
-function withDafRefs(text) {
-  return text
-    .replace(DAF_RE, (match, masechet, token) =>
-      isRealNumeral(token) ? `${masechet} ${spellOut(token)}` : match)
-    .replace(BARE_DAF_RE, (match, token) =>
-      isRealNumeral(token) ? `(${spellOut(token)})` : match);
-}
-
-// "סימן ז", "סעיף יב" - same problem as a daf citation: a gematria numeral
-// misread as a word. Bounded so the token can't be the start of a longer
-// word (e.g. "בסעיף זהיר..." never happens, but the same guard applies).
-// A range ("סעיפים ד-ו") gets the hyphen replaced with "עד" (through) -
-// "ד-ו" read as a single dashed token is just as wrong as either half alone.
-const SIMAN_REF_RE =
-  /(סימנים|סימן|סעיפים|סעיף)\s+([א-ת]{1,4})(?:\s*[-־–—]\s*([א-ת]{1,4}))?(?![א-ת])/g;
-
-function withSimanRefs(text) {
-  return text.replace(SIMAN_REF_RE, (match, keyword, first, second) => {
-    if (!isRealNumeral(first)) return match;
-    if (!second) return `${keyword} ${spellOut(first)}`;
-    if (!isRealNumeral(second)) return match;
-    return `${keyword} ${spellOut(first)} עַד ${spellOut(second)}`;
-  });
-}
-
-function hebrewVoice() {
-  if (!("speechSynthesis" in window)) return null;
-  return window.speechSynthesis.getVoices().find((v) => v.lang?.toLowerCase().startsWith("he")) || null;
-}
-
-function stopSpeaking() {
-  if (!speakingButton) return;
-  window.speechSynthesis.cancel();
-  speakingButton.textContent = UI.listen;
-  speakingButton.classList.remove("speaking");
-  speakingButton = null;
-}
-
-function toggleSpeak(button, text) {
-  const wasThisButton = speakingButton === button;
-  stopSpeaking();
-  if (wasThisButton) return; // clicking the active button just stops it
-
-  const utterance = new SpeechSynthesisUtterance(
-    withPronunciation(withAcronyms(withSimanRefs(withDafRefs(text)))));
-  utterance.lang = "he-IL";
-  const voice = hebrewVoice();
-  if (voice) utterance.voice = voice;
-  utterance.onend = utterance.onerror = () => {
-    if (speakingButton === button) stopSpeaking();
-  };
-
-  window.speechSynthesis.speak(utterance);
-  speakingButton = button;
-  button.textContent = UI.stopListening;
-  button.classList.add("speaking");
-}
-
 function card(entry) {
   const node = document.createElement("article");
   node.className = "card";
@@ -601,14 +445,6 @@ function card(entry) {
   heading.textContent = simanRef(entry);
   head.appendChild(heading);
 
-  if ("speechSynthesis" in window) {
-    const listen = document.createElement("button");
-    listen.type = "button";
-    listen.className = "listen";
-    listen.textContent = UI.listen;
-    listen.onclick = () => toggleSpeak(listen, entry.text);
-    head.appendChild(listen);
-  }
   node.appendChild(head);
 
   if (entry.title) {
@@ -691,6 +527,9 @@ const HEB_VALUE = {
   "ס": 60, "ע": 70, "פ": 80, "ף": 80, "צ": 90, "ץ": 90, "ק": 100, "ר": 200,
   "ש": 300, "ת": 400,
 };
+
+// gematria-shaped but ordinary words ("שם" = ibid., "זה", "זו", "שני")
+const NOT_A_NUMERAL_WORD = new Set(["שם", "זה", "זו", "שני"]);
 
 /** י"ג -> 13; null for anything that isn't a numeral (letters must not increase) */
 function hebrewValue(token) {
@@ -830,14 +669,6 @@ function postItem(entry, open) {
   d.append(s);
 
   const body = node("div", "body");
-  if ("speechSynthesis" in window) {
-    const bar = node("div", "postbar");
-    const listen = node("button", "listen", UI.listen);
-    listen.type = "button";
-    listen.onclick = () => toggleSpeak(listen, entry.text);
-    bar.append(listen);
-    body.append(bar);
-  }
   const text = node("div", "posttext");
   text.innerHTML = formatBody(entry.text, entry);
   body.append(text);
@@ -993,9 +824,6 @@ function hasFilter() {
 }
 
 function render() {
-  // the list is about to be rebuilt, so any card currently reading aloud
-  // is seconds from losing its button - stop it rather than leave it orphaned
-  stopSpeaking();
   renderChips();
   renderThemes();
   renderSources();

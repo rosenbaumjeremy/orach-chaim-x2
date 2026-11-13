@@ -227,7 +227,6 @@ html[dir="rtl"] .themerow { padding: 3px 20px 3px 8px; }
 }
 .cardhead { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .card h3 { margin: 0 0 2px; font-size: 16px; font-weight: 600; }
-.cardhead .listen { flex: none; white-space: nowrap; }
 .card .subtitle { margin: 0 0 9px; font-size: 14px; color: var(--muted); }
 
 .card .body { font-size: 15px; }
@@ -240,11 +239,10 @@ html[dir="rtl"] .themerow { padding: 3px 20px 3px 8px; }
 .card .body a { color: var(--accent); }
 
 .cardactions { display: flex; align-items: center; gap: 16px; margin-top: 6px; }
-.more, .listen {
+.more {
   border: 0; background: none; color: var(--accent);
   font: inherit; font-size: 13px; padding: 0; cursor: pointer;
 }
-.listen.speaking { color: var(--theme-ink); font-weight: 600; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
 .tag {
@@ -361,7 +359,6 @@ details.item > summary .span { color: var(--accent); background: var(--accent-so
 details.item .body { padding: 0 14px 12px; font-size: 15px; line-height: 1.7; }
 details.item .posttext p { margin: 0 0 .85em; }
 details.item .posttext a { color: var(--accent); }
-.postbar { display: flex; justify-content: flex-end; margin: -2px 0 4px; }
 
 button.seifref {
   border: 0; background: none; padding: 0 1px; font: inherit; color: inherit; cursor: pointer;
@@ -377,6 +374,6 @@ button.seifref:hover { background: var(--gold-soft); color: var(--accent); }
 @media print {
   .layout { display: block !important; }
   .text-col, .side-col { position: static !important; max-height: none !important; overflow: visible !important; }
-  .simannav, .postbar { display: none !important; }
+  .simannav { display: none !important; }
   .seif.flash { animation: none; }
 }
