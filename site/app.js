@@ -1046,7 +1046,7 @@ const QUIZ_UI = {
 const QUIZ_POINTS = 10, QUIZ_HINTED = 5, QUIZ_STREAK_BONUS = 5, QUIZ_STREAK_FROM = 3;
 const SECTION_SIZES = [10, 20, 30, 50, 100];
 const SECTION_DEFAULT = 20;
-const SIMAN_SIZES = [5, 10, 15, 20];
+const SIMAN_SIZES = [5, 10, 15];
 const SIMAN_DEFAULT = 10;
 const QUIZ_ALL = 1e9;
 const QUIZ_TYPES = ["din", "taam", "rema", "complete"];

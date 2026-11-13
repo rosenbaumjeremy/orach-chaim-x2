@@ -98,11 +98,13 @@ kelim** (they have their own panel). Write
    "h": "optional hint"}]}
 ```
 
-- **15-25 questions a siman** (a siman of three se'ifim or fewer: at least 6), in the
-  order of the se'ifim and spread over all of them, none repeating another.
+- **At most 15 questions a siman** - the best ones, not as many as possible: 15 for a
+  siman of 10 se'ifim or more (never under 10), and at most 10 for a siman of fewer
+  than 10 se'ifim (at least 5; at least 3 for three se'ifim or fewer). In the order of
+  the se'ifim, spread over the siman, none repeating another.
 - `"t"`, the type: `din` (מה הדין), `taam` (the reason the text gives), `rema` (what the
   Rema adds or rules, or who says what), `complete` (השלמת הלשון, a ___ blank in the
-  quote). Roughly: two thirds `din`, 3-5 each of `taam` and `rema`, 1-2 `complete`.
+  quote). Roughly: two thirds `din`, 2-3 each of `taam` and `rema`, at most 1 `complete`.
 - `"o"`: exactly 4 different answers, **the right one first** (the script shuffles them).
   Distractors are plausible - often the ruling of the next case, or of the other
   opinion - and clearly wrong by the text for what is asked. None of them may also be true.
@@ -122,9 +124,9 @@ python3 scripts/quiz.py --check /tmp/quiz/<siman>.json
 `check_nk.py` removes every source that is not a nosei kelim comment on that se'if or
 whose quote is not in it, drops points left with none and anchors not found, and exits 1
 under 8 points, under 4 works, without the Mishnah Berurah, or when one work holds more
-than half the citations. `quiz.py --check` refuses a quote not in its text, a bad `r`
-, a question on a commentary, a wrong type, or the wrong number of questions. On exit 1: read more, copy
-quotes exactly, fix, and run again. Then reread every quiz question against its se'if
+than half the citations. `quiz.py --check` refuses a quote not in its text, a bad `r`,
+a question on a commentary, a wrong type, or too many or too few questions for the
+siman. On exit 1: read more, copy quotes exactly, fix, and run again. Then reread every quiz question against its se'if
 and make sure the answer is right and no distractor is also true.
 
 ## Step 6 - publish

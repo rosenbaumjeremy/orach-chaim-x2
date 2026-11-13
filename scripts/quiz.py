@@ -21,7 +21,8 @@ The questions are on the Shulchan Aruch itself (the Mechaber and the Rema), neve
 nosei kelim. Every “quote” in the question and the explanation must appear word for word
 (letters only) in the text of the se'ifim in "r" (site/data/sa/<siman>.json). "..." skips
 words and "___" leaves a blank.
-A siman gets 12 to 25 questions; a very short siman (three se'ifim or fewer) at least 6.
+A siman of 10 se'ifim or more gets 10 to 15 questions (the best ones, not as many as
+possible); a shorter siman at most 10.
 The answers are shuffled (a fixed order per question) and the right one is recorded in "a".
 """
 import hashlib
@@ -34,7 +35,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "site" / "data"
 OUT = DATA / "quiz"
-MIN_Q, MAX_Q, MIN_SHORT = 12, 25, 6
+# a siman of 10 se'ifim or more gets 10-15 questions; a shorter one 5-10 (3-10 for three se'ifim or fewer)
+LONG_SIMAN = 10
+
+
+def limits(n_seifim):
+    if n_seifim >= LONG_SIMAN:
+        return 10, 15
+    return (3 if n_seifim <= 3 else 5), 10
 
 # question types (the reader can pick which to play); the site has the labels
 TYPES = {
@@ -81,9 +89,9 @@ def check(draft):
     seifim = [" ".join(t for _, t in runs) for runs in sa["seifim"]]
     problems, out = [], []
     n_q = len(draft["questions"])
-    low = MIN_SHORT if len(seifim) <= 3 else MIN_Q
-    if not low <= n_q <= MAX_Q:
-        problems.append(f"siman {siman}: {n_q} questions (want {low}-{MAX_Q})")
+    low, high = limits(len(seifim))
+    if not low <= n_q <= high:
+        problems.append(f"siman {siman}: {n_q} questions for {len(seifim)} se'ifim (want {low}-{high})")
     seen = set()
     for n, q in enumerate(draft["questions"], 1):
         where = f"siman {siman} #{n}"
