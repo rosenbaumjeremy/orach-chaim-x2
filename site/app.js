@@ -709,6 +709,13 @@ function postItem(entry, open) {
   d.append(s);
 
   const body = node("div", "body");
+  // the group's mark ("מבית שניים ליום") on each of its summaries
+  const logo = node("img", "postlogo");
+  logo.src = "logo-shnayim.jpg";
+  logo.alt = "אורח חיים בשנה — מבית שניים ליום";
+  logo.width = 320; logo.height = 251;
+  logo.loading = "lazy";
+  body.append(logo);
   const text = node("div", "posttext");
   text.innerHTML = formatBody(entry.text, entry);
   body.append(text);

@@ -359,6 +359,13 @@ details.item > summary .span,
 details.item > summary .date { flex: none; font: 500 11.5px system-ui, sans-serif; color: var(--muted); }
 details.item > summary .span { color: var(--accent); background: var(--accent-soft); border-radius: 10px; padding: 1px 8px; }
 details.item .body { padding: 0 14px 12px; font-size: 15px; line-height: 1.7; }
+details.item.post .body::after { content: ""; display: block; clear: both; }
+.postlogo {
+  float: left; width: 96px; height: auto; margin: 4px 12px 6px 0;
+  border-radius: 6px; background: #fff;
+}
+@media (max-width: 560px) { .postlogo { width: 72px; } }
+@media print { .postlogo { width: 80px; } }
 details.item .posttext p { margin: 0 0 .85em; }
 details.item .posttext a { color: var(--accent); }
 
