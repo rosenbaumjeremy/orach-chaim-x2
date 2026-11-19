@@ -1,0 +1,176 @@
+{
+ "siman": 105,
+ "date": "2026-11-19",
+ "overview": "הסימן קובע שהמתפלל שתי תפלות זו אחר זו ממתין ביניהן כדי הילוך ארבע אמות, כדי שתהא דעתו מיושבת להתפלל בלשון תחינה. הנושאי כלים מבארים באילו תפלות מדובר, מאימתי מונים את השיעור, ומה הדין כשאינו חוזר למקומו.",
+ "points": [
+  {
+   "seif": 1,
+   "title": "תפלת י\"ח",
+   "anchor": "המתפלל שתי תפלות זו אחר זו",
+   "text": "המגן אברהם והבאר היטב: דוקא תפלת שמונה עשרה.",
+   "sources": [
+    {
+     "name": "מגן אברהם",
+     "ref": "Magen Avraham 105:1",
+     "quote": "דוקא תפלת י\"ח",
+     "work": "Magen Avraham"
+    },
+    {
+     "name": "באר היטב",
+     "ref": "Ba'er Hetev on Shulchan Arukh, Orach Chayim 105:1",
+     "quote": "דוקא תפלת י\"ח",
+     "work": "Ba'er Hetev"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "שחרית ומוסף",
+   "anchor": "המתפלל שתי תפלות זו אחר זו",
+   "text": "האליה רבה והמשנה ברורה: כגון שחרית ומוסף, או ששכח ולא התפלל ומשלים בזמן התפלה שלאחריה. כף החיים: כגון במוספין.",
+   "sources": [
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 105:1",
+     "quote": "כגון שחרית ומוסף או ששכח ולא התפלל",
+     "work": "Eliyah Rabbah"
+    },
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 105:1",
+     "quote": "וצריך להשלימה בזמן תפלה שלאחריה",
+     "work": "Mishnah Berurah"
+    },
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 105:1:1",
+     "quote": "כגון במוספין או ששכח ולא התפלל",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "אחר עושה שלום",
+   "anchor": "צריך להמתין בין זו לזו כדי הילוך ד' אמות",
+   "text": "האליה רבה והמשנה ברורה: השיעור הוא אחר שעקר רגליו ואמר \"עושה שלום\". כף החיים מביא מן הב\"ח: ישב וישהה כדי הילוך ארבע אמות.",
+   "sources": [
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 105:2",
+     "quote": "פירוש אחר שעקר את רגליו ואמר עושה שלום",
+     "work": "Eliyah Rabbah"
+    },
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 105:2",
+     "quote": "ושיעור זה צריך להיות אחר שעקר רגליו",
+     "work": "Mishnah Berurah"
+    },
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 105:2:1",
+     "quote": "ישב וישהה כדי הילוך ד\"א",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "במקום שעומד",
+   "anchor": "כדי הילוך ד' אמות",
+   "text": "המגן אברהם והבאר היטב: אפילו אינו רוצה לחזור למקומו, אלא מתפלל במקום שעומד שם. הלבושי שרד מבאר: שאם רוצה לחזור - בלאו הכי צריך לשהות, אפילו בלי תפלה אחרת.",
+   "sources": [
+    {
+     "name": "מגן אברהם",
+     "ref": "Magen Avraham 105:2",
+     "quote": "אפילו אינו רוצה לחזור למקומו",
+     "work": "Magen Avraham"
+    },
+    {
+     "name": "באר היטב",
+     "ref": "Ba'er Hetev on Shulchan Arukh, Orach Chayim 105:2",
+     "quote": "אלא מתפלל במקום שעומד שם",
+     "work": "Ba'er Hetev"
+    },
+    {
+     "name": "לבושי שרד",
+     "ref": "Levushei Serad on Shulchan Arukh, Orach Chayim 105:1",
+     "quote": "אפילו בלי תפלה אחרת",
+     "work": "Levushei Serad"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "לחזור למקומו",
+   "anchor": "כדי הילוך ד' אמות",
+   "text": "המשנה ברורה: אבל לחזור למקומו, אפילו אינו רוצה להתפלל שנית - צריך להמתין, כמבואר בסימן קכ\"ג.",
+   "sources": [
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 105:4",
+     "quote": "אבל לחזור למקומו אפי' אינו רוצה להתפלל שנית",
+     "work": "Mishnah Berurah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "לא עקר רגליו",
+   "anchor": "צריך להמתין בין זו לזו",
+   "text": "המשנה ברורה מביא מספר שולחן שלמה: אם סיים שמונה עשרה ועדיין לא עקר רגליו, ונזכר שטעה וצריך לחזור ולהתפלל - ימתין כזה. כף החיים: והוא הדין לש\"ץ שחוזר התפלה.",
+   "sources": [
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 105:3",
+     "quote": "אף שעדיין לא עקר רגליו",
+     "work": "Mishnah Berurah"
+    },
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 105:3:1",
+     "quote": "וה\"ה לש\"ץ שחוזר התפלה",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "אשרי",
+   "anchor": "כדי הילוך ד' אמות",
+   "text": "כף החיים מציין לסימן ק\"ח, ששם כתב שיאמר \"אשרי\" בין תפלה לתפלה.",
+   "sources": [
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 105:5:1",
+     "quote": "דיאמר אשרי בין תפלה לתפלה",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "בלשון תחינה",
+   "anchor": "כדי שתהא דעתו מיושבת להתפלל בלשון תחינה",
+   "text": "החכמת שלמה מציין שמקור הדין במסכת ברכות: \"כדי שתתחונן דעתו עליו\", שנאמר \"ואתחנן אל ה'\".",
+   "sources": [
+    {
+     "name": "חכמת שלמה",
+     "ref": "Chokhmat Shlomo on Shulchan Arukh, Orach Chayim 105:1",
+     "quote": "כדי שתתחונן דעתו עליו",
+     "work": "Chokhmat Shlomo"
+    }
+   ]
+  }
+ ],
+ "sources_consulted": [
+  "אליה רבה",
+  "באר היטב",
+  "חכמת שלמה",
+  "כף החיים",
+  "לבושי שרד",
+  "מגן אברהם",
+  "משנה ברורה"
+ ]
+}
