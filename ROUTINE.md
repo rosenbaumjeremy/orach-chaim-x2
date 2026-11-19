@@ -1,7 +1,8 @@
 # Nosei kelim routine
 
 Instructions for the cloud routine that runs every morning at 03:00 Israel time. Two
-simanim a day (167-168 on 2026-11-13, 169-170 on the 14th, and so on to 697), it
+simanim a day (it began with 167-168 on 2026-11-13; after 167-193 were done ahead, it
+restarts with 194-195 on 2026-11-20, 196-197 on the 21st, and so on to 697), it
 studies what the nosei kelim on Sefaria say on each siman, writes a brief for the
 "נושאי הכלים" panel on the siman's page, writes the siman's quiz (חידון), and
 publishes both to the site.

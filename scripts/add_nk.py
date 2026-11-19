@@ -3,8 +3,9 @@
     python3 scripts/add_nk.py --due 2026-11-14     # simanim due by that date and not yet published
     python3 scripts/add_nk.py /tmp/nk-brief.json   # file a checked brief
 
-The schedule: two simanim a day, starting with 167-168 on 2026-11-13
-(169-170 on the 14th, and so on through siman 697). --due lists, in order,
+The schedule: two simanim a day. It began with 167-168 on 2026-11-13;
+167-193 were then done ahead of time, so it restarts with 194-195 on
+2026-11-20 (196-197 on the 21st, and so on through siman 697). --due lists, in order,
 every siman whose day has come and that has no file yet - normally today's
 two, more if a day was missed (at most 6, so one run never balloons).
 
@@ -19,8 +20,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 NK = ROOT / "site" / "data" / "nk"
-START_DATE = datetime.date(2026, 11, 13)
-START_SIMAN = 167
+START_DATE = datetime.date(2026, 11, 20)
+START_SIMAN = 194
 PER_DAY = 2
 LAST = 697
 MAX_PER_RUN = 6
