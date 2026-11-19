@@ -1,0 +1,200 @@
+{
+ "siman": 111,
+ "date": "2026-11-19",
+ "overview": "הסימן עוסק בסמיכת גאולה לתפלה: שלא להפסיק בין \"גאל ישראל\" לשמונה עשרה, אפילו באמן, חוץ מ\"ה' שפתי תפתח\"; דעת הי\"א שבשבת אין צריך; החזן החוזר ואומר \"ה' שפתי\"; ומי שמצא ציבור מתפללים קודם שקרא קריאת שמע. הנושאי כלים מבארים את מקור הדין ואת טעמו, את גבולות ההפסק, ואת ההבדל בין שחרית לערבית.",
+ "points": [
+  {
+   "seif": 1,
+   "title": "אינו ניזוק",
+   "anchor": "צריך לסמוך גאולה לתפלה",
+   "text": "העטרת זקנים והאליה רבה: כל הסומך גאולה לתפלה אינו ניזוק כל אותו היום. הט\"ז מביא את לשון הירושלמי: \"תכף לגאולה תפלה\".",
+   "sources": [
+    {
+     "name": "עטרת זקנים",
+     "ref": "Ateret Zekenim on Shulchan Arukh, Orach Chayim 111:1",
+     "quote": "וכל הסומך גאולה לתפלה",
+     "work": "Ateret Zekenim"
+    },
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 111:1",
+     "quote": "שכל הסומך אינו ניזק כל אותו היום",
+     "work": "Eliyah Rabbah"
+    },
+    {
+     "name": "ט\"ז",
+     "ref": "Turei Zahav on Shulchan Arukh, Orach Chayim 111:1",
+     "quote": "ובירושלמי איתא בלשון זה",
+     "work": "Turei Zahav"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "מוסף ומנחה",
+   "anchor": "ולא יפסיק ביניהם",
+   "text": "המגן אברהם, הבאר היטב והמשנה ברורה: אבל במוסף ובמנחה מותר לומר פסוקים קודם \"ה' שפתי תפתח\". המשנה ברורה: ואפילו בשהייה בעלמא יש ליזהר לכתחלה.",
+   "sources": [
+    {
+     "name": "מגן אברהם",
+     "ref": "Magen Avraham 111:1",
+     "quote": "אבל במוסף ומנחה מותר לומר פסוקים",
+     "work": "Magen Avraham"
+    },
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 111:2",
+     "quote": "ואפילו בשהייה בעלמא",
+     "work": "Mishnah Berurah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "אמן",
+   "anchor": "אפי' באמן אחר גאל ישראל",
+   "text": "המשנה ברורה והבאר היטב: והוא הדין לקדיש ולקדושה, שאינו מפסיק. המשנה ברורה: ואפילו בערבית קודם שמונה עשרה יש ליזהר שלא לומר פסוק.",
+   "sources": [
+    {
+     "name": "באר היטב",
+     "ref": "Ba'er Hetev on Shulchan Arukh, Orach Chayim 111:2",
+     "quote": "אבל לקדיש ולקדושה אינו מפסיק",
+     "work": "Ba'er Hetev"
+    },
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 111:4",
+     "quote": "ואפילו בערבית קודם תפילת י\"ח",
+     "work": "Mishnah Berurah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "ה' שפתי",
+   "anchor": "חוץ מה' שפתי תפתח",
+   "text": "הט\"ז והאליה רבה: כיון שקבעוהו רבנן בתפלה - הוי כתפלה אריכתא.",
+   "sources": [
+    {
+     "name": "ט\"ז",
+     "ref": "Turei Zahav on Shulchan Arukh, Orach Chayim 111:2",
+     "quote": "דכיון דקבעוהו רבנן בתפלה הוה כתפלה אריכתא",
+     "work": "Turei Zahav"
+    },
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 111:2",
+     "quote": "דהוי כתפילה אריכתא",
+     "work": "Eliyah Rabbah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "לענות אמן",
+   "anchor": "וי\"א שמותר לענות אמן על גאל ישראל וכן נוהגין",
+   "text": "המשנה ברורה: היינו אחר החזן ולא אחר עצמו. המגן אברהם: כך כתב הלבוש על פי הקבלה.",
+   "sources": [
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 111:6",
+     "quote": "היינו אחר החזן ולא אחר עצמו",
+     "work": "Mishnah Berurah"
+    },
+    {
+     "name": "מגן אברהם",
+     "ref": "Magen Avraham 111:2",
+     "quote": "וכ\"כ בלבוש ע\"פ הקבלה",
+     "work": "Magen Avraham"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "יום צרה",
+   "anchor": "אבל בשבת א\"צ",
+   "text": "הט\"ז: כיון שנלמד מן הפסוק \"יענך ה' ביום צרה\", ושבת לאו יום צרה הוא. המגן אברהם: ביום טוב צריך, כיון שיום זה הוי בשאר ימים יום צרה. המשנה ברורה: הבית יוסף חולק. שערי תשובה מביא את השאגת אריה שהאריך בזה.",
+   "sources": [
+    {
+     "name": "ט\"ז",
+     "ref": "Turei Zahav on Shulchan Arukh, Orach Chayim 111:3",
+     "quote": "דכיון דנפקא מפסוק יענך ה' ביום צרה",
+     "work": "Turei Zahav"
+    },
+    {
+     "name": "מגן אברהם",
+     "ref": "Magen Avraham 111:3",
+     "quote": "כיון דיום זה הוי בשאר ימים יום צרה",
+     "work": "Magen Avraham"
+    },
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 111:8",
+     "quote": "והב\"י חולק ע\"ז",
+     "work": "Mishnah Berurah"
+    },
+    {
+     "name": "שערי תשובה",
+     "ref": "Sha'arei Teshuvah on Shulchan Arukh, Orach Chayim 111:1",
+     "quote": "עיין בשאגת אריה",
+     "work": "Sha'arei Teshuvah"
+    }
+   ]
+  },
+  {
+   "seif": 2,
+   "title": "בלחש",
+   "anchor": "החזן כשמתחיל י\"ח בקול רם חוזר ואומר ה' שפתי תפתח",
+   "text": "המגן אברהם, הבאר היטב והמשנה ברורה: בלחש; אבל \"שומע תפלה\" ושאר פסוקים אינו צריך. האליה רבה: בנחת.",
+   "sources": [
+    {
+     "name": "מגן אברהם",
+     "ref": "Magen Avraham 111:4",
+     "quote": "בלחש ה' שפתי",
+     "work": "Magen Avraham"
+    },
+    {
+     "name": "באר היטב",
+     "ref": "Ba'er Hetev on Shulchan Arukh, Orach Chayim 111:3",
+     "quote": "תפתח. ר\"ל בלחש",
+     "work": "Ba'er Hetev"
+    },
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 111:5",
+     "quote": "בנחת ה' שפתי",
+     "work": "Eliyah Rabbah"
+    }
+   ]
+  },
+  {
+   "seif": 3,
+   "title": "בערבית",
+   "anchor": "דמסמך גאולה לתפלה עדיף",
+   "text": "הבאר היטב והמשנה ברורה: אבל בערבית אינו כן, אלא יתפלל עמהם ואחר כך קורא קריאת שמע. המשנה ברורה: \"קורא קריאת שמע\" - עם ברכותיה.",
+   "sources": [
+    {
+     "name": "באר היטב",
+     "ref": "Ba'er Hetev on Shulchan Arukh, Orach Chayim 111:4",
+     "quote": "אבל בערבית אינו כן",
+     "work": "Ba'er Hetev"
+    },
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 111:11",
+     "quote": "ר\"ל עם ברכותיה",
+     "work": "Mishnah Berurah"
+    }
+   ]
+  }
+ ],
+ "sources_consulted": [
+  "אליה רבה",
+  "באר היטב",
+  "טורי זהב",
+  "מגן אברהם",
+  "משנה ברורה",
+  "עטרת זקנים",
+  "שערי תשובה"
+ ]
+}
