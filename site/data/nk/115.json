@@ -1,0 +1,164 @@
+{
+ "siman": 115,
+ "date": "2026-11-19",
+ "overview": "הסימן מבאר מדוע נקבעה ברכת \"אתה חונן\" ראש לברכות האמצעיות: מפני שיתרון האדם על הבהמה הוא הבינה והשכל, ואם אין בינה אין תפלה. הנושאי כלים מוסיפים את טעם ההבדלה בברכה זו, טעמים על סדר הברכות, את נוסח הברכה, ואת טעם אמירת \"אבינו\" בהשיבנו ובסלח לנו.",
+ "points": [
+  {
+   "seif": 1,
+   "title": "הבדלה",
+   "anchor": "הוא הבינה והשכל",
+   "text": "הבאר היטב והעטרת זקנים: וכן מבדילין במוצאי שבת ויום טוב בברכה זו, לפי שהבדלה היא חכמה - שאדם מבדיל בין דבר לדבר; ורמז לדבר: \"בינה\" ראשי תיבות בשמים, יין, נר, הבדלה.",
+   "sources": [
+    {
+     "name": "באר היטב",
+     "ref": "Ba'er Hetev on Shulchan Arukh, Orach Chayim 115:1",
+     "quote": "וכן מבדילין במוצאי שבת ויו\"ט",
+     "work": "Ba'er Hetev"
+    },
+    {
+     "name": "עטרת זקנים",
+     "ref": "Ateret Zekenim on Shulchan Arukh, Orach Chayim 115:1",
+     "quote": "רמז לדבר בינה ר\"ת",
+     "work": "Ateret Zekenim"
+    },
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 115:1:1",
+     "quote": "לכן קבעוה בברכת חכמה",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "טוב ממנו הנפל",
+   "anchor": "קבעו ברכת אתה חונן ראש לאמצעיו'",
+   "text": "האליה רבה והמשנה ברורה מביאים מספר סדר היום: \"אתה חונן\" ראשונה, שזולת הדעת והחכמה טוב ממנו הנפל; ולכן צריך לכוין בה כראוי.",
+   "sources": [
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 115:1",
+     "quote": "שזולת הדעת והחכמה באדם טוב ממנו הנפל",
+     "work": "Eliyah Rabbah"
+    },
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 115:1",
+     "quote": "ולכן צריך לכוין בה כראוי",
+     "work": "Mishnah Berurah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "אין תפלה",
+   "anchor": "שאם אין בינה אין תפלה",
+   "text": "כף החיים: לפי שאמרו חז\"ל \"כל מי שאין בו דעת אסור לרחם עליו\"; לכן קודם שמבקשים רחמים מבקשים דעת.",
+   "sources": [
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 115:4:1",
+     "quote": "כל מי שאין בו דעת אסור לרחם עליו",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "נוסח הברכה",
+   "anchor": "קבעו ברכת אתה חונן ראש לאמצעיו'",
+   "text": "שערי תשובה וכף החיים מביאים ממהר\"ש ויטאל בספר הכוונות לומר \"חכמה בינה דעת והשכל\"; ושערי תשובה מונה את מספר התיבות בנוסח הטור והרמב\"ם.",
+   "sources": [
+    {
+     "name": "שערי תשובה",
+     "ref": "Sha'arei Teshuvah on Shulchan Arukh, Orach Chayim 115:1",
+     "quote": "לו' חכמה ובינה דעת והשכל",
+     "work": "Sha'arei Teshuvah"
+    },
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 115:2:1",
+     "quote": "חכמה בינה דעת והשכל",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "וחננו",
+   "anchor": "קבעו ברכת אתה חונן ראש לאמצעיו'",
+   "text": "כף החיים: יש אומרים \"חננו מאתך\" ולא \"וחננו\", אבל ברמב\"ם ובכל הסידורים \"וחננו\".",
+   "sources": [
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 115:3:1",
+     "quote": "י\"א חננו מאתך ולא וחננו",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "אבינו",
+   "anchor": "קבעו ברכת אתה חונן ראש לאמצעיו'",
+   "text": "הט\"ז מביא מן הטור: אומרים \"אבינו\" בהשיבנו, שהאב חייב ללמד את בנו; ובסלח לנו - משום \"וישוב אל ה' וירחמהו\". האליה רבה מביא מן המדרש משל לבן מלך שנשבה.",
+   "sources": [
+    {
+     "name": "ט\"ז",
+     "ref": "Turei Zahav on Shulchan Arukh, Orach Chayim 115:1",
+     "quote": "שאנו מזכירין לפניו שהאב חייב ללמד",
+     "work": "Turei Zahav"
+    },
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 115:3",
+     "quote": "משל לבן מלך שנשבה",
+     "work": "Eliyah Rabbah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "סלח לנו",
+   "anchor": "קבעו ברכת אתה חונן ראש לאמצעיו'",
+   "text": "האליה רבה מביא מן הלבוש: סמכו סליחה לתשובה מפני שזדונות הבן דומות לפני האב כשגגות.",
+   "sources": [
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 115:2",
+     "quote": "סמך סליחה וחטא להשיבנו",
+     "work": "Eliyah Rabbah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "ראה נא",
+   "anchor": "קבעו ברכת אתה חונן ראש לאמצעיו'",
+   "text": "האליה רבה וכף החיים מביאים מרש\"ל שאין לומר \"ראה נא בענינו\" אלא \"ראה בענינו\", ומביאים את החולקים.",
+   "sources": [
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 115:4",
+     "quote": "שאין לומר תיבת נא",
+     "work": "Eliyah Rabbah"
+    },
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 115:6:1",
+     "quote": "דאין לומר ראה נא בענינו",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  }
+ ],
+ "sources_consulted": [
+  "אליה רבה",
+  "באר היטב",
+  "טורי זהב",
+  "כף החיים",
+  "משנה ברורה",
+  "עטרת זקנים",
+  "שערי תשובה"
+ ]
+}

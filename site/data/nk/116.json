@@ -1,0 +1,165 @@
+{
+ "siman": 116,
+ "date": "2026-11-19",
+ "overview": "הסימן מבאר את נוסח ברכת \"רפאנו\": אף שהפסוק \"רפאני ה' וארפא\" נאמר ביחיד, מותר לשנותו ללשון רבים כשאומרו דרך תפלה ובקשה; אבל מזמור שלם אסור לשנות מיחיד לרבים. הנושאי כלים דנים בנוסח הברכה, בתפלה על חולה, ובשינוי לשון הפסוקים בהבדלה ובמזמורים.",
+ "points": [
+  {
+   "seif": 1,
+   "title": "ברכה שמינית",
+   "anchor": "רפאינו ה' ונרפא",
+   "text": "העטרת זקנים: היא ברכה שמינית, מפני שהמילה ניתנה בשמיני והמילה צריכה רפואה.",
+   "sources": [
+    {
+     "name": "עטרת זקנים",
+     "ref": "Ateret Zekenim on Shulchan Arukh, Orach Chayim 116:1",
+     "quote": "מפני שהמילה נתנה בח'",
+     "work": "Ateret Zekenim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "ולא ה' אלהינו",
+   "anchor": "רפאינו ה' ונרפא",
+   "text": "המשנה ברורה וכף החיים: לא יאמר \"רפאנו ה' אלהינו\", כי לשון הפסוק בירמיה \"רפאני ה' וארפא\". האליה רבה מביא ראיה ממספר התיבות שבטור ובכלבו.",
+   "sources": [
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 116:1",
+     "quote": "ולא יאמר רפאנו ד' אלהינו ונרפא",
+     "work": "Mishnah Berurah"
+    },
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 116:1",
+     "quote": "שיש בהן עשרים ושבע תיבות",
+     "work": "Eliyah Rabbah"
+    },
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 116:1:1",
+     "quote": "כי פסוק הוא בירמיה",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "חולי",
+   "anchor": "רפאינו ה' ונרפא",
+   "text": "שערי תשובה מביא מן העטרת זקנים לומר \"חולי\" בצירי תחת הלמ\"ד.",
+   "sources": [
+    {
+     "name": "שערי תשובה",
+     "ref": "Sha'arei Teshuvah on Shulchan Arukh, Orach Chayim 116:1",
+     "quote": "לו' חולי בציר\"י הלמ\"ד",
+     "work": "Sha'arei Teshuvah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "ראה נא",
+   "anchor": "רפאינו ה' ונרפא",
+   "text": "הבאר היטב: רש\"ל אמר \"ראה בענינו\" בלי \"נא\", אבל המגן אברהם כתב שאין לזוז מן המנהג.",
+   "sources": [
+    {
+     "name": "באר היטב",
+     "ref": "Ba'er Hetev on Shulchan Arukh, Orach Chayim 116:1",
+     "quote": "אבל המ\"א כתב שאין לזוז מן המנהג",
+     "work": "Ba'er Hetev"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "תחלואי הגוף",
+   "anchor": "רפאינו ה' ונרפא",
+   "text": "כף החיים מביא מספר נאות יעקב, שברכה זו נקבעה לרפואת תחלואי הגוף.",
+   "sources": [
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 116:2:1",
+     "quote": "דברכה זו ברפואת תחלואי הגוף הוקבעה",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "אין מכנין",
+   "anchor": "אע\"פ דהכתוב ליחיד אין מכנין אותו לרבים",
+   "text": "המשנה ברורה: הוא הדין שאר שינוי, כגון ממדבר בעדו למדבר לנוכח. האליה רבה: היינו כשאומר בלשון הפסוק ממש.",
+   "sources": [
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 116:2",
+     "quote": "וה\"ה שאר שינוי",
+     "work": "Mishnah Berurah"
+    },
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 116:2",
+     "quote": "כשאומר בלשון הפסוק ממש",
+     "work": "Eliyah Rabbah"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "דרך תפלה",
+   "anchor": "אבל כשאומר אותו דרך תפלה ובקשה מותר",
+   "text": "המשנה ברורה: ויכול להתפלל על חולים ב\"רפאנו\" ולומר \"רפא נא פלוני\" בתוך שאר חולי ישראל. הט\"ז מביא את שני התירוצים שבטור - בשם הרמ\"ה ובשם רבנו יונה.",
+   "sources": [
+    {
+     "name": "משנה ברורה",
+     "ref": "Mishnah Berurah 116:3",
+     "quote": "ויכול להתפלל על חולים ברפאנו",
+     "work": "Mishnah Berurah"
+    },
+    {
+     "name": "ט\"ז",
+     "ref": "Turei Zahav on Shulchan Arukh, Orach Chayim 116:1",
+     "quote": "כ\"כ הטור בשם הרמ\"ה",
+     "work": "Turei Zahav"
+    }
+   ]
+  },
+  {
+   "seif": 1,
+   "title": "מזמור שלם",
+   "anchor": "ומ\"מ אם אומר מזמור שלם אסור לשנות מלשון יחיד לרבים",
+   "text": "האליה רבה והלבושי שרד: הרמ\"א תופס חומרת שני התירוצים, ולכן אין לשנות בהבדלה לומר \"ויהי לנו\". כף החיים: הנוהגים לשנות מזמור \"יענך\" ליולדת - יש לבטל.",
+   "sources": [
+    {
+     "name": "אליה רבה",
+     "ref": "Eliyah Rabbah on Shulchan Arukh, Orach Chayim 116:3",
+     "quote": "ולכך אין לשנות בהבדלה",
+     "work": "Eliyah Rabbah"
+    },
+    {
+     "name": "לבושי שרד",
+     "ref": "Levushei Serad on Shulchan Arukh, Orach Chayim 116:1",
+     "quote": "ואסור בהבדלה לכ\"ע",
+     "work": "Levushei Serad"
+    },
+    {
+     "name": "כף החיים",
+     "ref": "Kaf HaChayim on Shulchan Arukh, Orach Chayim 116:6:1",
+     "quote": "ויש לבטל מנהגם",
+     "work": "Kaf HaChayim"
+    }
+   ]
+  }
+ ],
+ "sources_consulted": [
+  "אליה רבה",
+  "באר היטב",
+  "טורי זהב",
+  "כף החיים",
+  "לבושי שרד",
+  "משנה ברורה",
+  "עטרת זקנים",
+  "שערי תשובה"
+ ]
+}
