@@ -42,6 +42,8 @@ const UI = {
   quiz: "חידון על הסימן",
   sectionQuiz: (name) => `חידון על ${name}`,
   expand: "פתח הכל",
+  showText: "▾ הצג את הטקסט המלא",
+  hideText: "▴ קפל את הטקסט",
   pickAnother: "▾ בחירת סימן אחר",
   hideList: "▴ הסתר את הסימנים",
   collapse: "סגור הכל",
@@ -709,6 +711,8 @@ function seifRange(from, to) {
 function flashSeifim(from, to) {
   const nodes = seifRange(from, to);
   if (!nodes.length) return;
+  const folded = document.querySelector(".text-col.folded");
+  if (folded) { folded.classList.remove("folded"); folded.querySelector(".textfold").textContent = UI.hideText; }
   reveal(nodes[0]);
   for (const x of nodes) {
     x.classList.remove("flash"); void x.offsetWidth; x.classList.add("flash");
@@ -972,6 +976,22 @@ async function renderSiman() {
   const card = node("div", "sa-card");
   card.append(node("p", "muted", UI.loading));
   textCol.append(card);
+  // phones (the CSS ignores .folded on wide screens): the text starts as a
+  // short preview, so the summaries are close by; a tap on it opens it all
+  textCol.classList.add("folded");
+  const fold = node("button", "ghost small textfold");
+  fold.type = "button";
+  const paintFold = () => {
+    fold.textContent = textCol.classList.contains("folded") ? UI.showText : UI.hideText;
+  };
+  fold.onclick = () => {
+    const folding = !textCol.classList.contains("folded");
+    textCol.classList.toggle("folded", folding);
+    paintFold();
+    if (folding) textCol.scrollIntoView({ block: "start" });
+  };
+  paintFold();
+  textCol.append(fold);
   const side = node("div", "side-col");
   side.append(postsBox(posts, allPosts.length));
   layout.append(textCol, side);
@@ -997,6 +1017,11 @@ async function renderSiman() {
   const anchors = anchorsBySeif(nk);
   data.seifim.forEach((runs, i) => card.append(seifNode(runs, i, anchors.get(i + 1) || [])));
   card.addEventListener("click", (e) => {
+    if (textCol.classList.contains("folded") && matchMedia("(max-width: 780px)").matches) {
+      // the first tap on the preview just opens the text
+      textCol.classList.remove("folded"); paintFold();
+      return;
+    }
     const mark = e.target.closest("mark.hl");
     if (mark) openPoints(mark.dataset.points.split(" "));
   });
