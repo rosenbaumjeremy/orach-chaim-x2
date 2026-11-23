@@ -265,6 +265,29 @@ mark { background: #fdf1c0; color: inherit; padding: 0 1px; border-radius: 2px; 
   #sidebar { position: static; max-height: none; }
   .resizer { display: none; }
   .sidebar-toggle { display: none; }
+  /* a siman is open: the list folds into the "pick another" button (app.js) */
+  #sidebar.has-siman #pickAnother { display: inline-block; }
+  #sidebar.picked #sections,
+  #sidebar.picked #sourcesWrap,
+  #sidebar.picked #themesWrap,
+  #sidebar.picked #viewMode,
+  #sidebar.picked #toggleSections { display: none; }
+  #sidebar.picked { padding: 8px 14px; }
+}
+#pickAnother { display: none; }
+
+/* phones: the Shulchan Aruch text opens folded to a preview (app.js) */
+.textfold { display: none; }
+@media (max-width: 780px) {
+  .textfold { display: block; margin: 8px auto 0; }
+  .text-col.folded .sa-card {
+    max-height: 9.5em; overflow: hidden; cursor: pointer; position: relative;
+  }
+  .text-col.folded .sa-card::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 4em;
+    background: linear-gradient(transparent, var(--card));
+  }
+  .text-col.folded .legend { display: none; }
 }
 
 /* ---------- siman buttons: every siman opens; ones with a summary stand out ---------- */
@@ -380,6 +403,8 @@ button.seifref:hover { background: var(--gold-soft); color: var(--accent); }
   .text-col, .side-col { position: static !important; max-height: none !important; overflow: visible !important; }
   .simannav { display: none !important; }
   .seif.flash { animation: none; }
+  .text-col.folded .sa-card { max-height: none !important; overflow: visible !important; }
+  .text-col.folded .sa-card::after, .textfold { display: none !important; }
 }
 
 /* ---------- quiz (the same game as the parasha quizzes on aliyah-yomit) ---------- */
