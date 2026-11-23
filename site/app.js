@@ -42,6 +42,8 @@ const UI = {
   quiz: "חידון על הסימן",
   sectionQuiz: (name) => `חידון על ${name}`,
   expand: "פתח הכל",
+  pickAnother: "▾ בחירת סימן אחר",
+  hideList: "▴ הסתר את הסימנים",
   collapse: "סגור הכל",
 };
 
@@ -65,6 +67,9 @@ const state = {
   flatView: false,
   // same idea as closedSections, for the classical/modern source groups
   closedSourceCategories: new Set(),
+  // phones: the siman list folds away once a siman is picked, so the text is
+  // right there; true while the reader has opened it again to pick another
+  phoneListOpen: false,
 };
 
 const el = (id) => document.getElementById(id);
@@ -196,6 +201,7 @@ function simanButton(n, covered) {
   button.classList.toggle("on", state.siman === n);
   button.onclick = () => {
     state.siman = state.siman === n && !state.quiz ? null : n;
+    state.phoneListOpen = false;
     state.seif = null;
     state.quiz = null;
     renderSections();
@@ -209,6 +215,7 @@ function renderSections() {
   const host = el("sections");
   host.innerHTML = "";
   renderViewToggle();
+  renderPickAnother();
   el("toggleSections").hidden = state.flatView;
 
   if (state.flatView) {
@@ -247,6 +254,20 @@ function renderSections() {
     host.appendChild(wrap);
   }
   renderToggleSections();
+}
+
+// phones only (the CSS ignores .picked on wide screens): with a siman open, the
+// simanim, sources and themes fold into one button, so the text is right below
+function renderPickAnother() {
+  const folded = !!state.siman && !state.phoneListOpen;
+  el("sidebar").classList.toggle("picked", folded);
+  el("sidebar").classList.toggle("has-siman", !!state.siman);
+  const button = el("pickAnother");
+  button.textContent = folded ? UI.pickAnother : UI.hideList;
+  button.onclick = () => {
+    state.phoneListOpen = !state.phoneListOpen;
+    renderPickAnother();
+  };
 }
 
 function renderViewToggle() {

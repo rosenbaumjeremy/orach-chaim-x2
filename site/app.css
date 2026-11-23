@@ -265,7 +265,16 @@ mark { background: #fdf1c0; color: inherit; padding: 0 1px; border-radius: 2px; 
   #sidebar { position: static; max-height: none; }
   .resizer { display: none; }
   .sidebar-toggle { display: none; }
+  /* a siman is open: the list folds into the "pick another" button (app.js) */
+  #sidebar.has-siman #pickAnother { display: inline-block; }
+  #sidebar.picked #sections,
+  #sidebar.picked #sourcesWrap,
+  #sidebar.picked #themesWrap,
+  #sidebar.picked #viewMode,
+  #sidebar.picked #toggleSections { display: none; }
+  #sidebar.picked { padding: 8px 14px; }
 }
+#pickAnother { display: none; }
 
 /* ---------- siman buttons: every siman opens; ones with a summary stand out ---------- */
 
