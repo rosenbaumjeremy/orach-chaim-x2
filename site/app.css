@@ -584,3 +584,10 @@ mark.hl:hover, mark.hl.lit { background: var(--topic-soft); }
 /* "Ask Claude": opens this site's Q&A page in Claude (ask.js keeps its label in the page's language) */
 .asklink { display: inline-flex; align-items: center; min-height: 34px; padding: 0 12px; border: 1px solid var(--gold, #b8924a); border-radius: 999px; color: var(--accent, #16305c); font-weight: 600; font-size: 14px; text-decoration: none; white-space: nowrap; }
 .asklink:hover, .asklink:focus-visible { background: var(--gold, #b8924a); color: #1e1406; outline: none; }
+
+/* Powered by Sefaria badge */
+.poweredby { text-align: center; padding: 8px 16px 28px; }
+.poweredby a { display: inline-block; line-height: 0; border-radius: 9px; }
+.poweredby img { width: 154px; height: auto; opacity: .92; transition: opacity .15s; }
+.poweredby a:hover img, .poweredby a:focus-visible img { opacity: 1; }
+@media print { .poweredby { display: none !important; } }

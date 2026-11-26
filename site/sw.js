@@ -2,8 +2,8 @@
 // Offline copy of the site. The first online visit saves it on the device, along with every
 // published day; later online visits add the new days. Online, files still come from the
 // network first (up to 4s), so updates show up; the saved copy is the fallback.
-const CACHE = "site-v4";
-const SHELL = ["./", "app.css", "app.js", "apple-touch-icon.png", "ask.js", "icon-home.svg", "icon.svg", "index.html", "logo-shnayim.jpg", "offline.js", "pdf.css", "pdf.js", "share.css", "share.js", "data/oc.json"];
+const CACHE = "site-v5";
+const SHELL = ["./", "app.css", "app.js", "apple-touch-icon.png", "ask.js", "icon-home.svg", "icon.svg", "index.html", "sefaria-badge.png", "logo-shnayim.jpg", "offline.js", "pdf.css", "pdf.js", "share.css", "share.js", "data/oc.json"];
 const DAYS = [];  // [day index, its days -> file paths]
 
 self.addEventListener("install", e => {
